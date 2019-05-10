@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SnapWork.Views.Settings"
+            xmlns:pages="clr-namespace:SnapWork.Views"
+            Title="Настройки">
+    <!--Pages can be added as references or inline-->
+    
+    <pages:ChangeName Title="Изменить имя"/>
+    <pages:ChangeEmail Title="Изменить email"/>
+    <pages:ResetPassword Title="Изменить пароль"/>
+    <pages:DeleteAccount Title="Удалить аккаунт"/>
+
+</TabbedPage>

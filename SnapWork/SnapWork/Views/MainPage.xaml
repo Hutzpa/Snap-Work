@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:views="clr-namespace:SnapWork.Views"
+            x:Class="SnapWork.Views.MainPage"
+                  Title="Главная">
+
+    <MasterDetailPage.Master>
+        <ContentPage BackgroundColor="AliceBlue" Title="Main page">
+            <ContentPage.Content>
+                <StackLayout Padding="5,30,5,5">
+                    <Button Text="Add new" Clicked="AddNew_clicked"></Button>
+                    <Button Text="Search" Clicked="Search_clicked"></Button>
+                    <Button Text="Vacantions" Clicked="Vacantions_clicked"></Button>
+                    <Button Text="Messages" Clicked="Messages_clicked"></Button>
+                    <Button Text="Settings" Clicked="Settings_clicked"></Button>
+                    <Button Text="Favorite" Clicked="Favorite_clicked"></Button>
+                </StackLayout>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    
+</MasterDetailPage>
