@@ -3,21 +3,57 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:views="clr-namespace:SnapWork.Views"
             x:Class="SnapWork.Views.MainPage"
-                  Title="Главная">
+             Title="Головна полна говна">
 
+    <MasterDetailPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            <Setter Property="BorderColor" Value="{StaticResource Key=ButtonTextColor}"/>
+            <Setter Property="FontSize" Value="Small"/>
+        </Style>
+        <Style x:Key="iconStyle" TargetType="Image">
+            <Setter Property="WidthRequest" Value="24"/>
+            <Setter Property="HeightRequest" Value="24"/>
+            <Setter Property="Aspect" Value="AspectFit"/>
+            <Setter Property="HorizontalOptions" Value="End"/>
+        </Style>
+    </MasterDetailPage.Resources>
+    
     <MasterDetailPage.Master>
-        <ContentPage BackgroundColor="AliceBlue" Title="Main page">
+        <ContentPage Title="Main page" BackgroundColor="{StaticResource Key=BackgroundColor}">
             <ContentPage.Content>
-                <StackLayout Padding="5,30,5,5">
-                    <Button Text="Add new" Clicked="AddNew_clicked"></Button>
-                    <Button Text="Search" Clicked="Search_clicked"></Button>
-                    <Button Text="Vacantions" Clicked="Vacantions_clicked"></Button>
-                    <Button Text="Messages" Clicked="Messages_clicked"></Button>
-                    <Button Text="Settings" Clicked="Settings_clicked"></Button>
-                    <Button Text="Favorite" Clicked="Favorite_clicked"></Button>
+                <StackLayout Padding="5,0,5,5">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Image x:Name="Avatar" WidthRequest="65" HeightRequest="65" Aspect="AspectFit" Source="1.jpg" VerticalOptions="Center"></Image>
+                        <Label Text="User" VerticalOptions="Center" TextColor="{StaticResource Key=LabelTextColor}"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Image Source="1.jpg" Style="{StaticResource iconStyle}"></Image>
+                        <Button x:Name="ButtonAddNew" Text="Add new" Clicked="AddNew_clicked"></Button>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Image Source="1.jpg" Style="{StaticResource iconStyle}"></Image>
+                        <Button x:Name="ButtonSearch" Text="Search" Clicked="Search_clicked"></Button>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Image Source="1.jpg" Style="{StaticResource iconStyle}"></Image>
+                        <Button x:Name="ButtonVacantions" Text="Vacantions" Clicked="Vacantions_clicked"></Button>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Image Source="1.jpg" Style="{StaticResource iconStyle}"></Image>
+                        <Button x:Name="ButtonMessages" Text="Messages" Clicked="Messages_clicked"></Button>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Image Source="1.jpg" Style="{StaticResource iconStyle}"></Image>
+                        <Button x:Name="ButtonSettings" Text="Settings" Clicked="Settings_clicked"></Button>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Image Source="1.jpg" Style="{StaticResource iconStyle}"></Image>
+                        <Button x:Name="ButtonFavorite" Text="Favorite" Clicked="Favorite_clicked"></Button>
+                    </StackLayout>
                 </StackLayout>
             </ContentPage.Content>
-        </ContentPage>
+        </ContentPage> 
     </MasterDetailPage.Master>
     
 </MasterDetailPage>

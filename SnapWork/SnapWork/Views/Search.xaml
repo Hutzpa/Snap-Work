@@ -5,9 +5,7 @@
              Title="Поиск">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Search"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Button Clicked="Button_Clicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

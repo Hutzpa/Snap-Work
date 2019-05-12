@@ -3,11 +3,76 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SnapWork.Views.AddNew"
              Title="Добавить новую вакансию">
+
+    <ContentPage.Resources >
+        <Style TargetType="StackLayout">
+            <Setter Property="Padding" Value="5,30,5,5"/>
+        </Style>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Add new"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+
+            <StackLayout Orientation="Vertical"  BackgroundColor="{StaticResource Key=BackgroundColor}">
+                <StackLayout Orientation="Vertical" >
+                    <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Фото вакансии"/>
+                    <!--Тут ввести элемент который доабвляет картинку из файловой системы-->
+
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Название вакансии"/>
+                    <Label x:Name="MaxNumb"/>
+                    <Label x:Name="MaxCount" Text="\ 80" VerticalOptions="End" IsVisible="False"/>
+                </StackLayout>
+
+                <Entry x:Name="EntryName" MaxLength="80" Margin="20,5,50,5" TextChanged="EntryName_TextChanged" Keyboard="Text"/>
+
+                <StackLayout Orientation="Vertical">
+                    <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Тип работы"/>
+                    <Picker x:Name="PickerTypeOfWork"/>
+                    <!--обработать событие выбора-->
+                </StackLayout>
+
+
+                <Label Text="Оплата" TextColor="{StaticResource Key=LabelTextColor}"/>
+                <StackLayout Orientation="Horizontal">
+                    <Entry x:Name="EntryPayment" Keyboard="Numeric" MaxLength="10" TextChanged="EntryPayment_TextChanged" />
+                    <Picker x:Name="PickerMoneyType" SelectedIndexChanged="PickerMoneyType_SelectedIndexChanged">
+                        <Picker.Items>
+                            <x:String>₴</x:String>
+                            <x:String>$</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </StackLayout>
+
+                <Label TextColor="{StaticResource Key=LabelTextColor}"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Не важен"/>
+                    <Switch Toggled="Switch_Toggled" ></Switch>
+                </StackLayout>
+                <Picker x:Name="PickerCity" SelectedIndexChanged="PickerCity_SelectedIndexChanged" />
+
+
+                <StackLayout Orientation="Vertical">
+                    <Label TextColor="{StaticResource Key=LabelTextColor}"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Не ограниченно"/>
+                        <Switch Toggled="Switch_Toggled_1" ></Switch>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Entry x:Name="EntryAmountOfWorkers" Keyboard="Numeric" MaxLength="3" TextChanged="EntryAmountOfWorkers_TextChanged"/>
+                        <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Человек"/>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical">
+                    <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Описание"/>
+                    <Editor x:Name="EditorDescription" MaxLength="3000" HeightRequest="100"/>
+                </StackLayout>
+
+                <Button x:Name="ButtonApply" TextColor="{StaticResource Key=ButtonTextColor}" BorderColor="{StaticResource Key=ButtonColor}" Clicked="ButtonApply_Clicked" HeightRequest="30" Text="Создать вакансию"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

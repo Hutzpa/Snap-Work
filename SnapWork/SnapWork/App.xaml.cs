@@ -13,8 +13,8 @@ namespace SnapWork
         {
             InitializeComponent();
 
-
-            MainPage = new MainPage();
+            //Я или всё сломаю, или всё починю
+            MainPage = new NavigationPage(new LogIn());
         }
 
         protected override void OnStart()

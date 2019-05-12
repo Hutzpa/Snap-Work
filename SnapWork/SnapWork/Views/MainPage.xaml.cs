@@ -14,11 +14,12 @@ namespace SnapWork.Views
         {
             InitializeComponent();
             MasterBehavior = MasterBehavior.Popover;
-            Detail = new NavigationPage(new Search());
+            Detail = new NavigationPage(new Favorite());
+
         }
 
 
-        private void AddNew_clicked(object o, EventArgs e)
+        private  void AddNew_clicked(object o, EventArgs e)
         {
             Detail = new NavigationPage(new AddNew());
             IsPresented = false;
@@ -26,6 +27,7 @@ namespace SnapWork.Views
 
         private void Search_clicked(object o, EventArgs e)
         {
+
             Detail = new NavigationPage(new Search());
             IsPresented = false;
         }
@@ -36,19 +38,19 @@ namespace SnapWork.Views
             IsPresented = false;
         }
 
-        private void Settings_clicked(object o, EventArgs e)
+        private  void Settings_clicked(object o, EventArgs e)
         {
             Detail = new NavigationPage(new Settings());
             IsPresented = false;
         }
 
-        private void Vacantions_clicked(object o, EventArgs e)
+        private  void Vacantions_clicked(object o, EventArgs e)
         {
             Detail = new NavigationPage(new Vacantions());
             IsPresented = false;
         }
-        
-        private void Favorite_clicked(object o, EventArgs e)
+
+        private  void Favorite_clicked(object o, EventArgs e)
         {
             Detail = new NavigationPage(new Favorite());
             IsPresented = false;

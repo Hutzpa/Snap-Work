@@ -5,9 +5,7 @@
              Title="Вход">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Log in"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Button Text="Log in" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
