@@ -8,6 +8,13 @@
         <Style TargetType="StackLayout">
             <Setter Property="Padding" Value="5,30,5,5"/>
         </Style>
+        <Style TargetType="Button">
+            <Setter Property="BorderColor" Value="{StaticResource Key=ButtonColor}"/>
+            <Setter Property="BackgroundColor" Value="{StaticResource Key=ButtonBackgroundColor}"/>
+            <Setter Property="TextColor" Value="{StaticResource Key=ButtonTextColor}" />
+            <Setter Property="HeightRequest" Value="{StaticResource Key=ButtonHeigth}"/>
+            <Setter Property="WidthRequest" Value="{StaticResource Key=ButtonWidth}"/>
+        </Style>
     </ContentPage.Resources>
 
     <ContentPage.Content>
@@ -62,7 +69,7 @@
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
                         <Entry x:Name="EntryAmountOfWorkers" Keyboard="Numeric" MaxLength="3" TextChanged="EntryAmountOfWorkers_TextChanged"/>
-                        <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Человек"/>
+                        <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Человек" x:Name="LabelCountOfPersons"/>
                     </StackLayout>
                 </StackLayout>
 
@@ -71,7 +78,7 @@
                     <Editor x:Name="EditorDescription" MaxLength="3000" HeightRequest="100"/>
                 </StackLayout>
 
-                <Button x:Name="ButtonApply" TextColor="{StaticResource Key=ButtonTextColor}" BorderColor="{StaticResource Key=ButtonColor}" Clicked="ButtonApply_Clicked" HeightRequest="30" Text="Создать вакансию"/>
+                <Button x:Name="ButtonApply" Clicked="ButtonApply_Clicked" HeightRequest="30" Text="Создать вакансию"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

@@ -16,5 +16,18 @@ namespace SnapWork.Views
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private async void ButtonApply_Clicked(object sender, EventArgs e)
+        {
+            RestorePasswordMotion();
+            await DisplayAlert("Восстановление пароля", "Пароль выслан в SMS сообщении","OK");
+        }
+
+
+        [Obsolete("Метод не реализован, сообщение с паролем не высылает")]
+        private void RestorePasswordMotion()
+        {
+
+        }
+    }
 }

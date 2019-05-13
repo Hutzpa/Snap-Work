@@ -34,14 +34,7 @@ namespace SnapWork.Views
             MaxCount.IsVisible = true;
             MaxNumb.Text = EntryName.Text.Length.ToString();
 
-            if(EntryName.Text.Length == EntryName.MaxLength)
-            {
-                MaxNumb.TextColor = Color.Red;
-            }
-            else
-            {
-                MaxNumb.TextColor = Color.Green;
-            }
+            MaxNumb.TextColor = EntryName.Text.Length == EntryName.MaxLength ? Color.Red : Color.Green;
 
             if (entryValidation.IsMatch(EntryName.Text))
             {
@@ -66,15 +59,8 @@ namespace SnapWork.Views
         private void Switch_Toggled(object sender, ToggledEventArgs e)
         {
             var switcher = (Switch)sender;
-            
-            if(switcher.IsToggled == true)
-            {
-                PickerCity.IsVisible = false;
-            }
-            else
-            {
-                PickerCity.IsVisible = true;
-            }
+
+            PickerCity.IsVisible = switcher.IsToggled ? false : true;
         }
 
         private void PickerCity_SelectedIndexChanged(object sender, EventArgs e)
@@ -85,7 +71,17 @@ namespace SnapWork.Views
 
         private void Switch_Toggled_1(object sender, ToggledEventArgs e)
         {
-
+            var switcher = (Switch)sender;
+            if(switcher.IsToggled)
+            {
+                EntryAmountOfWorkers.IsVisible = false;
+                LabelCountOfPersons.IsVisible = false;
+            }
+            else
+            {
+                EntryAmountOfWorkers.IsVisible = true;
+                LabelCountOfPersons.IsVisible = true;
+            }
         }
 
         private void EntryAmountOfWorkers_TextChanged(object sender, TextChangedEventArgs e)
@@ -103,14 +99,15 @@ namespace SnapWork.Views
 
         private void EntryPayment_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (onlyDigitsValid.IsMatch(EntryPayment.Text))
-            {
-                EntryPayment.TextColor = Color.Red;
-            }
-            else
-            {
-                EntryPayment.TextColor = Color.Black;
-            }
+            EntryPayment.TextColor = onlyDigitsValid.IsMatch(EntryPayment.Text) ? Color.Red : Color.Black;
+            //if (onlyDigitsValid.IsMatch(EntryPayment.Text))
+            //{
+                
+            //}
+            //else
+            //{
+                
+            //}
         }
 
         private async void ButtonApply_Clicked(object sender, EventArgs e)
