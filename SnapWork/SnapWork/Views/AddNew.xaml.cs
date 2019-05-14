@@ -86,28 +86,12 @@ namespace SnapWork.Views
 
         private void EntryAmountOfWorkers_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (onlyDigitsValid.IsMatch(EntryAmountOfWorkers.Text))
-            {
-                EntryAmountOfWorkers.TextColor = Color.Red;
-            }
-            else
-            {
-                EntryAmountOfWorkers.TextColor = Color.Black;
-            }
-
+            EntryAmountOfWorkers.TextColor = onlyDigitsValid.IsMatch(EntryAmountOfWorkers.Text) ? Color.Red : Color.Black;
         }
 
         private void EntryPayment_TextChanged(object sender, TextChangedEventArgs e)
         {
             EntryPayment.TextColor = onlyDigitsValid.IsMatch(EntryPayment.Text) ? Color.Red : Color.Black;
-            //if (onlyDigitsValid.IsMatch(EntryPayment.Text))
-            //{
-                
-            //}
-            //else
-            //{
-                
-            //}
         }
 
         private async void ButtonApply_Clicked(object sender, EventArgs e)

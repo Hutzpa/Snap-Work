@@ -15,6 +15,148 @@ namespace SnapWork.Views
 		public Register ()
 		{
 			InitializeComponent ();
-		}
-	}
+
+            Birthday.MaximumDate = DateTime.Now.AddYears(-18);
+            FillPicker();
+        }
+
+        private void LoginEntry_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(LoginEntry.Text.Length == LoginEntry.MaxLength)
+            {
+                LoginLength.TextColor = Color.Red;
+                
+            }
+            else
+            {
+                LoginLength.TextColor = Color.Green;
+            }
+            LoginLength.Text = "Длина логина " + LoginEntry.Text.Length + " /30";
+        }
+
+        private void LoginEntry_Completed(object sender, EventArgs e)
+        {
+            if(!CheckLoginUnique())
+            {
+                LoginLength.Text = "Логин не уникальный, выберите другой";
+                LoginLength.TextColor = Color.Red;
+            }
+            else
+            {
+                LoginLength.Text = "";
+            }
+        }
+
+        private void EntryPhone_Completed(object sender, EventArgs e)
+        {
+            
+            if (!CheckPhoneUnique())
+            {
+                PhoneLabel.Text = "Данный номен телефона уже зарегистрирован, выберите другой";
+                PhoneLabel.TextColor = Color.Red;
+            }
+            else
+            {
+                PhoneLabel.Text = "";
+            }
+        }
+
+        private void EntryEmail_Completed(object sender, EventArgs e)
+        {
+            if (!CheckEmainUnique())
+            {
+                EmailLabel.Text = "Данный номен телефона уже зарегистрирован, выберите другой";
+                EmailLabel.TextColor = Color.Red;
+            }
+            else
+            {
+                EmailLabel.Text = "";
+            }
+        }
+
+        private void RegisterButton_Clicked(object sender, EventArgs e)
+        {
+            if(!CheckIsEverythingFill())
+            {
+                //Сообщения об неверности ввода
+            }
+            else if (!CheckIsEverythingRight())
+            {
+                //Сообщения об неверности ввода
+            }
+            else
+            {
+                RegisterUser();
+            }
+        }
+
+        /// <summary>
+        /// Проверяет уникальность логина
+        /// </summary>
+        /// <returns></returns>
+        [Obsolete("Метод не содержит реализации, уникальность логина не проверяеться")]
+        private bool CheckLoginUnique()
+        {
+            return true;
+        }
+
+        /// <summary>
+        /// Проверяет уникальность телефона
+        /// </summary>
+        /// <returns></returns>
+        [Obsolete("Метод не содержит реализации, уникальность телефона не проверяеться")]
+        private bool CheckPhoneUnique()
+        {
+            return true;
+        }
+
+        /// <summary>
+        /// Проверяет уникальность почты 
+        /// </summary>
+        /// <returns></returns>
+        [Obsolete("Метод не содержит реализации, уникальность почты не проверяеться")]
+        private bool CheckEmainUnique()
+        {
+            return true;
+        }
+
+        /// <summary>
+        /// Заполнить picker городами
+        /// </summary>
+        [Obsolete("Метод не содержит реализации, PICKER не заполняеться")]
+        private void FillPicker()
+        {
+
+        }
+
+        /// <summary>
+        /// Проверяет, все ли поля заполнены
+        /// </summary>
+        /// <returns></returns>
+        [Obsolete("Метод не содержит реализации, CheckIsEverythingFill не проверяет")]
+        private bool CheckIsEverythingFill()
+        {
+            return true;
+        }
+
+        /// <summary>
+        /// Проверяет, все ли поля заполнены правильно
+        /// </summary>
+        /// <returns></returns>
+        [Obsolete("Метод не содержит реализации, CheckIsEverythingRight не проверяет")]
+        private bool CheckIsEverythingRight()
+        {
+            return true;
+        }
+
+        /// <summary>
+        /// Регистрирует пользователя
+        /// </summary>
+        [Obsolete("Метод не содержит реализации, RegisterUser не регистрирует")]
+        private void RegisterUser()
+        {
+
+        }
+
+    }
 }
