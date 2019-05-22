@@ -16,5 +16,15 @@ namespace SnapWork.Views
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private async void DeleteButton_Clicked(object sender, EventArgs e)
+        {
+            bool selection = await DisplayAlert("Подтвердить действие", "Удалить аккаунт? \n Это действие нельзя отменить. ", "Да", "Нет");
+            if (selection)
+            {
+                //Удалить аккаунт
+                Application.Current.MainPage = new NavigationPage(new LogIn());
+            }
+        }
+    }
 }

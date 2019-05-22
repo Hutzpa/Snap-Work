@@ -2,12 +2,39 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SnapWork.Views.ChangeName"
-             Title="Изменить имя">
+             Title="Основная информация">
+    
+    <ContentPage.Resources>
+        <Style TargetType="Entry">
+            <Setter Property="HeightRequest" Value="{StaticResource Key=EntryHeigth}"/>
+            <Setter Property="WidthRequest" Value="{StaticResource Key=EntryWidth}"/>
+        </Style>
+
+        <Style TargetType="Editor">
+            <Setter Property="HeightRequest" Value="{StaticResource Key=EditorHeigth}"/>
+            <Setter Property="WidthRequest" Value="{StaticResource Key=EditorWidth}"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="BorderColor" Value="{StaticResource Key=ButtonColor}"/>
+            <Setter Property="BackgroundColor" Value="{StaticResource Key=ButtonBackgroundColor}"/>
+            <Setter Property="TextColor" Value="{StaticResource Key=ButtonTextColor}" />
+            <Setter Property="HeightRequest" Value="{StaticResource Key=ButtonHeigth}"/>
+            <Setter Property="WidthRequest" Value="{StaticResource Key=ButtonWidth}"/>
+        </Style>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Change name"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout BackgroundColor="{StaticResource Key=BackgroundColor}" Orientation="Vertical">
+            <Entry x:Name="EntryLogin" Placeholder ="Введите ваше имя" Completed="Entry_Completed" />
+
+            <Editor x:Name="EditorDescribe" Placeholder="Расскажите о себе"/>
+
+            <Label Text="Выберите аватар" TextColor="{StaticResource Key=LabelTextColor}"/>
+            <!--ЭЛЕМЕНТ ДЛЯ ДОБАВЛЕНИЯ КАРТИНКИ-->
+
+            <Button x:Name="ButtonApply" Text="Сохранить изменения" Clicked="Button_Clicked"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

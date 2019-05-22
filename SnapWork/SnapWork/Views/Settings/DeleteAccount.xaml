@@ -3,11 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SnapWork.Views.DeleteAccount"
              Title="Удалить аккаунт">
+
+
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="BorderColor" Value="{StaticResource Key=ButtonColor}"/>
+            <Setter Property="BackgroundColor" Value="{StaticResource Key=ButtonBackgroundColor}"/>
+            <Setter Property="TextColor" Value="{StaticResource Key=ButtonTextColor}" />
+            <Setter Property="HeightRequest" Value="{StaticResource Key=ButtonHeigth}"/>
+            <Setter Property="WidthRequest" Value="{StaticResource Key=ButtonWidth}"/>
+        </Style>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Удалить аккаунт"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout BackgroundColor="{StaticResource Key=BackgroundColor}" Orientation="Vertical">
+            <Label Text="Вы уверенны?" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="{StaticResource Key=LabelTextColor}"/>
+
+            <Button x:Name="DeleteButton" Text="Удалить аккаунт" Clicked="DeleteButton_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
