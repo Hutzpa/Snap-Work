@@ -20,7 +20,7 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <StackLayout BackgroundColor="{StaticResource Key=BackgroundColor}" Orientation="Vertical" >
+        <StackLayout BackgroundColor="{StaticResource Key=BackgroundColor}" Orientation="Vertical" WidthRequest="{StaticResource Key=ScreenWidth}" >
             <Entry x:Name="EntryEmail" Placeholder="Введите email" Completed="EntryEmail_Completed"/>
             <Button x:Name="ButtonApply" Text="Сохранить" Clicked="ButtonApply_Clicked"/>
         </StackLayout>

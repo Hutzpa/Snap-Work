@@ -5,9 +5,7 @@
              Title="Сообщения">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Messages"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Button Clicked="Button_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

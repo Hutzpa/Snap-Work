@@ -20,7 +20,7 @@
     </ContentPage.Resources>
     
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical" BackgroundColor="{StaticResource Key=BackgroundColor}">
+        <StackLayout Orientation="Vertical" BackgroundColor="{StaticResource Key=BackgroundColor}" WidthRequest="{StaticResource Key=ScreenWidth}">
             <Entry x:Name="LoginEntry" Placeholder="Логин" TextChanged="LoginEntry_TextChanged" Completed="LoginEntry_Completed" MaxLength="30"/>
             <Label x:Name="LoginLength"/>
 

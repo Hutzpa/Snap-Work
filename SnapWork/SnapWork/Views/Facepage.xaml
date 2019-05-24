@@ -1,12 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SnapWork.Views.Facepage">
+             x:Class="SnapWork.Views.Facepage"
+             Title="Ваша анкета">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource Key=LabelTextColor}"/>
+        </Style>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout BackgroundColor="{StaticResource Key=BackgroundColor}" Orientation="Vertical" WidthRequest="{StaticResource Key=ScreenWidth}">
+                <!--Аватарка и инфа возле него-->
+                <StackLayout Orientation="Horizontal">
+                    <!--Image-->
+                    <Image x:Name="Avatar" WidthRequest="{StaticResource Key=FacepageImageWidth}" HeightRequest="{StaticResource Key=FacepageImageHeight}" Aspect="AspectFit" Source="bla.jpg" VerticalOptions="Center"/>
+
+
+                    <StackLayout Orientation="Vertical">
+                        <Label x:Name="UserName" Text="Имя - Ivan322"/>
+                        <Label x:Name="UserPhone" Text="Тел. 380995422456"/>
+                        <Label x:Name="UserEmail" Text="Email - mazafacker228@GAYMAIL.com"/>
+                        <Label x:Name="UserRating" Text="Сред. балл - 3.8 \ 5"/>
+                    </StackLayout>
+                </StackLayout>
+                
+                <!--Время на сайте и тер.-->
+                <StackLayout Orientation="Horizontal">
+                    <Label x:Name="UserTimeOnSite" Text="На сайте с 24.05.2019"/>
+                    <Label x:Name="UserCity" Text="Находиться в Харькове"/>
+                </StackLayout>
+
+                <Editor x:Name="UserDesctiption" IsEnabled="False" Text="Каждое значение предоставляет свою раскладку клавиатуры, предназначенную для ввода определенной информации. Например, entry.Keyboard=Keyboard.Telephone - при вводе нам автоматически представляется раскладка, содержащая только те знаки, которые используются при наборе телефонного номера."/>
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

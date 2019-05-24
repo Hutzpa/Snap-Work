@@ -16,7 +16,7 @@
     </ContentPage.Resources>
     
     <ContentPage.Content>
-        <StackLayout BackgroundColor="{StaticResource Key=BackgroundColor}" Orientation="Vertical">
+        <StackLayout BackgroundColor="{StaticResource Key=BackgroundColor}" Orientation="Vertical" WidthRequest="{StaticResource Key=ScreenWidth}">
             <Label Text="Вы уверенны?" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="{StaticResource Key=LabelTextColor}"/>
 
             <Button x:Name="DeleteButton" Text="Удалить аккаунт" Clicked="DeleteButton_Clicked"/>

@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace SnapWork.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Dialog : ContentPage
+	public partial class Vacantion : ContentPage
 	{
-		public Dialog ()
+		public Vacantion ()
 		{
 			InitializeComponent ();
 		}

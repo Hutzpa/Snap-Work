@@ -15,12 +15,13 @@
             <Setter Property="HeightRequest" Value="{StaticResource Key=ButtonHeigth}"/>
             <Setter Property="WidthRequest" Value="{StaticResource Key=ButtonWidth}"/>
         </Style>
+
     </ContentPage.Resources>
 
     <ContentPage.Content>
         <ScrollView>
 
-            <StackLayout Orientation="Vertical"  BackgroundColor="{StaticResource Key=BackgroundColor}">
+            <StackLayout WidthRequest="{StaticResource Key=ScreenWidth}" Orientation="Vertical"  BackgroundColor="{StaticResource Key=BackgroundColor}">
                 <StackLayout Orientation="Vertical" >
                     <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Фото вакансии"/>
                     <!--Тут ввести элемент который доабвляет картинку из файловой системы-->

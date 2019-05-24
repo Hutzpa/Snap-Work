@@ -25,7 +25,7 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <StackLayout BackgroundColor="{StaticResource Key=BackgroundColor}" Orientation="Vertical">
+        <StackLayout BackgroundColor="{StaticResource Key=BackgroundColor}" Orientation="Vertical" WidthRequest="{StaticResource Key=ScreenWidth}">
             <Entry x:Name="EntryLogin" Placeholder ="Введите ваше имя" Completed="Entry_Completed" />
 
             <Editor x:Name="EditorDescribe" Placeholder="Расскажите о себе"/>
