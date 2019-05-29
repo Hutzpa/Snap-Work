@@ -40,7 +40,7 @@
             <Picker x:Name="PickerCity"/>
 
 
-            <Button x:Name="RegisterButton" Clicked="RegisterButton_Clicked" Text="Зарегистрироваться" />
+            <Button x:Name="RegisterButton" Clicked="RegisterButton_Clicked" Text="Зарегистрироваться" VerticalOptions="EndAndExpand" />
 
         </StackLayout>
     </ContentPage.Content>

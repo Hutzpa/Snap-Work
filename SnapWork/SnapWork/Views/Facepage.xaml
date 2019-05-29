@@ -29,9 +29,11 @@
                 <!--Время на сайте и тер.-->
                 <StackLayout Orientation="Horizontal">
                     <Label x:Name="UserTimeOnSite" Text="На сайте с 24.05.2019"/>
+                    <BoxView WidthRequest="10"/>
                     <Label x:Name="UserCity" Text="Находиться в Харькове"/>
                 </StackLayout>
 
+                <Label Text="О себе:" HorizontalOptions="Start"/>
                 <Editor x:Name="UserDesctiption" IsEnabled="False" Text="Каждое значение предоставляет свою раскладку клавиатуры, предназначенную для ввода определенной информации. Например, entry.Keyboard=Keyboard.Telephone - при вводе нам автоматически представляется раскладка, содержащая только те знаки, которые используются при наборе телефонного номера."/>
 
             </StackLayout>

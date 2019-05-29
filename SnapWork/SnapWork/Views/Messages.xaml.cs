@@ -19,7 +19,7 @@ namespace SnapWork.Views
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            Application.Current.MainPage = new Facepage();
+            Navigation.PushAsync(new NavigationPage( new Facepage()));
         }
     }
 }

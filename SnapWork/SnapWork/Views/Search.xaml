@@ -5,6 +5,27 @@
              Title="Поиск">
     <ContentPage.Content>
         <StackLayout WidthRequest="{StaticResource Key=ScreenWidth}">
+
+            <ListView HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout>
+                                    <Label Text="Bla bla bla"  FontSize="18" />
+                                    <Label Text="Li la lu" />
+                                    <Label Text="Mi me mu" />
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+                
+            </ListView>
+            
+            
+            
             <Button Clicked="Button_Clicked" />
         </StackLayout>
     </ContentPage.Content>

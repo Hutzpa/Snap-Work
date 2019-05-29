@@ -16,5 +16,13 @@ namespace SnapWork.Views
 		{
 			InitializeComponent ();
 		}
-	}
+
+        [Obsolete("Не отправляет запрос на вакансию, функция не реализована")]
+        private void VacantionSendMyCand_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        
+    }
 }

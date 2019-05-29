@@ -2,11 +2,51 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SnapWork.Views.Vacantion">
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource Key=LabelTextColor}"/>
+        </Style>
+
+        <Style TargetType="Editor">
+            <Setter Property="HeightRequest" Value="{StaticResource Key=EditorHeigth}"/>
+            <Setter Property="WidthRequest" Value="{StaticResource Key=EditorWidth}"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="BorderColor" Value="{StaticResource Key=ButtonColor}"/>
+            <Setter Property="BackgroundColor" Value="{StaticResource Key=ButtonBackgroundColor}"/>
+            <Setter Property="TextColor" Value="{StaticResource Key=ButtonTextColor}" />
+            <Setter Property="HeightRequest" Value="{StaticResource Key=ButtonHeigth}"/>
+            <Setter Property="WidthRequest" Value="{StaticResource Key=ButtonWidth}"/>
+        </Style>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
-        <StackLayout WidthRequest="{StaticResource Key=ScreenWidth}">
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout BackgroundColor="{StaticResource Key=BackgroundColor}" WidthRequest="{StaticResource Key=ScreenWidth}">
+                <!--Image-->
+                <Image x:Name="VacantPhoto" WidthRequest="{StaticResource Key=VacantionImageWidth}" HeightRequest="{StaticResource Key=VacantionImageHeight}" Aspect="AspectFill" Source="bla.jpg" VerticalOptions="Center"/>
+                <BoxView HeightRequest="8" Color="Gray"/> 
+                <!--ЛИНИЯ-->
+                <Label x:Name="VacantTitle" FontSize="Medium" Text="Ваще крутая вакансия, подключайся, будешь киркой на урановых рудниках ебашить"/>
+
+                <BoxView HeightRequest="8" Color="Gray"/>
+                <!--ЛИНИЯ-->
+                <StackLayout Orientation="Horizontal">
+                    <Label x:Name="VacantionTypeOfWork" Text="Въёбинг на урановой шахте"/>
+                    <Label Text="|"/>
+                    <Label x:Name="VacantionPayment" FontSize="Large" Text="1488 грн"/>
+                </StackLayout>
+                <BoxView HeightRequest="8" Color="Gray"/>
+                <!--ЛИНИЯ-->
+
+                <Label x:Name="VacantionCity" FontSize="Medium" Text="Zalupinsk"/>
+
+                <Editor x:Name="VacantionDescription" FontSize="Default" IsEnabled="False"/>
+
+                <Button x:Name="VacantionSendMyCand" Clicked="VacantionSendMyCand_Clicked"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

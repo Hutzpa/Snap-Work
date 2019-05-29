@@ -4,7 +4,7 @@
              x:Class="SnapWork.Views.VacantionsAsEmployer"
              Title="Работодатель">
     <ContentPage.Content>
-        <StackLayout WidthRequest="{StaticResource Key=ScreenWidth}">
+        <StackLayout WidthRequest="{StaticResource Key=ScreenWidth}" BackgroundColor="{StaticResource Key=BackgroundColor}">
             <Label Text="Vacantion as employer"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />

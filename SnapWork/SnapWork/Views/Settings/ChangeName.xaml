@@ -33,7 +33,7 @@
             <Label Text="Выберите аватар" TextColor="{StaticResource Key=LabelTextColor}"/>
             <!--ЭЛЕМЕНТ ДЛЯ ДОБАВЛЕНИЯ КАРТИНКИ-->
 
-            <Button x:Name="ButtonApply" Text="Сохранить изменения" Clicked="Button_Clicked"/>
+            <Button x:Name="ButtonApply" Text="Сохранить изменения" Clicked="Button_Clicked" VerticalOptions="EndAndExpand"/>
 
         </StackLayout>
     </ContentPage.Content>

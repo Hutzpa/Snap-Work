@@ -15,7 +15,41 @@ namespace SnapWork.Views
 		public LogIn ()
 		{
 			InitializeComponent ();
-		}
+
+            TapGestureRecognizer tapGestureReg = new TapGestureRecognizer
+            {
+                NumberOfTapsRequired = 2
+            };
+
+            int countReg = 0;  // счетчик нажатий
+            tapGestureReg.Tapped += (s, e) =>
+            {
+                countReg++;
+                if (countReg % 2 == 0)
+                {
+                    Navigation.PushAsync(new Register());
+                }
+                
+            };
+            LabelRegister.GestureRecognizers.Add(tapGestureReg);
+
+            TapGestureRecognizer tapGestureRestor = new TapGestureRecognizer
+            {
+                NumberOfTapsRequired = 2
+            };
+
+            int countRest = 0;  // счетчик нажатий
+            tapGestureRestor.Tapped += (s, e) =>
+            {
+                countReg++;
+                if (countRest % 2 == 0)
+                {
+                    Navigation.PushAsync(new RestorePassword());
+                }
+
+            };
+            LabelRestore.GestureRecognizers.Add(tapGestureRestor);
+        }
 
         private void Button_Clicked(object sender, EventArgs e)
         {
@@ -31,21 +65,12 @@ namespace SnapWork.Views
 
         }
 
-        private async void ButtonRegister_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Register());
-        }
-
-        private async void ButtonReset_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new RestorePassword());
-        }
-
         [Obsolete("Логика проверки логина и пароля не написана")]
         private bool CheckLogin()
         {
             return true;
             /// логика 
         }
+
     }
 }

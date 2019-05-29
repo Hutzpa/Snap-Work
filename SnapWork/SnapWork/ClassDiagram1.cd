@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SnapWork.Views.Vacantion">
+    <Position X="1" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Views\Vacantions\Vacantion.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SnapWork.Views.LogIn">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACACAAgAAAAAAAAAAIAA=</HashCode>
+      <FileName>Views\Authentication\LogIn.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SnapWork.Views.Register">
+    <Position X="3" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ECAAgEAAAAAAAAACAIAAAAAAAAAgAAAAAQgCAACAAAA=</HashCode>
+      <FileName>Views\Authentication\Register.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SnapWork.Views.RestorePassword">
+    <Position X="6.25" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Authentication\RestorePassword.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

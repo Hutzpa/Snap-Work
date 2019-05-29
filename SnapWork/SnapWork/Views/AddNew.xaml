@@ -79,7 +79,7 @@
                     <Editor x:Name="EditorDescription" MaxLength="3000" HeightRequest="100"/>
                 </StackLayout>
 
-                <Button x:Name="ButtonApply" Clicked="ButtonApply_Clicked" HeightRequest="30" Text="Создать вакансию"/>
+                <Button x:Name="ButtonApply" Clicked="ButtonApply_Clicked" Text="Создать вакансию"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
