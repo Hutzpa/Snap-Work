@@ -21,38 +21,37 @@ namespace SnapWork.Views
 
         private  void AddNew_clicked(object o, EventArgs e)
         {
-            Detail = new NavigationPage(new AddNew());
+            Detail.Navigation.PushAsync((Page)Activator.CreateInstance(typeof(AddNew)));
             IsPresented = false;
         }
 
         private void Search_clicked(object o, EventArgs e)
         {
-
-            Detail = new NavigationPage(new Search());
+            Detail.Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Search)));
             IsPresented = false;
         }
 
         private void Messages_clicked(object o, EventArgs e)
         {
-            Detail = new NavigationPage(new Messages());
+            Detail.Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Messages)));
             IsPresented = false;
         }
 
         private  void Settings_clicked(object o, EventArgs e)
         {
-            Detail = new NavigationPage(new Settings());
+            Detail.Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Settings)));
             IsPresented = false;
         }
 
         private  void Vacantions_clicked(object o, EventArgs e)
         {
-            Detail = new NavigationPage(new Vacantions());
+            Detail.Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Vacantions)));
             IsPresented = false;
         }
 
         private  void Favorite_clicked(object o, EventArgs e)
         {
-            Detail = new NavigationPage(new Favorite());
+            Detail.Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Favorite)));
             IsPresented = false;
         }
     }

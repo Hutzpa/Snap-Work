@@ -21,8 +21,8 @@
         </Style>
     </MasterDetailPage.Resources>
     
-    <MasterDetailPage.Master>
-        <ContentPage Title="Main page" BackgroundColor="{StaticResource Key=BackgroundColor}">
+    <MasterDetailPage.Master >
+        <ContentPage Title="Main page" BackgroundColor="{StaticResource Key=BackgroundColor}" >
             <ContentPage.Content>
                 <StackLayout Padding="5,0,5,5">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">

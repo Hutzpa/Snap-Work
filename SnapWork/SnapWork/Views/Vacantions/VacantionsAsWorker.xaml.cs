@@ -19,7 +19,10 @@ namespace SnapWork.Views
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new NavigationPage(new Vacantion()));
+
+            Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Vacantion), "balala"));
+
+
         }
     }
 }
