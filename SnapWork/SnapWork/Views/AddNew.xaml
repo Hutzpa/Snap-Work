@@ -16,6 +16,11 @@
             <Setter Property="WidthRequest" Value="{StaticResource Key=ButtonWidth}"/>
         </Style>
 
+        <Style TargetType="Image">
+            <Setter Property="HeightRequest" Value="{StaticResource Key=FacepageImageHeight}"/>
+            <Setter Property="WidthRequest" Value="{StaticResource Key=FacepageImageWidth}"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+        </Style>
     </ContentPage.Resources>
 
     <ContentPage.Content>
@@ -24,6 +29,7 @@
             <StackLayout WidthRequest="{StaticResource Key=ScreenWidth}" Orientation="Vertical"  BackgroundColor="{StaticResource Key=BackgroundColor}">
                 <StackLayout Orientation="Vertical" >
                     <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Фото вакансии"/>
+                    <Image x:Name="SelectedPhoto" IsVisible="False" />
                     <!--Тут ввести элемент который доабвляет картинку из файловой системы-->
 
                 </StackLayout>
@@ -38,32 +44,25 @@
 
                 <StackLayout Orientation="Vertical">
                     <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Тип работы"/>
-                    <Picker x:Name="PickerTypeOfWork"/>
+                    <Picker x:Name="PickerTypeOfWork" SelectedItem=""/>
                     <!--обработать событие выбора-->
                 </StackLayout>
 
 
-                <Label Text="Оплата" TextColor="{StaticResource Key=LabelTextColor}"/>
-                <StackLayout Orientation="Horizontal">
-                    <Entry x:Name="EntryPayment" Keyboard="Numeric" MaxLength="10" TextChanged="EntryPayment_TextChanged" />
-                    <Picker x:Name="PickerMoneyType" SelectedIndexChanged="PickerMoneyType_SelectedIndexChanged">
-                        <Picker.Items>
-                            <x:String>₴</x:String>
-                            <x:String>$</x:String>
-                        </Picker.Items>
-                    </Picker>
-                </StackLayout>
+                <Label Text="Оплата (гривны)" TextColor="{StaticResource Key=LabelTextColor}"/>
+                <Entry x:Name="EntryPayment" Keyboard="Numeric" MaxLength="10" TextChanged="EntryPayment_TextChanged" />
 
-                <Label TextColor="{StaticResource Key=LabelTextColor}"/>
+
+                <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Город:"/>
                 <StackLayout Orientation="Horizontal">
                     <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Не важен"/>
-                    <Switch Toggled="Switch_Toggled" ></Switch>
+                    <Switch Toggled="Switch_Toggled"/>
                 </StackLayout>
                 <Picker x:Name="PickerCity" SelectedIndexChanged="PickerCity_SelectedIndexChanged" />
 
 
                 <StackLayout Orientation="Vertical">
-                    <Label TextColor="{StaticResource Key=LabelTextColor}"/>
+                    <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Количество работников:"/>
                     <StackLayout Orientation="Horizontal">
                         <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Не ограниченно"/>
                         <Switch Toggled="Switch_Toggled_1" ></Switch>
@@ -75,11 +74,12 @@
                 </StackLayout>
 
                 <StackLayout Orientation="Vertical">
-                    <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Описание"/>
+                    <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Описание вакансии:"/>
                     <Editor x:Name="EditorDescription" MaxLength="3000" HeightRequest="100"/>
                 </StackLayout>
 
                 <Button x:Name="ButtonApply" Clicked="ButtonApply_Clicked" Text="Создать вакансию"/>
+                <Button x:Name="ButtonChange" Clicked="ButtonChange_Clicked" Text="Сохранить изменения"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

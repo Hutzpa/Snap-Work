@@ -15,9 +15,32 @@ namespace SnapWork.Views
 	{
 		public AddNew ()
 		{
-			InitializeComponent ();
-
+            InitializeComponent();
             PickerInitializer();
+            ButtonChange.IsEnabled = false;
+            ButtonChange.IsVisible = false;
+            ButtonChange.HeightRequest = 0;
+            
+
+        }
+
+        public AddNew(string imagePath, string title, string typeoOfWork, string payment, string city, int amountOfWorkers, string description)
+        {
+            InitializeComponent();
+            PickerInitializer();
+            ButtonApply.IsEnabled = false;
+            ButtonApply.IsVisible = false;
+            ButtonApply.HeightRequest = 0;
+            SelectedPhoto.IsVisible = true;
+            SelectedPhoto.Sourct = imagePath;
+            EntryName.Text = title;
+            PickerTypeOfWork.SelectedItem = typeoOfWork;
+            EntryPayment.Text = payment;
+            PickerCity.SelectedItem = city;
+            EntryAmountOfWorkers.Text = amountOfWorkers.ToString();
+            EditorDescription.Text = description;
+
+
 
         }
 
@@ -97,6 +120,11 @@ namespace SnapWork.Views
         private async void ButtonApply_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Search());
+        }
+
+        private void ButtonChange_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }

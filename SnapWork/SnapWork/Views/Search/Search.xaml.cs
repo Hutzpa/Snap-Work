@@ -16,7 +16,7 @@ namespace SnapWork.Views
 		public Search ()
 		{
 			InitializeComponent ();
-
+            Xamarin.Forms.NavigationPage.SetHasNavigationBar(this, false);
         }
 
         private  void Button_Clicked(object sender, EventArgs e)

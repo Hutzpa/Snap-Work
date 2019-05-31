@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SnapWork.Views.SearchPeople"
+             Title="Искать работников">
+    
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="BorderColor" Value="{StaticResource Key=ButtonColor}"/>
+            <Setter Property="BackgroundColor" Value="{StaticResource Key=ButtonBackgroundColor}"/>
+            <Setter Property="TextColor" Value="{StaticResource Key=ButtonTextColor}" />
+            <Setter Property="HeightRequest" Value="30"/>
+            <Setter Property="WidthRequest" Value="60"/>
+            <Setter Property="HorizontalOptions" Value="End"/>
+        </Style>
+
+        <Style TargetType="Entry">
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="WidthRequest" Value="470"/>
+            <Setter Property="HorizontalOptions" Value="Start"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <!--ПОИСК ВАКАНСИЙ-->
+
+
+
+    <ContentPage.Content>
+        <StackLayout WidthRequest="{StaticResource Key=ScreenWidth}">
+
+            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HeightRequest="50" BackgroundColor="Gray">
+                <Image HeightRequest="{StaticResource Key=IconImageHeigth}" WidthRequest="{StaticResource Key=IconImageWidth}" Source="lupe.png" Aspect="AspectFit" Margin="5,5,0,5"/>
+                <Entry x:Name="VacName" Placeholder="Введите номер телефона работника" Margin="0,5,0,5"/>
+                <Button x:Name="FindButton" Text="Найти" Margin="0,5,0,5"/>
+            </StackLayout>
+
+            <!--<Button Clicked="Button_Clicked" VerticalOptions="EndAndExpand"/>-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

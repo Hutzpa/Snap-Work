@@ -27,7 +27,7 @@ namespace SnapWork.Views
 
         private void Search_clicked(object o, EventArgs e)
         {
-            Detail.Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Search)));
+            Detail.Navigation.PushAsync((Page)Activator.CreateInstance(typeof(SearchBoth)));
             IsPresented = false;
         }
 
@@ -45,7 +45,7 @@ namespace SnapWork.Views
 
         private  void Vacantions_clicked(object o, EventArgs e)
         {
-            Detail.Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Vacantions)));
+            Detail.Navigation.PushAsync((Page)Activator.CreateInstance(typeof(VacantionsAsWorker)));
             IsPresented = false;
         }
 

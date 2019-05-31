@@ -10,11 +10,13 @@ using Xamarin.Forms.Xaml;
 namespace SnapWork.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Vacantions : TabbedPage
+    public partial class SearchBoth : TabbedPage
     {
-        public Vacantions ()
+        public SearchBoth ()
         {
             InitializeComponent();
+            Xamarin.Forms.NavigationPage.SetHasNavigationBar(this, false);
+
         }
     }
 }

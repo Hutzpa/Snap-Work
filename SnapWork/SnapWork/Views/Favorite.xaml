@@ -4,10 +4,13 @@
              x:Class="SnapWork.Views.Favorite"
              Title="Избранное">
     <ContentPage.Content>
-        <StackLayout WidthRequest="{StaticResource Key=ScreenWidth}">
-            <Label Text="Favorite page"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout WidthRequest="{StaticResource Key=ScreenWidth}">
+                <Label Text="Favorite page"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+            
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

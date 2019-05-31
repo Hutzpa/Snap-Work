@@ -12,11 +12,15 @@ namespace SnapWork.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Vacantion : ContentPage
 	{
-		public Vacantion (string tes)
+		public Vacantion (Regime regime)
 		{
 			InitializeComponent ();
-            VacantionPayment.Text = tes;
 		}
+
+        public Vacantion(string imagePath,string title,string typeoOfWork,string paymet,string city,string description)
+        {
+            InitializeComponent();
+        }
 
         [Obsolete("Не отправляет запрос на вакансию, функция не реализована")]
         private void VacantionSendMyCand_Clicked(object sender, EventArgs e)

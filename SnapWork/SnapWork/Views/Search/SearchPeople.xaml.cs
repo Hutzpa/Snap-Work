@@ -10,11 +10,12 @@ using Xamarin.Forms.Xaml;
 namespace SnapWork.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class VacantionsAsEmployer : ContentPage
+	public partial class SearchPeople : ContentPage
 	{
-		public VacantionsAsEmployer ()
+		public SearchPeople ()
 		{
 			InitializeComponent ();
-		}
+            Xamarin.Forms.NavigationPage.SetHasNavigationBar(this, false);
+        }
 	}
 }

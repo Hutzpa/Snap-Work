@@ -4,11 +4,13 @@
              x:Class="SnapWork.Views.VacantionsAsWorker"
              Title="Работник">
     <ContentPage.Content>
-        <StackLayout WidthRequest="{StaticResource Key=ScreenWidth}" BackgroundColor="{StaticResource Key=BackgroundColor}">
-            <Label Text="Vacantion as worker"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Button Clicked="Button_Clicked"/>
-        </StackLayout>
+        <ScrollView>
+            <StackLayout WidthRequest="{StaticResource Key=ScreenWidth}" BackgroundColor="{StaticResource Key=BackgroundColor}">
+                <Label Text="Vacantion as worker"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" />
+                <Button Clicked="Button_Clicked"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
