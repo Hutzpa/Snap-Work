@@ -4,13 +4,13 @@
              x:Class="SnapWork.App">
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="BackgroundColor">#004D40</Color>
-            
-            <Color x:Key="LabelTextColor">#43B322</Color>
+            <Color x:Key="BackgroundColor">#0e0f0e</Color>
+
+            <Color x:Key="LabelTextColor">#f9fcf9</Color>
             
             
             <Color x:Key="ButtonColor">#80CBC4</Color>
-            <Color x:Key="ButtonTextColor">#20CBD1</Color>
+            <Color x:Key="ButtonTextColor">#f9fcf9</Color>
             <Color x:Key="ButtonBackgroundColor">#1488D1</Color>
             <x:Double x:Key="ButtonHeigth">50</x:Double>
             <x:Double x:Key="ButtonWidth">200</x:Double>

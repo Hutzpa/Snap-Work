@@ -32,16 +32,13 @@ namespace SnapWork.Views
             ButtonApply.IsVisible = false;
             ButtonApply.HeightRequest = 0;
             SelectedPhoto.IsVisible = true;
-            SelectedPhoto.Sourct = imagePath;
+            SelectedPhoto.Source = imagePath;
             EntryName.Text = title;
             PickerTypeOfWork.SelectedItem = typeoOfWork;
             EntryPayment.Text = payment;
             PickerCity.SelectedItem = city;
             EntryAmountOfWorkers.Text = amountOfWorkers.ToString();
             EditorDescription.Text = description;
-
-
-
         }
 
         private Regex entryValidation = new Regex(" ");
@@ -122,6 +119,7 @@ namespace SnapWork.Views
             await Navigation.PushAsync(new Search());
         }
 
+        [Obsolete("Метод не содержит кода, не обновляет вакансию")]
         private void ButtonChange_Clicked(object sender, EventArgs e)
         {
 

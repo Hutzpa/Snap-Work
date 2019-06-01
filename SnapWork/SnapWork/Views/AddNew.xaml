@@ -6,7 +6,7 @@
 
     <ContentPage.Resources >
         <Style TargetType="StackLayout">
-            <Setter Property="Padding" Value="5,30,5,5"/>
+            <Setter Property="Padding" Value="5,5,5,0"/>
         </Style>
         <Style TargetType="Button">
             <Setter Property="BorderColor" Value="{StaticResource Key=ButtonColor}"/>
@@ -25,61 +25,68 @@
 
     <ContentPage.Content>
         <ScrollView>
-
             <StackLayout WidthRequest="{StaticResource Key=ScreenWidth}" Orientation="Vertical"  BackgroundColor="{StaticResource Key=BackgroundColor}">
                 <StackLayout Orientation="Vertical" >
                     <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Фото вакансии"/>
                     <Image x:Name="SelectedPhoto" IsVisible="False" />
                     <!--Тут ввести элемент который доабвляет картинку из файловой системы-->
-
                 </StackLayout>
-
+                <BoxView HeightRequest="2" Color="LightGray" />
+                <!--Название вакансии-->
                 <StackLayout Orientation="Horizontal">
-                    <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Название вакансии"/>
-                    <Label x:Name="MaxNumb"/>
-                    <Label x:Name="MaxCount" Text="\ 80" VerticalOptions="End" IsVisible="False"/>
+                    <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Название вакансии" VerticalOptions="Center"/>
+                    <Label x:Name="MaxNumb" VerticalOptions="Center"/>
+                    <Label x:Name="MaxCount" Text="\ 80"  IsVisible="False" VerticalOptions="Center"/>
                 </StackLayout>
+                <Entry x:Name="EntryName" MaxLength="80" Margin="5,5,5,5" TextChanged="EntryName_TextChanged" Keyboard="Text"/>
+                <BoxView HeightRequest="2" Color="LightGray"/>
 
-                <Entry x:Name="EntryName" MaxLength="80" Margin="20,5,50,5" TextChanged="EntryName_TextChanged" Keyboard="Text"/>
-
+                <!--Тип работы-->
                 <StackLayout Orientation="Vertical">
-                    <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Тип работы"/>
-                    <Picker x:Name="PickerTypeOfWork" SelectedItem=""/>
+                    <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Тип работы:"/>
+                    <Picker x:Name="PickerTypeOfWork" Margin="5,5,5,5"/>
                     <!--обработать событие выбора-->
                 </StackLayout>
+                <BoxView HeightRequest="2" Color="LightGray"/>
+
+                <!--Оплата-->
+                <Label Text="Оплата:" TextColor="{StaticResource Key=LabelTextColor}"/>
+                <Entry x:Name="EntryPayment" Keyboard="Numeric" MaxLength="10" TextChanged="EntryPayment_TextChanged" Margin="5,5,5,5"/>
+                <BoxView HeightRequest="2" Color="LightGray"/>
 
 
-                <Label Text="Оплата (гривны)" TextColor="{StaticResource Key=LabelTextColor}"/>
-                <Entry x:Name="EntryPayment" Keyboard="Numeric" MaxLength="10" TextChanged="EntryPayment_TextChanged" />
-
-
+                <!--Город-->
                 <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Город:"/>
                 <StackLayout Orientation="Horizontal">
-                    <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Не важен"/>
-                    <Switch Toggled="Switch_Toggled"/>
+                    <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Не важен" VerticalOptions="Center"/>
+                    <Switch Toggled="Switch_Toggled" VerticalOptions="Center"/>
                 </StackLayout>
-                <Picker x:Name="PickerCity" SelectedIndexChanged="PickerCity_SelectedIndexChanged" />
+                <Picker x:Name="PickerCity" SelectedIndexChanged="PickerCity_SelectedIndexChanged" Margin="5,5,5,5"/>
+                <BoxView HeightRequest="2" Color="LightGray"/>
 
-
+                <!--Количество работников-->
                 <StackLayout Orientation="Vertical">
                     <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Количество работников:"/>
                     <StackLayout Orientation="Horizontal">
-                        <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Не ограниченно"/>
-                        <Switch Toggled="Switch_Toggled_1" ></Switch>
+                        <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Не ограниченно" VerticalOptions="Center"/>
+                        <Switch Toggled="Switch_Toggled_1" VerticalOptions="Center"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
-                        <Entry x:Name="EntryAmountOfWorkers" Keyboard="Numeric" MaxLength="3" TextChanged="EntryAmountOfWorkers_TextChanged"/>
-                        <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Человек" x:Name="LabelCountOfPersons"/>
+                        <Entry x:Name="EntryAmountOfWorkers" Keyboard="Numeric" MaxLength="3" TextChanged="EntryAmountOfWorkers_TextChanged" VerticalOptions="Center"/>
+                        <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Человек" x:Name="LabelCountOfPersons" VerticalOptions="Center"/>
                     </StackLayout>
                 </StackLayout>
+                <BoxView HeightRequest="2" Color="LightGray"/>
 
+                <!--Описание-->
                 <StackLayout Orientation="Vertical">
                     <Label TextColor="{StaticResource Key=LabelTextColor}" Text="Описание вакансии:"/>
-                    <Editor x:Name="EditorDescription" MaxLength="3000" HeightRequest="100"/>
+                    <Editor x:Name="EditorDescription" MaxLength="3000" HeightRequest="100" Margin="5,5,5,5"/>
                 </StackLayout>
+                <BoxView HeightRequest="2" Color="LightGray"/>
 
-                <Button x:Name="ButtonApply" Clicked="ButtonApply_Clicked" Text="Создать вакансию"/>
-                <Button x:Name="ButtonChange" Clicked="ButtonChange_Clicked" Text="Сохранить изменения"/>
+                <Button x:Name="ButtonApply" Clicked="ButtonApply_Clicked" Text="Создать вакансию" Margin="0,5,0,0"/>
+                <Button x:Name="ButtonChange" Clicked="ButtonChange_Clicked" Text="Сохранить изменения" Margin="0,5,0,0"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

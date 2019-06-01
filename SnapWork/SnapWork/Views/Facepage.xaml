@@ -36,6 +36,9 @@
                 <Label Text="О себе:" HorizontalOptions="Start"/>
                 <Editor x:Name="UserDesctiption" IsEnabled="False" Text="Каждое значение предоставляет свою раскладку клавиатуры, предназначенную для ввода определенной информации. Например, entry.Keyboard=Keyboard.Telephone - при вводе нам автоматически представляется раскладка, содержащая только те знаки, которые используются при наборе телефонного номера."/>
 
+                <!--LIST VIEV для вывода отзывов-->
+                
+                <Button x:Name="CallWorker" Text="Позвать на вакансию" Clicked="CallWorker_Clicked" Margin="5,5,5,0"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

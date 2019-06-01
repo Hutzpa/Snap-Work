@@ -27,18 +27,18 @@
             <StackLayout BackgroundColor="{StaticResource Key=BackgroundColor}" WidthRequest="{StaticResource Key=ScreenWidth}">
                 <!--Image-->
                 <Image x:Name="VacantPhoto" WidthRequest="{StaticResource Key=VacantionImageWidth}" HeightRequest="{StaticResource Key=VacantionImageHeight}" Aspect="AspectFill" Source="bla.jpg" VerticalOptions="Center"/>
-                <BoxView HeightRequest="8" Color="Gray"/> 
+                <BoxView HeightRequest="2" Color="LightGray"/> 
                 <!--ЛИНИЯ-->
                 <Label x:Name="VacantTitle" FontSize="Medium" Text="Ваще крутая вакансия, подключайся, будешь киркой на урановых рудниках ебашить"/>
 
-                <BoxView HeightRequest="8" Color="Gray"/>
+                <BoxView HeightRequest="2" Color="LightGray"/>
                 <!--ЛИНИЯ-->
                 <StackLayout Orientation="Horizontal">
                     <Label x:Name="VacantionTypeOfWork" Text="Въёбинг на урановой шахте"/>
                     <Label Text="|"/>
                     <Label x:Name="VacantionPayment" FontSize="Large" Text="1488 грн"/>
                 </StackLayout>
-                <BoxView HeightRequest="8" Color="Gray"/>
+                <BoxView HeightRequest="2" Color="LightGray"/>
                 <!--ЛИНИЯ-->
 
                 <Label x:Name="VacantionCity" FontSize="Medium" Text="Zalupinsk"/>
@@ -46,6 +46,13 @@
                 <Editor x:Name="VacantionDescription" FontSize="Default" IsEnabled="False"/>
 
                 <Button x:Name="VacantionSendMyCand" Clicked="VacantionSendMyCand_Clicked"/>
+                <!--При вызове за владельца, выводить горизонтальный список работников-->
+                
+                <StackLayout x:Name="RedactButtons" Orientation="Horizontal" Margin="0,5,0,0">
+                    <Button x:Name="FormingOver" Clicked="FormingOver_Clicked" Text="Закончить формирование" Margin="5,0,5,0"/>
+                    <Button x:Name="EditButton" Clicked="EditButton_Clicked" Text="Редактировать"/>
+                    <Button x:Name="DeleteButton" Clicked="DeleteButton_Clicked" Text="Удалить ваканию" Margin="5,0,5,0"/>
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

@@ -6,7 +6,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout WidthRequest="{StaticResource Key=ScreenWidth}" BackgroundColor="{StaticResource Key=BackgroundColor}">
-                <Label Text="Vacantion as worker"
+                <Label Text="Список твоих вакансий"
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="CenterAndExpand" />
                 <Button Clicked="Button_Clicked"/>

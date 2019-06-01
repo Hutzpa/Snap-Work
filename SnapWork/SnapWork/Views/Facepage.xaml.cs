@@ -16,5 +16,22 @@ namespace SnapWork.Views
 		{
 			InitializeComponent ();
 		}
-	}
+
+        /// <summary>
+        /// Конструктор для вызова  НЕ из поиска
+        /// </summary>
+        /// <param name="i"></param>
+        public Facepage(int i)
+        {
+            InitializeComponent();
+            CallWorker.IsVisible = false;
+            CallWorker.HeightRequest = 0;
+        }
+
+        [Obsolete("Функционал 'позвать работника на вакансию' не реализован")]
+        private void CallWorker_Clicked(object sender, EventArgs e)
+        {
+            //После нажатия 
+        }
+    }
 }
