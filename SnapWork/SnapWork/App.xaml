@@ -4,7 +4,7 @@
              x:Class="SnapWork.App">
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="BackgroundColor">#0e0f0e</Color>
+            <Color x:Key="BackgroundColor">#ffffff</Color>
 
             <Color x:Key="LabelTextColor">#f9fcf9</Color>
             

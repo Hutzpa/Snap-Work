@@ -5,7 +5,7 @@
              Title="Избранное">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout WidthRequest="{StaticResource Key=ScreenWidth}">
+            <StackLayout WidthRequest="{StaticResource Key=ScreenWidth}" BackgroundColor="{StaticResource Key=BackgroundColor}">
                 <Label Text="Favorite page"
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="CenterAndExpand" />
