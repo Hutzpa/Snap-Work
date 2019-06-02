@@ -43,10 +43,6 @@
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                         <Image Source="bla.jpg" Style="{StaticResource iconStyle}"></Image>
-                        <Button x:Name="ButtonMessages" Text="Messages" Clicked="Messages_clicked"></Button>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                        <Image Source="bla.jpg" Style="{StaticResource iconStyle}"></Image>
                         <Button x:Name="ButtonSettings" Text="Settings" Clicked="Settings_clicked"></Button>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">

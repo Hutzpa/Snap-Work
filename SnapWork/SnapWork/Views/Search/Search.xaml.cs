@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace SnapWork.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Search : ContentPage
 	{
-        public List<Vacancy> Vacancies { get; set; }
+        public ObservableCollection<Vacancy> Vacancies { get; set; }
 
         public Search ()
 		{
@@ -27,57 +28,27 @@ namespace SnapWork.Views
             
         }
 
-        private  void Button_Clicked(object sender, EventArgs e)
-        {
-            Application.Current.MainPage = new MainPage();
-        }
-
         [Obsolete("Получение данных из бд не работает")]
-        private List<Vacancy> VacanciesFill()
+        private ObservableCollection<Vacancy> VacanciesFill()
         {
-            ClassVacancy vacancy = new ClassVacancy();
-            List<Vacancy> vacancies = new List<Vacancy>()
+            ObservableCollection<Vacancy> vacancies = new ObservableCollection<Vacancy>();
+            for(int i = 0; i < 10; i++)
             {
-                new Vacancy{
-                    idVacancy = 1,
-                    idUserPlacement = 1,
+                vacancies.Add(new Vacancy
+                {
+                    idVacancy = i,
+                    idUserPlacement = i,
                     photo = "bla.jpg",
-                    nameVacancy = "Урановые шахты",
-                    idTypeJob = 3,
-                    payment = 453,
-                    geoInfCity = "Kharkov",
+                    nameVacancy = "Урановые шахты" + i,
+                    idTypeJob = i,
+                    payment = i,
+                    city = "Kharkov" + i,
                     datePlacement = DateTime.Now,
-                    description = "Буй соси, губой тряси",
+                    description = "Буй соси, губой тряси"+ i,
                     vacancyState = VacancyState.Activated,
                     vacanceFormed = VacancyFormed.NotFormed
-                },
-                new Vacancy{
-                    idVacancy = 2,
-                    idUserPlacement = 2,
-                    photo = "bla.jpg",
-                    nameVacancy = "Урановые шахты",
-                    idTypeJob = 3,
-                    payment = 453,
-                    geoInfCity = "Kharkov",
-                    datePlacement = DateTime.Now,
-                    description = "Буй соси, губой тряси",
-                    vacancyState = VacancyState.Activated,
-                    vacanceFormed = VacancyFormed.NotFormed
-                },
-                new Vacancy{
-                    idVacancy = 3,
-                    idUserPlacement = 3,
-                    photo = "bla.jpg",
-                    nameVacancy = "Урановые шахты",
-                    idTypeJob = 3,
-                    payment = 453,
-                    geoInfCity = "Kharkov",
-                    datePlacement = DateTime.Now,
-                    description = "Буй соси, губой тряси",
-                    vacancyState = VacancyState.Activated,
-                    vacanceFormed = VacancyFormed.NotFormed
-                },
-            };
+                });
+            }
 
             //Здеся я получаю данные из бд
 
@@ -88,7 +59,7 @@ namespace SnapWork.Views
         private void VacancyList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             Vacancy v = e.Item as Vacancy;
-            DisplayAlert(v.nameVacancy, v.payment.ToString(), v.geoInfCity);
+            DisplayAlert(v.nameVacancy, v.payment.ToString(), v.city);
         }
     }
 }

@@ -26,47 +26,47 @@
 
     <!--ПОИСК ВАКАНСИЙ-->
 
-    <ContentPage.Content>
+        <ContentPage.Content>
         <ScrollView>
             <StackLayout WidthRequest="{StaticResource Key=ScreenWidth}" BackgroundColor="{StaticResource Key=BackgroundColor}">
 
                 <StackLayout Orientation="Horizontal" VerticalOptions="Start" HeightRequest="50" BackgroundColor="Gray">
                     <Image HeightRequest="{StaticResource Key=IconImageHeigth}" WidthRequest="{StaticResource Key=IconImageWidth}" Source="lupe.png" Aspect="AspectFit" Margin="5,5,0,5"/>
-                    <Entry x:Name="VacName" Placeholder="Введите имя вакансии" Margin="0,5,0,5" />
+                    <Entry x:Name="VacName" Placeholder="Введите название вакансии" Margin="0,5,0,5"/>
                     <Button x:Name="FindButton" Text="Найти" Margin="0,5,0,5"/>
                 </StackLayout>
-                
                 <ListView x:Name="VacancyList"
-                          HasUnevenRows="True"
-                          IsVisible="True"
+                          HasUnevenRows="False"
                           ItemsSource="{Binding Vacancies}"
+                          SeparatorColor="Black"
                           ItemTapped="VacancyList_ItemTapped">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <ViewCell.View>
-                                    <StackLayout Orientation="Horizontal" >
-                                        <Image x:Name="VacantionImage" Source="{Binding photo}"/>
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" >
+                                        <Image x:Name="VacantionImage" Source="bla.jpg" HorizontalOptions="Start" HeightRequest="100" WidthRequest="100"/>
                                         <StackLayout Orientation="Vertical">
-                                            <StackLayout Orientation="Horizontal">
-                                                <Label x:Name="NameLabel" Text="{Binding nameVacancy}"/>
-                                                <Label x:Name="CityLabel" Text="{Binding geoInfCity}"/>
+                                            <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                                                <Label  Text="Имя вакансии:" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
+                                                <Label  Text="{Binding nameVacancy,Source=Vacancies}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red" />
+                                                <Label  Text="Город: " TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
+                                                <Label  Text="{Binding geoInfCity}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
                                             </StackLayout>
-                                            <StackLayout Orientation="Horizontal">
-                                                <Label x:Name="TypeOfWorkLabel" Text="{Binding idTypeJob}"/>
-                                                <Label x:Name="Payment" Text="{Binding payment}"/>
+                                            <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                                                <Label  Text="Тип работы:" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
+                                                <Label  Text="{Binding idTypeJob}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
+                                                <Label  Text="Оплата:" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
+                                                <Label  Text="{Binding payment}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
                                             </StackLayout>
 
                                         </StackLayout>
-
                                     </StackLayout>
-
                                 </ViewCell.View>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <!--<Button Clicked="Button_Clicked" VerticalOptions="EndAndExpand"/>-->
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

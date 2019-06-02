@@ -31,12 +31,6 @@ namespace SnapWork.Views
             IsPresented = false;
         }
 
-        private void Messages_clicked(object o, EventArgs e)
-        {
-            Detail.Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Messages)));
-            IsPresented = false;
-        }
-
         private  void Settings_clicked(object o, EventArgs e)
         {
             Detail.Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Settings)));

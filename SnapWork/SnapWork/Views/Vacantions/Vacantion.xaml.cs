@@ -13,11 +13,11 @@ namespace SnapWork.Views
 	public partial class Vacantion : ContentPage
 	{
 
-        public Vacantion(Regime regime,string imagePath,string title,string typeoOfWork,string paymet,string city,string description)
+        public Vacantion(Regime regime,string imagePath,string title,string typeoOfWork,string payment,string city,string description)
         {
             InitializeComponent();
 
-            Fill(imagePath,  title, typeoOfWork,paymet,city,description);
+            Fill(imagePath,title, typeoOfWork, payment, city,description);
             switch (regime)
             {
                 case Regime.ForOwner:
@@ -32,7 +32,6 @@ namespace SnapWork.Views
                         RedactButtons.IsEnabled = false;
                         RedactButtons.IsVisible = false;
                         RedactButtons.HeightRequest = 0;
-
                         break;
                     }
             }
@@ -44,9 +43,14 @@ namespace SnapWork.Views
         }
 
         [Obsolete("Метод не содержит реализации")]
-        public void Fill(string imagePath, string title, string typeoOfWork, string paymet, string city, string description)
+        public void Fill(string imagePath, string title, string typeoOfWork, string payment, string city, string description)
         {
-
+            VacantPhoto.Source = imagePath;
+            VacantTitle.Text = title;
+            VacantionTypeOfWork.Text = typeoOfWork;
+            VacantionPayment.Text = payment;
+            VacantionCity.Text = city;
+            VacantionDescription.Text = description;
         }
 
         [Obsolete("Не отправляет запрос на вакансию, функция не реализована")]
