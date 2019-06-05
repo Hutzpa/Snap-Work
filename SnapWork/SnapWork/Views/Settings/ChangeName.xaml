@@ -22,19 +22,30 @@
             <Setter Property="HeightRequest" Value="{StaticResource Key=ButtonHeigth}"/>
             <Setter Property="WidthRequest" Value="{StaticResource Key=ButtonWidth}"/>
         </Style>
+
+        <Style TargetType="Image">
+            <Setter Property="HeightRequest" Value="{StaticResource Key=FacepageImageHeight}"/>
+            <Setter Property="WidthRequest" Value="{StaticResource Key=FacepageImageWidth}"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="Aspect" Value="AspectFit"/>
+        </Style>
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <StackLayout BackgroundColor="{StaticResource Key=BackgroundColor}" Orientation="Vertical" WidthRequest="{StaticResource Key=ScreenWidth}">
-            <Entry x:Name="EntryLogin" Placeholder ="Введите ваше имя" Completed="Entry_Completed" />
+        <ScrollView>
+            <StackLayout BackgroundColor="{StaticResource Key=BackgroundColor}" Orientation="Vertical" WidthRequest="{StaticResource Key=ScreenWidth}">
+                <Entry x:Name="EntryLogin" Placeholder ="Введите ваше имя" Completed="Entry_Completed" />
 
-            <Editor x:Name="EditorDescribe" Placeholder="Расскажите о себе"/>
+                <Editor x:Name="EditorDescribe" Placeholder="Расскажите о себе"/>
 
-            <Label Text="Выберите аватар" TextColor="{StaticResource Key=LabelTextColor}"/>
-            <!--ЭЛЕМЕНТ ДЛЯ ДОБАВЛЕНИЯ КАРТИНКИ-->
+                <Label Text="Выберите аватар" TextColor="{StaticResource Key=LabelTextColor}"/>
 
-            <Button x:Name="ButtonApply" Text="Сохранить изменения" Clicked="Button_Clicked" VerticalOptions="EndAndExpand"/>
+                <Image x:Name="UserAvatar" IsVisible="False" Aspect="AspectFit"/>
+                <Button x:Name="ImagePicker" Text="Виберіть аватар" Clicked="ImagePicker_Clicked"/>
 
-        </StackLayout>
+                <Button x:Name="ButtonApply" Text="Сохранить изменения" Clicked="Button_Clicked" VerticalOptions="EndAndExpand"/>
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -6,6 +6,13 @@
     <ContentPage.Resources>
         <Style TargetType="Label">
             <Setter Property="TextColor" Value="{StaticResource Key=LabelTextColor}"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+        </Style>
+
+        <Style TargetType="Image">
+            <Setter Property="WidthRequest" Value="{StaticResource Key=FacepageImageWidth}"/>
+            <Setter Property="HeightRequest" Value="{StaticResource Key=FacepageImageHeight}"/>
+            
         </Style>
     </ContentPage.Resources>
     
@@ -15,30 +22,53 @@
                 <!--Аватарка и инфа возле него-->
                 <StackLayout Orientation="Horizontal">
                     <!--Image-->
-                    <Image x:Name="Avatar" WidthRequest="{StaticResource Key=FacepageImageWidth}" HeightRequest="{StaticResource Key=FacepageImageHeight}" Aspect="AspectFit" Source="bla.jpg" VerticalOptions="Center"/>
+                    <Image x:Name="Avatar" Aspect="AspectFit" Source="bla.jpg" VerticalOptions="Start"/>
 
 
-                    <StackLayout Orientation="Vertical">
-                        <Label x:Name="UserName" Text="Имя - Ivan322"/>
-                        <Label x:Name="UserPhone" Text="Тел. 380995422456"/>
-                        <Label x:Name="UserEmail" Text="Email - mazafacker228@GAYMAIL.com"/>
-                        <Label x:Name="UserRating" Text="Сред. балл - 3.8 \ 5"/>
+                    <StackLayout Orientation="Vertical" VerticalOptions="Start">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Ім'я:"/>
+                            <Label x:Name="UserName" Text="Ivan322"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Телефон:"/>
+                            <Label x:Name="UserPhone" Text="380995422456"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Email: "/>
+                            <Label x:Name="UserEmail" Text="mazafacker228@GAYMAIL.com"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Середній бал: "/>
+                            <Label x:Name="UserRating" Text="3.8 \ 5" />
+                        </StackLayout>
                     </StackLayout>
                 </StackLayout>
                 
+                <BoxView HeightRequest="2" Color="LightGray"/>
+
                 <!--Время на сайте и тер.-->
-                <StackLayout Orientation="Horizontal">
-                    <Label x:Name="UserTimeOnSite" Text="На сайте с 24.05.2019"/>
-                    <BoxView WidthRequest="10"/>
+                <StackLayout Orientation="Horizontal" VerticalOptions="Start">
+                    <Label Text="На сайті з: "/>
+                    <Label x:Name="UserTimeOnSite" Text="24.05.2019"/>
+                    <Label Text="Мешкає в місті: "/>
                     <Label x:Name="UserCity" Text="Находиться в Харькове"/>
                 </StackLayout>
 
-                <Label Text="О себе:" HorizontalOptions="Start"/>
+                <BoxView HeightRequest="2" Color="LightGray"/>
+
+                <Label Text="Про себе:" HorizontalOptions="Start"/>
                 <Editor x:Name="UserDesctiption" IsEnabled="False" Text="Каждое значение предоставляет свою раскладку клавиатуры, предназначенную для ввода определенной информации. Например, entry.Keyboard=Keyboard.Telephone - при вводе нам автоматически представляется раскладка, содержащая только те знаки, которые используются при наборе телефонного номера."/>
 
-                <!--LIST VIEV для вывода отзывов-->
                 
-                <Button x:Name="CallWorker" Text="Позвать на вакансию" Clicked="CallWorker_Clicked" Margin="5,5,5,0"/>
+                <Label x:Name="IsReviewExist" HorizontalOptions="Center" Text="Про цього працівника, ще немає відгуків" FontSize="Large" IsVisible="False"/>
+
+                <StackLayout x:Name="UserReview"  Orientation="Vertical" HeightRequest="500" IsVisible="True">
+                <!--LIST VIEV ДЛЯ ОТЗЫВОВ-->
+                </StackLayout>
+
+
+                <Button x:Name="CallWorker" Text="Позвать на вакансию" Clicked="CallWorker_Clicked" Margin="5,5,5,0" VerticalOptions="EndAndExpand"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

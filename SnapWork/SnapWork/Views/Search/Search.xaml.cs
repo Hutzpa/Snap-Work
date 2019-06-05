@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using QueryLibrary;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -23,6 +22,8 @@ namespace SnapWork.Views
             Xamarin.Forms.NavigationPage.SetHasNavigationBar(this, false);
 
             Vacancies = VacanciesFill();
+
+            //VacName.WidthRequest = layout.Width - (lupe.Width + FindButton.Width);
 
             this.BindingContext = this;
             
@@ -58,8 +59,8 @@ namespace SnapWork.Views
 
         private void VacancyList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            Vacancy v = e.Item as Vacancy;
-            DisplayAlert(v.nameVacancy, v.payment.ToString(), v.city);
+            //Vacancy v = e.Item as Vacancy;
+            Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Vacantion), Regime.ForWorker, e.Item as Vacancy));
         }
     }
 }

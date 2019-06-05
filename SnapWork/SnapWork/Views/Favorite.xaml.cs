@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using QueryLibrary;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -53,12 +52,11 @@ namespace SnapWork.Views
 
         }
 
+        [Obsolete("Смотри комментарий")]
         private void VacancyList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            Vacancy v = e.Item as Vacancy;
             //сделать статический массив с профессиями, чтоб передавать индекс в массиве
-            Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Vacantion), Regime.ForWorker, v.photo, v.nameVacancy, v.idTypeJob.ToString(), v.payment.ToString(), v.city, v.description));
-            //Navigation.PushAsync(new NavigationPage(new Vacantion()));
+            Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Vacantion), Regime.ForWorker, e.Item as Vacancy));
         }
     }
 }

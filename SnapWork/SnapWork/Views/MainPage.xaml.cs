@@ -16,6 +16,22 @@ namespace SnapWork.Views
             MasterBehavior = MasterBehavior.Popover;
             Detail = new NavigationPage(new Favorite());
 
+            TapGestureRecognizer tap = new TapGestureRecognizer
+            {
+                NumberOfTapsRequired = 2
+            };
+            int countReg = 0;  // счетчик нажатий
+            tap.Tapped += (s, e) =>
+            {
+                countReg++;
+                if (countReg % 2 == 0)
+                {
+                    Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Facepage),new Account()));
+                }
+
+            };
+            Avatar.GestureRecognizers.Add(tap);
+
         }
 
 

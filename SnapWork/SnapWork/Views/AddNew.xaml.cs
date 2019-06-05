@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Plugin.FilePicker;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -123,6 +124,17 @@ namespace SnapWork.Views
         private void ButtonChange_Clicked(object sender, EventArgs e)
         {
 
+        }
+
+        private async void ImagePicker_Clicked(object sender, EventArgs e)
+        {
+            var file = await CrossFilePicker.Current.PickFile();
+
+            if (file != null)
+            {
+                SelectedPhoto.Source = file.FilePath;
+                SelectedPhoto.IsVisible = true;
+            }
         }
     }
 }

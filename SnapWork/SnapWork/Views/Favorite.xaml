@@ -19,55 +19,57 @@
 
         <Style TargetType="Entry">
             <Setter Property="HeightRequest" Value="50"/>
-            <Setter Property="WidthRequest" Value="470"/>
-            <Setter Property="HorizontalOptions" Value="Start"/>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
         </Style>
     </ContentPage.Resources>
 
     <!--ПОИСК ВАКАНСИЙ-->
 
     <ContentPage.Content>
-        <ScrollView>
+        <StackLayout>
             <StackLayout WidthRequest="{StaticResource Key=ScreenWidth}" BackgroundColor="{StaticResource Key=BackgroundColor}">
 
-                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HeightRequest="50" BackgroundColor="Gray">
-                    <Image HeightRequest="{StaticResource Key=IconImageHeigth}" WidthRequest="{StaticResource Key=IconImageWidth}" Source="lupe.png" Aspect="AspectFit" Margin="5,5,0,5"/>
-                    <Entry x:Name="VacName" Placeholder="Введите название вакансии" Margin="0,5,0,5"/>
-                    <Button x:Name="FindButton" Text="Найти" Margin="0,5,0,5"/>
+                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HeightRequest="50" BackgroundColor="Gray" Margin="0">
+                    <Image x:Name="lupe" HeightRequest="{StaticResource Key=IconImageHeigth}" WidthRequest="{StaticResource Key=IconImageWidth}" Source="lupe.jpg" Aspect="AspectFit" Margin="5,5,0,5"/>
+                    <Entry x:Name="VacName" Placeholder="Введіть назву вакансії" Margin="0,5,0,5"  />
+                    <Button x:Name="FindButton" Text="Знайти" Margin="0,5,5,5" VerticalOptions="Center" HorizontalOptions="EndAndExpand" WidthRequest="80" FontSize="Small"/>
                 </StackLayout>
-                <ListView x:Name="VacancyList"
-                          HasUnevenRows="False"
-                          ItemsSource="{Binding Vacancies}"
-                          SeparatorColor="Black"
-                          ItemTapped="VacancyList_ItemTapped">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <ViewCell.View>
-                                    <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" >
-                                        <Image x:Name="VacantionImage" Source="bla.jpg" HorizontalOptions="Start" HeightRequest="100" WidthRequest="100"/>
-                                        <StackLayout Orientation="Vertical">
-                                            <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
-                                                <Label  Text="Имя вакансии:" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
-                                                <Label  Text="{Binding nameVacancy,Source=Vacancies}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red" />
-                                                <Label  Text="Город: " TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
-                                                <Label  Text="{Binding geoInfCity}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
-                                            </StackLayout>
-                                            <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
-                                                <Label  Text="Тип работы:" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
-                                                <Label  Text="{Binding idTypeJob}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
-                                                <Label  Text="Оплата:" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
-                                                <Label  Text="{Binding payment}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
-                                            </StackLayout>
 
+                <ScrollView>
+                    <ListView x:Name="VacancyList"
+                              HasUnevenRows="False"
+                              ItemsSource="{Binding Vacancies}"
+                              SeparatorColor="Black"
+                              ItemTapped="VacancyList_ItemTapped">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.View>
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" >
+                                            <Image x:Name="VacantionImage" Source="bla.jpg" HorizontalOptions="Start" HeightRequest="100" WidthRequest="100"/>
+                                            <StackLayout Orientation="Vertical">
+                                                <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                                                    <Label  Text="Имя вакансии:" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
+                                                    <Label  Text="{Binding nameVacancy,Source=Vacancies}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red" />
+                                                    <Label  Text="Город: " TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
+                                                    <Label  Text="{Binding geoInfCity}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                                                    <Label  Text="Тип работы:" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
+                                                    <Label  Text="{Binding idTypeJob}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
+                                                    <Label  Text="Оплата:" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
+                                                    <Label  Text="{Binding payment}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
+                                                </StackLayout>
+
+                                            </StackLayout>
                                         </StackLayout>
-                                    </StackLayout>
-                                </ViewCell.View>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                                    </ViewCell.View>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollView>
             </StackLayout>
-        </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

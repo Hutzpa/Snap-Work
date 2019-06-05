@@ -26,26 +26,33 @@
         <ScrollView>
             <StackLayout BackgroundColor="{StaticResource Key=BackgroundColor}" WidthRequest="{StaticResource Key=ScreenWidth}">
                 <!--Image-->
-                <Image x:Name="VacantPhoto" WidthRequest="{StaticResource Key=VacantionImageWidth}" HeightRequest="{StaticResource Key=VacantionImageHeight}" Aspect="AspectFill" Source="bla.jpg" VerticalOptions="Center"/>
+                <Image x:Name="VacantPhoto" WidthRequest="{StaticResource Key=VacantionImageWidth}" HeightRequest="{StaticResource Key=VacantionImageHeight}" Aspect="AspectFill" Source="bla.jpg" VerticalOptions="Center" Margin="0,0,0,5"/>
                 <BoxView HeightRequest="2" Color="LightGray"/> 
                 <!--ЛИНИЯ-->
-                <Label x:Name="VacantTitle" FontSize="Medium" Text=""/>
+                <Label x:Name="VacantTitle" FontSize="Medium" Text="" Margin="5,0,0,0"/>
 
                 <BoxView HeightRequest="2" Color="LightGray"/>
                 <!--ЛИНИЯ-->
                 <StackLayout Orientation="Horizontal">
-                    <Label x:Name="VacantionTypeOfWork" Text=""/>
-                    <Label Text="|"/>
-                    <Label x:Name="VacantionPayment" FontSize="Large" Text=""/>
+                    <Label Text="Тип работы: " VerticalOptions="Center"/>
+                    <Label x:Name="VacantionTypeOfWork" Text="" VerticalOptions="Center"/>
+                    <Label Text="|" VerticalOptions="Center"/>
+                    <Label Text="Оплата: "  VerticalOptions="Center"/>
+                    <Label x:Name="VacantionPayment" FontSize="Large" Text="" VerticalOptions="Center"/>
                 </StackLayout>
                 <BoxView HeightRequest="2" Color="LightGray"/>
                 <!--ЛИНИЯ-->
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Город:" VerticalOptions="Center"/>
+                    <Label x:Name="VacantionCity" FontSize="Medium" Text="" VerticalOptions="Center"/>
+                </StackLayout>
+                
+                <BoxView HeightRequest="2" Color="LightGray"/>
 
-                <Label x:Name="VacantionCity" FontSize="Medium" Text=""/>
-
+                <Label Text="Описание:"/>
                 <Editor x:Name="VacantionDescription" FontSize="Default" IsEnabled="False"/>
 
-                <Button x:Name="VacantionSendMyCand" Clicked="VacantionSendMyCand_Clicked"/>
+                <Button x:Name="VacantionSendMyCand" Clicked="VacantionSendMyCand_Clicked" VerticalOptions="EndAndExpand"/>
                 <!--При вызове за владельца, выводить горизонтальный список работников-->
                 
                 <StackLayout x:Name="RedactButtons" Orientation="Horizontal" Margin="0,5,0,0">

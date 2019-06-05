@@ -1,10 +1,10 @@
-﻿using QueryLibrary;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -19,6 +19,10 @@ namespace SnapWork.Views
         public VacantionsAsWorker ()
 		{
 			InitializeComponent ();
+
+            Vacancies = VacanciesFill();
+
+            this.BindingContext = this;
 		}
 
         [Obsolete("Получение данных из бд не работает, избранные вакансии не считываються")]
@@ -48,13 +52,11 @@ namespace SnapWork.Views
             return vacancies;
 
         }
-
+        [Obsolete("Смотри комментарий")]
         private void VacancyList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            Vacancy v = e.Item as Vacancy;
             //сделать статический массив с профессиями, чтоб передавать индекс в массиве
-            Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Vacantion), Regime.ForOwner, v.photo, v.nameVacancy, v.idTypeJob.ToString(), v.payment.ToString(), v.city, v.description));
-            //Navigation.PushAsync(new NavigationPage(new Vacantion()));
+            Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Vacantion),Regime.ForOwner,e.Item as Vacancy));
         }
     }
 }

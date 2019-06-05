@@ -5,6 +5,13 @@
              Title="Регистрация">
 
     <ContentPage.Resources>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource Key=LabelTextColor}"/>
+            <Setter Property="IsVisible" Value="True"/>
+            <Setter Property="Margin" Value="5,5,5,0"/>
+        </Style>
+
         <Style TargetType="Entry">
             <Setter Property="HeightRequest" Value="{StaticResource Key=EntryHeigth}"/>
             <Setter Property="WidthRequest" Value="{StaticResource Key=EntryWidth}"/>
@@ -21,8 +28,8 @@
     
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" BackgroundColor="{StaticResource Key=BackgroundColor}" WidthRequest="{StaticResource Key=ScreenWidth}">
-            <Entry x:Name="LoginEntry" Placeholder="Логин" TextChanged="LoginEntry_TextChanged" Completed="LoginEntry_Completed" MaxLength="30"/>
             <Label x:Name="LoginLength"/>
+            <Entry x:Name="LoginEntry" Placeholder="Логин" TextChanged="LoginEntry_TextChanged" Completed="LoginEntry_Completed" MaxLength="30"/>
 
             <Entry x:Name="EntryPassword" Placeholder="Пароль" IsPassword="True"/>
 
@@ -37,6 +44,7 @@
                 <DatePicker.MinimumDate>01/01/1930</DatePicker.MinimumDate>
             </DatePicker>
 
+            <Label Text="Виберіть місто:"/>
             <Picker x:Name="PickerCity"/>
 
 

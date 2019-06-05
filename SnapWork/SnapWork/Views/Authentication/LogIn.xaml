@@ -5,6 +5,12 @@
              Title="Вход">
 
     <ContentPage.Resources>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource Key=LabelTextColor}"/>
+            <Setter Property="IsVisible" Value="True"/>
+            <Setter Property="Margin" Value="5,5,5,0"/>
+        </Style>
         <Style TargetType="Entry">
             <Setter Property="HeightRequest" Value="{StaticResource Key=EntryHeigth}"/>
             <Setter Property="WidthRequest" Value="{StaticResource Key=EntryWidth}"/>

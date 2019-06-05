@@ -19,22 +19,20 @@
 
         <Style TargetType="Entry">
             <Setter Property="HeightRequest" Value="50"/>
-            <Setter Property="WidthRequest" Value="470"/>
-            <Setter Property="HorizontalOptions" Value="Start"/>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
         </Style>
     </ContentPage.Resources>
 
     <!--ПОИСК ВАКАНСИЙ-->
 
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout WidthRequest="{StaticResource Key=ScreenWidth}" BackgroundColor="{StaticResource Key=BackgroundColor}">
-
-                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HeightRequest="50" BackgroundColor="Gray">
-                    <Image HeightRequest="{StaticResource Key=IconImageHeigth}" WidthRequest="{StaticResource Key=IconImageWidth}" Source="lupe.png" Aspect="AspectFit" Margin="5,5,0,5"/>
-                    <Entry x:Name="WorkrName" Placeholder="Введите номер телефона работника" Margin="0,5,0,5"/>
-                    <Button x:Name="FindButton" Text="Найти" Margin="0,5,0,5"/>
+        <StackLayout WidthRequest="{StaticResource Key=ScreenWidth}" BackgroundColor="{StaticResource Key=BackgroundColor}">
+                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HeightRequest="50" BackgroundColor="Gray" Margin="0">
+                    <Image x:Name="lupe" HeightRequest="{StaticResource Key=IconImageHeigth}" WidthRequest="{StaticResource Key=IconImageWidth}" Source="lupe.png" Aspect="AspectFit" Margin="5,5,0,5"/>
+                    <Entry x:Name="VacName" Placeholder="Введіть номер телефону" Margin="0,5,0,5"  />
+                <Button x:Name="FindButton" Text="Знайти" Margin="0,5,5,5" VerticalOptions="Center" HorizontalOptions="EndAndExpand" WidthRequest="80" FontSize="Small"/>
                 </StackLayout>
+            <ScrollView>
                 <ListView x:Name="WorkersList"
                           HasUnevenRows="True"
                           ItemsSource="{Binding People}"
@@ -67,7 +65,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-            </StackLayout>
-        </ScrollView>
+            </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

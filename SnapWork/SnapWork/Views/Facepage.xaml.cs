@@ -12,10 +12,36 @@ namespace SnapWork.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Facepage : ContentPage
 	{
-		public Facepage ()
+		public Facepage (Account account)
 		{
 			InitializeComponent ();
-		}
+            Avatar.Source = account.photo;
+            UserName.Text = account.nickName;
+            UserPhone.Text = account.phone;
+            UserEmail.Text = account.email;
+            UserRating.Text = account.rate.ToString();
+            UserTimeOnSite.Text = account.timeOnSite.ToString();
+            UserCity.Text = account.location;
+            UserDesctiption.Text = account.resume;
+
+            if (CheckUserReview())
+            {
+                IsReviewExist.IsVisible = true;
+
+            }
+            else
+            {
+                UserReview.IsVisible = false;
+                UserReview.HeightRequest = 0;
+                UserReview.IsEnabled = false;
+            }
+            
+        }
+
+        public Facepage()
+        {
+            InitializeComponent();
+        }
 
         /// <summary>
         /// Конструктор для вызова  НЕ из поиска
@@ -32,6 +58,12 @@ namespace SnapWork.Views
         private void CallWorker_Clicked(object sender, EventArgs e)
         {
             //После нажатия 
+        }
+
+        private bool CheckUserReview()
+        {
+            /// проверяет, есть ли отзывы по этому пользователю
+            return false;
         }
     }
 }

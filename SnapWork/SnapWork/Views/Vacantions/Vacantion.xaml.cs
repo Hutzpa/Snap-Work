@@ -13,11 +13,11 @@ namespace SnapWork.Views
 	public partial class Vacantion : ContentPage
 	{
 
-        public Vacantion(Regime regime,string imagePath,string title,string typeoOfWork,string payment,string city,string description)
+        public Vacantion(Regime regime,Vacancy v)
         {
             InitializeComponent();
 
-            Fill(imagePath,title, typeoOfWork, payment, city,description);
+            Fill(v.photo,v.nameVacancy, v.idTypeJob.ToString(), v.payment.ToString(), v.city, v.description);
             switch (regime)
             {
                 case Regime.ForOwner:

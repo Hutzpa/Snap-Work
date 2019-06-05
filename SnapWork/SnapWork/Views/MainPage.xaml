@@ -26,8 +26,8 @@
             <ContentPage.Content>
                 <StackLayout Padding="5,0,5,5">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                        <Image x:Name="Avatar" WidthRequest="65" HeightRequest="65" Aspect="AspectFit" Source="bla.jpg" VerticalOptions="Center"></Image>
-                        <Label Text="User" VerticalOptions="Center" TextColor="{StaticResource Key=LabelTextColor}"></Label>
+                        <Image x:Name="Avatar" WidthRequest="65" HeightRequest="65" Aspect="AspectFit" Source="bla.jpg" VerticalOptions="Center" />
+                        <Label Text="User" VerticalOptions="Center" TextColor="{StaticResource Key=LabelTextColor}" FontSize="Medium"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                         <Image Source="bla.jpg" Style="{StaticResource iconStyle}"></Image>
