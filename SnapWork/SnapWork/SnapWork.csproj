@@ -18,7 +18,12 @@
   <ItemGroup>
     <Folder Include="Services\" />
     <Folder Include="ViewModels\" />
-    <Folder Include="Tables\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="GetData">
+      <HintPath>..\..\..\Google Диск\Учёба\Проектный парктикум\GetData\GetData\bin\Debug\GetData.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +40,18 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Favorite.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Offers\Offer.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Offers\OffersToMe.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Offers\OffersToMyVac.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Page1.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Search\SearchPeople.xaml">

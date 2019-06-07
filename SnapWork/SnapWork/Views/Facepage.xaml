@@ -22,7 +22,7 @@
                 <!--Аватарка и инфа возле него-->
                 <StackLayout Orientation="Horizontal">
                     <!--Image-->
-                    <Image x:Name="Avatar" Aspect="AspectFit" Source="bla.jpg" VerticalOptions="Start"/>
+                    <Image x:Name="Avatar" Aspect="AspectFit" Source="bla.jpg" HorizontalOptions="Start"/>
 
 
                     <StackLayout Orientation="Vertical" VerticalOptions="Start">

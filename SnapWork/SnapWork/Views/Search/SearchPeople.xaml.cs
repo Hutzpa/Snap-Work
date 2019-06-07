@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GetData;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -13,7 +14,7 @@ namespace SnapWork.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SearchPeople : ContentPage
     {
-        public ObservableCollection<Account> People { get; set; }
+        public List<Account> People { get; set; }
 
         public SearchPeople()
         {
@@ -21,22 +22,24 @@ namespace SnapWork.Views
             Xamarin.Forms.NavigationPage.SetHasNavigationBar(this, false);
 
             People = FillPeople();
+            //People = FillPeople();
+
             this.BindingContext = this;
         }
 
 
-        private ObservableCollection<Account> FillPeople()
+        private List<Account> FillPeople()
         {
             //нужно получать последнии специальности каждого рабочего
-            ObservableCollection<Account> vacancies = new ObservableCollection<Account>();
+            List<Account> vacancies = new List<Account>();
             for (int i = 0; i < 10; i++)
             {
                 vacancies.Add(new Account
                 {
-                    nickName = "Ivan" + i,
-                    photo = "bla.jpg",
-                    location = "Kharkov" + i,
-                    amountOfMoney = i
+                    NickName = "Ivan" + i,
+                    Photo = "bla.jpg",
+                    Location = "Kharkov" + i,
+                    AmountOfMoney = i
 
                 });
             }

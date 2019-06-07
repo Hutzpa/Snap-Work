@@ -49,6 +49,10 @@
                         <Image Source="bla.jpg" Style="{StaticResource iconStyle}"></Image>
                         <Button x:Name="ButtonFavorite" Text="Favorite" Clicked="Favorite_clicked"></Button>
                     </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Image Source="bla.jpg" Style="{StaticResource iconStyle}"></Image>
+                        <Button x:Name="ButtonOffers" Text="Offers" Clicked="ButtonOffers_Clicked"></Button>
+                    </StackLayout>
                 </StackLayout>
             </ContentPage.Content>
         </ContentPage> 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using GetData;
 
 
 namespace SnapWork.Views
@@ -20,15 +21,10 @@ namespace SnapWork.Views
             {
                 NumberOfTapsRequired = 2
             };
-            int countReg = 0;  // счетчик нажатий
+
             tap.Tapped += (s, e) =>
             {
-                countReg++;
-                if (countReg % 2 == 0)
-                {
-                    Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Facepage),new Account()));
-                }
-
+                Navigation.PushAsync(new NavigationPage(new Facepage(new Account())));
             };
             Avatar.GestureRecognizers.Add(tap);
 
@@ -62,6 +58,15 @@ namespace SnapWork.Views
         private  void Favorite_clicked(object o, EventArgs e)
         {
             Detail.Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Favorite)));
+            //Detail.Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Page1)));
+
+            IsPresented = false;
+        }
+
+        private void ButtonOffers_Clicked(object sender, EventArgs e)
+        {
+            Detail.Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Offer)));
+            //Detail.Navigation.PushAsync((Page)Activator.CreateInstance(typeof(SearchPeople)));
             IsPresented = false;
         }
     }

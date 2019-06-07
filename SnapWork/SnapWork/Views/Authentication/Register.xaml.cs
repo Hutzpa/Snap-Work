@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SnapWork.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,7 @@ namespace SnapWork.Views
 			InitializeComponent ();
 
             Birthday.MaximumDate = DateTime.Now.AddYears(-18);
-            FillPicker();
+            Support.FillDropDown(PickerCity, Support.cities);
         }
 
         private void LoginEntry_TextChanged(object sender, TextChangedEventArgs e)
@@ -120,14 +121,6 @@ namespace SnapWork.Views
             return true;
         }
 
-        /// <summary>
-        /// Заполнить picker городами
-        /// </summary>
-        [Obsolete("Метод не содержит реализации, PICKER не заполняеться")]
-        private void FillPicker()
-        {
-
-        }
 
         /// <summary>
         /// Проверяет, все ли поля заполнены

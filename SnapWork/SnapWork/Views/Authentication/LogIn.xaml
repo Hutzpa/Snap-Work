@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SnapWork.Views.LogIn"
-             Title="Вход">
+             Title="Вхід">
 
     <ContentPage.Resources>
 
@@ -10,6 +10,7 @@
             <Setter Property="TextColor" Value="{StaticResource Key=LabelTextColor}"/>
             <Setter Property="IsVisible" Value="True"/>
             <Setter Property="Margin" Value="5,5,5,0"/>
+            <Setter Property="FontSize" Value="Medium"/>
         </Style>
         <Style TargetType="Entry">
             <Setter Property="HeightRequest" Value="{StaticResource Key=EntryHeigth}"/>
@@ -27,7 +28,7 @@
     
     <ContentPage.Content>
         <StackLayout BackgroundColor="{StaticResource Key=BackgroundColor}" Orientation="Vertical" WidthRequest="{StaticResource Key=ScreenWidth}">
-            <Entry x:Name="EntryLogin" Keyboard="Text" Placeholder="Логин" Margin="0,5,0,0" />
+            <Entry x:Name="EntryLogin" Keyboard="Text" Placeholder="Номер телефону" Margin="0,5,0,0" />
             <Entry x:Name="EntryPassword" IsPassword="True" Keyboard="Text" Placeholder="Пароль" Margin="0,5,0,0" />
             <Label x:Name="LabelInvalid" TextColor="Red" IsVisible="False" Text="Логин или пароль введён неверно"/>
             <BoxView HeightRequest="50"/>

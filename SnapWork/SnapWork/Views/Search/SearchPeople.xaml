@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SnapWork.Views.SearchPeople"
-             Title="Искать работников">
+             Title="Шукати робітників">
 
     <ContentPage.Resources>
         <Style TargetType="Label">
@@ -25,47 +25,42 @@
 
     <!--ПОИСК ВАКАНСИЙ-->
 
-    <ContentPage.Content>
-        <StackLayout WidthRequest="{StaticResource Key=ScreenWidth}" BackgroundColor="{StaticResource Key=BackgroundColor}">
-                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HeightRequest="50" BackgroundColor="Gray" Margin="0">
+    <StackLayout BackgroundColor="{StaticResource Key=BackgroundColor}" >
+         <StackLayout Orientation="Horizontal" VerticalOptions="Start" HeightRequest="50" BackgroundColor="Gray" Margin="0">
                     <Image x:Name="lupe" HeightRequest="{StaticResource Key=IconImageHeigth}" WidthRequest="{StaticResource Key=IconImageWidth}" Source="lupe.png" Aspect="AspectFit" Margin="5,5,0,5"/>
                     <Entry x:Name="VacName" Placeholder="Введіть номер телефону" Margin="0,5,0,5"  />
                 <Button x:Name="FindButton" Text="Знайти" Margin="0,5,5,5" VerticalOptions="Center" HorizontalOptions="EndAndExpand" WidthRequest="80" FontSize="Small"/>
-                </StackLayout>
-            <ScrollView>
-                <ListView x:Name="WorkersList"
+            </StackLayout> 
+
+        <ListView x:Name="WorkersList"
                           HasUnevenRows="True"
                           ItemsSource="{Binding People}"
-                          SeparatorColor="Black"
                           ItemTapped="WorkersList_ItemTapped">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <ViewCell.View>
-                                    <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" >
-                                        <Image x:Name="WorkersPhoto" Source="bla.jpg" HorizontalOptions="Start" HeightRequest="100" WidthRequest="100"/>
-                                        <StackLayout Orientation="Vertical">
-                                            <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
-                                                <Label  Text="Имя работника:" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
-                                                <Label  Text="{Binding nickName}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red" />
-                                                <Label  Text="Город: " TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
-                                                <Label  Text="{Binding geoInf}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
-                                            </StackLayout>
-                                            <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
-                                                <Label  Text="Тип работы:" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
-                                                <Label  Text="SUexox" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
-                                                <Label  Text="Средняя оценка:" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
-                                                <Label  Text="{Binding amountOfMoney}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
-                                            </StackLayout>
-
-                                        </StackLayout>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" >
+                                <Image x:Name="WorkersPhoto" Source="{Binding Photo}" HorizontalOptions="Start" HeightRequest="100" WidthRequest="100" />
+                                <StackLayout Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                                        <Label  Text="Имя работника:"  HorizontalOptions="FillAndExpand" />
+                                        <Label  Text="{Binding NickName}"  HorizontalOptions="FillAndExpand" BackgroundColor="Red" />
+                                        <Label  Text="Город: " HorizontalOptions="FillAndExpand" />
+                                        <Label  Text="{Binding Location}"  HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
                                     </StackLayout>
-                                </ViewCell.View>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </ScrollView>
-        </StackLayout>
-    </ContentPage.Content>
+                                    <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                                        <Label  Text="Тип работы:"  HorizontalOptions="FillAndExpand" />
+                                        <Label  Text="SUexox" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
+                                        <Label  Text="Средняя оценка:"  HorizontalOptions="FillAndExpand" />
+                                        <Label  Text="{Binding AmountOfMoney}" HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>

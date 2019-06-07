@@ -4,6 +4,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GetData;
+
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -23,10 +25,11 @@ namespace SnapWork.Views
 
             Vacancies = VacanciesFill();
 
-            //VacName.WidthRequest = layout.Width - (lupe.Width + FindButton.Width);
 
-            this.BindingContext = this;
-            
+
+            VacancyList.ItemsSource = Vacancies;
+
+
         }
 
         [Obsolete("Получение данных из бд не работает")]
@@ -37,17 +40,17 @@ namespace SnapWork.Views
             {
                 vacancies.Add(new Vacancy
                 {
-                    idVacancy = i,
-                    idUserPlacement = i,
-                    photo = "bla.jpg",
-                    nameVacancy = "Урановые шахты" + i,
-                    idTypeJob = i,
-                    payment = i,
-                    city = "Kharkov" + i,
-                    datePlacement = DateTime.Now,
-                    description = "Буй соси, губой тряси"+ i,
-                    vacancyState = VacancyState.Activated,
-                    vacanceFormed = VacancyFormed.NotFormed
+                    IdVacancy = i,
+                    IdUserPlacement = i,
+                    Photo = "bla.jpg",
+                    NameVacancy = "Урановые шахты" + i,
+                    IdTypeJob = i,
+                    Payment = i,
+                    City = "Kharkov" + i,
+                    DatePlacement = DateTime.Now,
+                    Description = "Буй соси, губой тряси" + i,
+                    VacancyState = GetData.VacancyState.Activated,
+                    VacanceFormed = GetData.VacancyFormed.NotFormed
                 });
             }
 

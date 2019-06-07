@@ -43,19 +43,19 @@
                                 <ViewCell>
                                     <ViewCell.View>
                                         <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" >
-                                            <Image x:Name="VacantionImage" Source="bla.jpg" HorizontalOptions="Start" HeightRequest="100" WidthRequest="100"/>
+                                            <Image x:Name="VacantionImage" Source="{Binding Photo}" HorizontalOptions="Start" HeightRequest="100" WidthRequest="100" Aspect="Fill"/>
                                             <StackLayout Orientation="Vertical">
                                                 <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
                                                     <Label  Text="Имя вакансии:" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
-                                                    <Label  Text="{Binding nameVacancy,Source=Vacancies}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red" />
+                                                    <Label  Text="{Binding NameVacancy}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red" />
                                                     <Label  Text="Город: " TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
-                                                    <Label  Text="{Binding geoInfCity}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
+                                                    <Label  Text="{Binding Location}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
                                                 </StackLayout>
                                                 <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
                                                     <Label  Text="Тип работы:" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
-                                                    <Label  Text="{Binding idTypeJob}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
+                                                    <Label  Text="{Binding IdTypeJob}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
                                                     <Label  Text="Оплата:" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
-                                                    <Label  Text="{Binding payment}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
+                                                    <Label  Text="{Binding Payment}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
                                                 </StackLayout>
 
                                             </StackLayout>

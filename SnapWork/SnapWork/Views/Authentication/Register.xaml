@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SnapWork.Views.Register"
-             Title="Регистрация">
+             Title="Реєстрація">
 
     <ContentPage.Resources>
 
@@ -29,7 +29,7 @@
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" BackgroundColor="{StaticResource Key=BackgroundColor}" WidthRequest="{StaticResource Key=ScreenWidth}">
             <Label x:Name="LoginLength"/>
-            <Entry x:Name="LoginEntry" Placeholder="Логин" TextChanged="LoginEntry_TextChanged" Completed="LoginEntry_Completed" MaxLength="30"/>
+            <Entry x:Name="LoginEntry" Placeholder="Ім'я" TextChanged="LoginEntry_TextChanged" Completed="LoginEntry_Completed" MaxLength="30"/>
 
             <Entry x:Name="EntryPassword" Placeholder="Пароль" IsPassword="True"/>
 

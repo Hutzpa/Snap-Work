@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GetData;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -15,14 +16,14 @@ namespace SnapWork.Views
 		public Facepage (Account account)
 		{
 			InitializeComponent ();
-            Avatar.Source = account.photo;
-            UserName.Text = account.nickName;
-            UserPhone.Text = account.phone;
-            UserEmail.Text = account.email;
-            UserRating.Text = account.rate.ToString();
-            UserTimeOnSite.Text = account.timeOnSite.ToString();
-            UserCity.Text = account.location;
-            UserDesctiption.Text = account.resume;
+            Avatar.Source = account.Photo;
+            UserName.Text = account.NickName;
+            UserPhone.Text = account.Phone;
+            UserEmail.Text = account.Email;
+            UserRating.Text = account.Rate.ToString();
+            UserTimeOnSite.Text = account.TimeOnSite.ToString();
+            UserCity.Text = account.Location;
+            UserDesctiption.Text = account.Resume;
 
             if (CheckUserReview())
             {

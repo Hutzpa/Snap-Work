@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GetData;
+
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -17,7 +19,7 @@ namespace SnapWork.Views
         {
             InitializeComponent();
 
-            Fill(v.photo,v.nameVacancy, v.idTypeJob.ToString(), v.payment.ToString(), v.city, v.description);
+            Fill(v.Photo,v.NameVacancy, v.IdTypeJob.ToString(), v.Payment.ToString(), v.City, v.Description);
             switch (regime)
             {
                 case Regime.ForOwner:
@@ -45,6 +47,8 @@ namespace SnapWork.Views
         [Obsolete("Метод не содержит реализации")]
         public void Fill(string imagePath, string title, string typeoOfWork, string payment, string city, string description)
         {
+            Title = title;
+
             VacantPhoto.Source = imagePath;
             VacantTitle.Text = title;
             VacantionTypeOfWork.Text = typeoOfWork;

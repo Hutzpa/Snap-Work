@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Plugin.FilePicker;
-
+using SnapWork.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,18 +17,23 @@ namespace SnapWork.Views
 		public AddNew ()
 		{
             InitializeComponent();
-            PickerInitializer();
             ButtonChange.IsEnabled = false;
             ButtonChange.IsVisible = false;
             ButtonChange.HeightRequest = 0;
-            
 
+            Support.FillDropDown(PickerCity, Support.cities);
+
+            Support.FillDropDown(PickerTypeOfWork, Support.jobList);
         }
 
         public AddNew(string imagePath, string title, string typeoOfWork, string payment, string city, int amountOfWorkers, string description)
         {
             InitializeComponent();
-            PickerInitializer();
+
+            Support.FillDropDown(PickerCity, Support.cities);
+            Support.FillDropDown(PickerTypeOfWork, Support.jobList);
+
+
             ButtonApply.IsEnabled = false;
             ButtonApply.IsVisible = false;
             ButtonApply.HeightRequest = 0;
@@ -63,12 +68,6 @@ namespace SnapWork.Views
                 MaxNumb.TextColor = Color.Red;
 
             }
-        }
-
-        [Obsolete("Этот метод не закончен и не содержит реализации") ]
-        private void PickerInitializer()
-        {
-
         }
 
         private void PickerMoneyType_SelectedIndexChanged(object sender, EventArgs e)

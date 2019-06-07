@@ -21,15 +21,9 @@ namespace SnapWork.Views
                 NumberOfTapsRequired = 2
             };
 
-            int countReg = 0;  // счетчик нажатий
             tapGestureReg.Tapped += (s, e) =>
-            {
-                countReg++;
-                if (countReg % 2 == 0)
-                {
-                    Navigation.PushAsync(new Register());
-                }
-                
+            {                
+                Navigation.PushAsync(new Register());
             };
             LabelRegister.GestureRecognizers.Add(tapGestureReg);
 
@@ -38,15 +32,9 @@ namespace SnapWork.Views
                 NumberOfTapsRequired = 2
             };
 
-            int countRest = 0;  // счетчик нажатий
             tapGestureRestor.Tapped += (s, e) =>
             {
-                countReg++;
-                if (countRest % 2 == 0)
-                {
                     Navigation.PushAsync(new RestorePassword());
-                }
-
             };
             LabelRestore.GestureRecognizers.Add(tapGestureRestor);
         }
