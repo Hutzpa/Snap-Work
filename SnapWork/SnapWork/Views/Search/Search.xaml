@@ -28,11 +28,18 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout WidthRequest="{StaticResource Key=ScreenWidth}" BackgroundColor="{StaticResource Key=BackgroundColor}">
-                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HeightRequest="50" BackgroundColor="Gray" Margin="0">
-                    <Image x:Name="lupe" HeightRequest="{StaticResource Key=IconImageHeigth}" WidthRequest="{StaticResource Key=IconImageWidth}" Source="lupe.png" Aspect="AspectFit" Margin="5,5,0,5"/>
-                    <Entry x:Name="VacName" Placeholder="Введіть назву вакансії" Margin="0,5,0,5"  />
-                    <Button x:Name="FindButton" Text="Знайти" Margin="0,5,5,5" VerticalOptions="Center" HorizontalOptions="EndAndExpand" WidthRequest="80" FontSize="Small"/>
+                <StackLayout VerticalOptions="Start" Orientation="Vertical" BackgroundColor="Gray" HeightRequest="100" >
+                    <StackLayout Orientation="Horizontal"   Margin="0">
+                        <Image x:Name="lupe" HeightRequest="{StaticResource Key=IconImageHeigth}" WidthRequest="{StaticResource Key=IconImageWidth}" Source="lupe.png" Aspect="AspectFit" Margin="5,5,0,5"/>
+                        <Entry x:Name="VacName" Placeholder="Введіть назву вакансії" Margin="0,5,0,5"  />
+                        <Button x:Name="FindButton" Text="Знайти" Margin="0,5,5,5" VerticalOptions="Center" HorizontalOptions="EndAndExpand" WidthRequest="80" FontSize="Small"/>
                     </StackLayout>
+                    
+                    <StackLayout Orientation="Horizontal" Margin="0,0,0,5">
+                        <Picker x:Name="PickCity" HorizontalOptions="Fill"/>
+                        <Picker x:Name="JobPick" HorizontalOptions="Fill"/>
+                    </StackLayout>
+                </StackLayout>
                 
                 
                     <ListView x:Name="VacancyList"

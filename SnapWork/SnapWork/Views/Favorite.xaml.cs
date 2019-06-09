@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GetData;
+using SnapWork.Models;
 
 
 using Xamarin.Forms;
@@ -43,8 +43,8 @@ namespace SnapWork.Views
                     City = "Kharkov" + i,
                     DatePlacement = DateTime.Now,
                     Description = "Буй соси, губой тряси" + i,
-                    VacancyState = GetData.VacancyState.Activated,
-                    VacanceFormed = GetData.VacancyFormed.NotFormed
+                    VacancyState = VacancyState.Activated,
+                    VacanceFormed = VacancyFormed.NotFormed
                 });
             }
 

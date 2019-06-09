@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using SnapWork.ViewModels;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -60,6 +61,7 @@ namespace SnapWork.Views
 
         }
 
+        [Obsolete("Пароль без изменений")]
         private void ButtonApply_Clicked(object sender, EventArgs e)
         {
             //Проверить регулярки, могут возвращать неправиьльное значение
@@ -67,7 +69,7 @@ namespace SnapWork.Views
                 EntryCurrent.Text != " " || EntryNewF.Text != " " || EntryNewS.Text != " ")
             {
                 //Изменить пароль
-                DisplayAlert("Предgekgoekogekoеждение", "Проверьте правильность введённых данных", "ОK");
+                (new Messager()).SendMessage("user mail", "<h2>Шановний " + "КОРИСТУВАЧ" + " пароль до вашого аккаунту було успішно змінено. Якщо ви цього не робили, рекомендуємо якнайшвидше відновити пароль.</h2>");
             }
             else
             {

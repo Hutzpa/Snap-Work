@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using GetData;
+using SnapWork.Models;
 
 
 namespace SnapWork.Views

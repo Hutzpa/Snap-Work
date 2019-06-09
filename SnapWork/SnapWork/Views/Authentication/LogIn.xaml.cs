@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SnapWork.Models;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -37,6 +38,8 @@ namespace SnapWork.Views
                     Navigation.PushAsync(new RestorePassword());
             };
             LabelRestore.GestureRecognizers.Add(tapGestureRestor);
+
+            //ConnectionStr.connectionString
         }
 
         private void Button_Clicked(object sender, EventArgs e)

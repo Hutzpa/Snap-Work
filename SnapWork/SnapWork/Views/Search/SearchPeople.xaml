@@ -26,11 +26,24 @@
     <!--ПОИСК ВАКАНСИЙ-->
 
     <StackLayout BackgroundColor="{StaticResource Key=BackgroundColor}" >
-         <StackLayout Orientation="Horizontal" VerticalOptions="Start" HeightRequest="50" BackgroundColor="Gray" Margin="0">
-                    <Image x:Name="lupe" HeightRequest="{StaticResource Key=IconImageHeigth}" WidthRequest="{StaticResource Key=IconImageWidth}" Source="lupe.png" Aspect="AspectFit" Margin="5,5,0,5"/>
-                    <Entry x:Name="VacName" Placeholder="Введіть номер телефону" Margin="0,5,0,5"  />
+        <StackLayout Orientation="Vertical" VerticalOptions="Start" HeightRequest="50" BackgroundColor="Gray">
+            <StackLayout Orientation="Horizontal" Margin="0">
+                <Image x:Name="lupe" HeightRequest="{StaticResource Key=IconImageHeigth}" WidthRequest="{StaticResource Key=IconImageWidth}" Source="lupe.png" Aspect="AspectFit" Margin="5,5,0,5"/>
+                <Entry x:Name="VacName" Placeholder="Введіть номер телефону" Margin="0,5,0,5"  />
                 <Button x:Name="FindButton" Text="Знайти" Margin="0,5,5,5" VerticalOptions="Center" HorizontalOptions="EndAndExpand" WidthRequest="80" FontSize="Small"/>
-            </StackLayout> 
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Margin="0,0,0,5">
+                <Picker x:Name="PickCity" HorizontalOptions="Fill"/>
+                <Picker x:Name="JobPick" HorizontalOptions="Fill"/>
+                <Picker x:Name="RatingSort" HorizontalOptions="Fill">
+                    <Picker.Items>
+                        <x:String>З меншого рейтингу</x:String>
+                        <x:String>З більшого рейтингу</x:String>
+                    </Picker.Items>
+                </Picker>
+            </StackLayout>
+        </StackLayout>
 
         <ListView x:Name="WorkersList"
                           HasUnevenRows="True"

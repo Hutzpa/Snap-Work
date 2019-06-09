@@ -9,6 +9,8 @@ using SnapWork.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+
+
 namespace SnapWork.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]

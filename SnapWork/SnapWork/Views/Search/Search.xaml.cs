@@ -4,11 +4,12 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GetData;
+using SnapWork.Models;
 
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using SnapWork.Models;
 
 
 namespace SnapWork.Views
@@ -25,7 +26,8 @@ namespace SnapWork.Views
 
             Vacancies = VacanciesFill();
 
-
+            Support.FillDropDown(JobPick, Support.jobList);
+            Support.FillDropDown(PickCity, Support.cities);
 
             VacancyList.ItemsSource = Vacancies;
 
@@ -49,8 +51,8 @@ namespace SnapWork.Views
                     City = "Kharkov" + i,
                     DatePlacement = DateTime.Now,
                     Description = "Буй соси, губой тряси" + i,
-                    VacancyState = GetData.VacancyState.Activated,
-                    VacanceFormed = GetData.VacancyFormed.NotFormed
+                    VacancyState = VacancyState.Activated,
+                    VacanceFormed = VacancyFormed.NotFormed
                 });
             }
 

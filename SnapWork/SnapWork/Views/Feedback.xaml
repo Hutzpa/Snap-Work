@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SnapWork.Views.Feedback"
+             Title="Оцініть робітників на вашій вакансії">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{StaticResource Key=BackgroundColor}" >
+            <ListView x:Name="Feedback_"
+                      ItemsSource="{Binding Workers}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal">
+                                    <StackLayout Orientation="Vertical">
+                                        <Image x:Name="WorkersPhoro" Source="{Binding Photo}" HorizontalOptions="Start" HeightRequest="100" WidthRequest="100"/>
+                                    </StackLayout>
+                                    
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -4,8 +4,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GetData;
-
+using SnapWork.Models;
+using SnapWork.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -22,7 +22,9 @@ namespace SnapWork.Views
             Xamarin.Forms.NavigationPage.SetHasNavigationBar(this, false);
 
             People = FillPeople();
-            //People = FillPeople();
+
+            Support.FillDropDown(JobPick, Support.jobList);
+            Support.FillDropDown(PickCity, Support.cities);
 
             this.BindingContext = this;
         }
