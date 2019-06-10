@@ -1,4 +1,4 @@
-﻿using SnapWork.Models;
+﻿using GetData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,8 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using SnapWork.ViewModels;
 
+using SnapWork.Models;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using GetData;
+using System.Text.RegularExpressions;
 
 namespace SnapWork.Views
 {
@@ -22,6 +26,10 @@ namespace SnapWork.Views
             Support.FillDropDown(PickerCity, Support.cities);
         }
 
+        Regex validPhone = new Regex(@"^\d{12}$");
+
+        Regex validEmail = new Regex(@"^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$");
+
         private void LoginEntry_TextChanged(object sender, TextChangedEventArgs e)
         {
             if(LoginEntry.Text.Length == LoginEntry.MaxLength)
@@ -33,20 +41,12 @@ namespace SnapWork.Views
             {
                 LoginLength.TextColor = Color.Green;
             }
-            LoginLength.Text = "Длина логина " + LoginEntry.Text.Length + " /30";
+            LoginLength.Text = "Довжина імені " + LoginEntry.Text.Length + " /30";
         }
 
         private void LoginEntry_Completed(object sender, EventArgs e)
         {
-            if(!CheckLoginUnique())
-            {
-                LoginLength.Text = "Логин не уникальный, выберите другой";
-                LoginLength.TextColor = Color.Red;
-            }
-            else
-            {
-                LoginLength.Text = "";
-            }
+           
         }
 
         private void EntryPhone_Completed(object sender, EventArgs e)
@@ -65,42 +65,24 @@ namespace SnapWork.Views
 
         private void EntryEmail_Completed(object sender, EventArgs e)
         {
-            if (!CheckEmainUnique())
-            {
-                EmailLabel.Text = "Данный номен телефона уже зарегистрирован, выберите другой";
-                EmailLabel.TextColor = Color.Red;
-            }
-            else
-            {
-                EmailLabel.Text = "";
-            }
+           
         }
 
         private void RegisterButton_Clicked(object sender, EventArgs e)
         {
             if(!CheckIsEverythingFill())
             {
-                //Сообщения об неверности ввода
+                DisplayAlert("Помилка", "Усі поля обов'язкові для заповнення", "Ок");
             }
             else if (!CheckIsEverythingRight())
             {
-                //Сообщения об неверности ввода
+                DisplayAlert("Помилка", "Email чи телефон введено в невірному форматі", "Ок");
             }
             else
             {
                 RegisterUser();
                 (new Messager()).SendMessage(EntryEmail.Text, "<h2>Шановний " + LoginEntry.Text + " дякуємо за реєстрацію у нашому сервісі.</h2>");
             }
-        }
-
-        /// <summary>
-        /// Проверяет уникальность логина
-        /// </summary>
-        /// <returns></returns>
-        [Obsolete("Метод не содержит реализации, уникальность логина не проверяеться")]
-        private bool CheckLoginUnique()
-        {
-            return true;
         }
 
         /// <summary>
@@ -113,34 +95,23 @@ namespace SnapWork.Views
             return true;
         }
 
-        /// <summary>
-        /// Проверяет уникальность почты 
-        /// </summary>
-        /// <returns></returns>
-        [Obsolete("Метод не содержит реализации, уникальность почты не проверяеться")]
-        private bool CheckEmainUnique()
-        {
-            return true;
-        }
 
-
-        /// <summary>
-        /// Проверяет, все ли поля заполнены
-        /// </summary>
-        /// <returns></returns>
-        [Obsolete("Метод не содержит реализации, CheckIsEverythingFill не проверяет")]
         private bool CheckIsEverythingFill()
         {
+            if (LoginEntry.Text == "" || EntryPassword.Text == "" || EntryPhone.Text == "" || EntryEmail.Text == "" || PickerCity.SelectedItem == null)
+            {
+                
+                return false;
+            }
             return true;
         }
 
-        /// <summary>
-        /// Проверяет, все ли поля заполнены правильно
-        /// </summary>
-        /// <returns></returns>
-        [Obsolete("Метод не содержит реализации, CheckIsEverythingRight не проверяет")]
         private bool CheckIsEverythingRight()
         {
+            if(!validPhone.IsMatch(EntryPhone.Text) || !validEmail.IsMatch(EntryEmail.Text))
+            {
+                return false;
+            }
             return true;
         }
 
@@ -150,7 +121,19 @@ namespace SnapWork.Views
         [Obsolete("Метод не содержит реализации, RegisterUser не регистрирует")]
         private void RegisterUser()
         {
-
+            Account newAcc = new Account()
+            {
+                NickName = LoginEntry.Text,
+                Password = EntryPassword.Text,
+                Phone = EntryPhone.Text,
+                Email = EntryEmail.Text,
+                BirthDay = Birthday.Date,
+                Location = PickerCity.SelectedItem.ToString(),
+                AmountOfMoney = 0,
+                Rate = 0,
+                TimeOnSite = Convert.ToDateTime(DateTime.Now.ToShortDateString()),
+                Resume = null,
+            };
         }
 
     }

@@ -10,8 +10,8 @@
         </Style>
 
         <Style TargetType="Image">
-            <Setter Property="WidthRequest" Value="{StaticResource Key=FacepageImageWidth}"/>
-            <Setter Property="HeightRequest" Value="{StaticResource Key=FacepageImageHeight}"/>
+            <Setter Property="WidthRequest" Value="200"/>
+            <Setter Property="HeightRequest" Value="300"/>
             
         </Style>
     </ContentPage.Resources>

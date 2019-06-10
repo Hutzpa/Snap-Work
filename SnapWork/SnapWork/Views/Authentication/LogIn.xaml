@@ -28,8 +28,9 @@
     
     <ContentPage.Content>
         <StackLayout BackgroundColor="{StaticResource Key=BackgroundColor}" Orientation="Vertical" WidthRequest="{StaticResource Key=ScreenWidth}">
-            <Entry x:Name="EntryLogin" Keyboard="Text" Placeholder="Номер телефону" Margin="0,5,0,0" />
-            <Entry x:Name="EntryPassword" IsPassword="True" Keyboard="Text" Placeholder="Пароль" Margin="0,5,0,0" />
+            <Label x:Name="DisplayError" IsVisible="False" Text="Невірний логін або пароль" FontSize="Medium" TextColor="Red"/>
+            <Entry x:Name="EntryLogin" Keyboard="Text" Placeholder="Номер телефону" Margin="0,5,0,0"/>
+            <Entry x:Name="EntryPassword" IsPassword="True" Keyboard="Text" Placeholder="Пароль" Margin="0,5,0,0"/>
             <Label x:Name="LabelInvalid" TextColor="Red" IsVisible="False" Text="Логин или пароль введён неверно"/>
             <BoxView HeightRequest="50"/>
             <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">

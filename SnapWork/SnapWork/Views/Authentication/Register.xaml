@@ -33,12 +33,12 @@
 
             <Entry x:Name="EntryPassword" Placeholder="Пароль" IsPassword="True"/>
 
-            <Entry x:Name="EntryPhone" Placeholder="Номер телефона" Keyboard="Telephone" Completed="EntryPhone_Completed" />
             <Label x:Name="PhoneLabel"/>
+            <Entry x:Name="EntryPhone" Placeholder="Номер телефона 380XX XXX XX XX" Keyboard="Telephone" Completed="EntryPhone_Completed" />
 
 
-            <Entry x:Name="EntryEmail" Placeholder="Email" Keyboard="Email" Completed="EntryEmail_Completed" />
             <Label x:Name="EmailLabel"/>
+            <Entry x:Name="EntryEmail" Placeholder="Email" Keyboard="Email" Completed="EntryEmail_Completed" />
 
             <DatePicker x:Name="Birthday" Format="D">
                 <DatePicker.MinimumDate>01/01/1930</DatePicker.MinimumDate>

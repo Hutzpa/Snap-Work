@@ -1,4 +1,4 @@
-﻿using SnapWork.Models;
+﻿using GetData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +35,6 @@ namespace SnapWork.Views
 
         private int[] marks;
 
-        int k4;
 
         private void Rate1_Clicked(object sender, EventArgs e)
         {

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SnapWork.Models;
+using GetData;
+using GetData;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -44,21 +45,25 @@ namespace SnapWork.Views
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            if (CheckLogin())
+            if (LoginExists())
             {
-             Application.Current.MainPage = new MainPage();
+               // ClassAccount log = new ClassAccount();
+               // Account acc = log.
+                Application.Current.MainPage = new MainPage();
 
             }
             else
             {
+                DisplayError.IsVisible = true;
                 LabelInvalid.IsVisible = true;
             }
 
         }
 
         [Obsolete("Логика проверки логина и пароля не написана")]
-        private bool CheckLogin()
+        private bool LoginExists()
         {
+
             return true;
             /// логика 
         }

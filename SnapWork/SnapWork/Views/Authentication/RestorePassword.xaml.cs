@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using SnapWork.ViewModels;
 
@@ -18,14 +19,24 @@ namespace SnapWork.Views
 			InitializeComponent ();
 		}
 
+        Regex validEmail = new Regex(@"^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$");
+
+
         [Obsolete("Изменять так же запись в таблице с паролем")]
         private async void ButtonApply_Clicked(object sender, EventArgs e)
         {
-            string pas = GenerateNewPass();
-            //изменять сначала запись в таблице, а потом отсылать
-            (new Messager()).SendMessage(EntryPhone.Text, "", pas); 
+            if (validEmail.IsMatch(EntryPhone.Text))
+            {
+                string pas = GenerateNewPass();
+                //изменять сначала запись в таблице, а потом отсылать
+                (new Messager()).SendMessage(EntryPhone.Text, "", pas); 
 
-            await DisplayAlert("Восстановление пароля", "Пароль выслан в SMS сообщении","OK");
+                await DisplayAlert("Відновлення паролю", "Пароль відправлений на Email","OK");
+            }
+            else
+            {
+                await DisplayAlert("Помилка", "Невірний формат email", "Ок");
+            }
         }
 
         private string GenerateNewPass()
@@ -39,6 +50,11 @@ namespace SnapWork.Views
         private void RestorePasswordMotion()
         {
 
+        }
+
+        private void EntryPhone_Completed(object sender, EventArgs e)
+        {
+            
         }
     }
 }

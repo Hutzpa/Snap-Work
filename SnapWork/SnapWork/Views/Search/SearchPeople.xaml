@@ -19,32 +19,47 @@
 
         <Style TargetType="Entry">
             <Setter Property="HeightRequest" Value="50"/>
-            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+        </Style>
+
+        <Style TargetType="Picker">
+            <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="WidthRequest" Value="110"/>
         </Style>
     </ContentPage.Resources>
 
     <!--ПОИСК ВАКАНСИЙ-->
 
     <StackLayout BackgroundColor="{StaticResource Key=BackgroundColor}" >
-        <StackLayout Orientation="Vertical" VerticalOptions="Start" HeightRequest="100" BackgroundColor="Gray">
-            
-            <StackLayout Orientation="Horizontal" Margin="0">
-                <Image x:Name="lupe" HeightRequest="{StaticResource Key=IconImageHeigth}" WidthRequest="{StaticResource Key=IconImageWidth}" Source="lupe.png" Aspect="AspectFit" Margin="5,5,0,5"/>
-                <Entry x:Name="VacName" Placeholder="Введіть номер телефону" Margin="0,5,0,5"  />
-                <Button x:Name="FindButton" Text="Знайти" Margin="0,5,5,5" VerticalOptions="Center" HorizontalOptions="EndAndExpand" WidthRequest="80" FontSize="Small"/>
+        <StackLayout Orientation="Vertical" VerticalOptions="Start" HeightRequest="140" BackgroundColor="Gray">
+
+            <StackLayout Orientation="Horizontal" Margin="0" HeightRequest="70">
+                <Image x:Name="lupe" HeightRequest="{StaticResource Key=IconImageHeigth}" WidthRequest="{StaticResource Key=IconImageWidth}" Source="lupe.png" Aspect="AspectFit" Margin="5,5,0,0"/>
+                <Entry x:Name="VacName" Placeholder="Введіть номер телефону" Margin="0,5,0,0" HorizontalOptions="FillAndExpand"  />
+                <Button x:Name="FindButton" Text="Знайти" Margin="0,5,5,0" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HeightRequest="50" WidthRequest="90" FontSize="Small"/>
             </StackLayout>
 
-            <StackLayout Orientation="Horizontal" Margin="0,0,0,5">
-                <Picker x:Name="PickCity" HorizontalOptions="Start" Margin="5,0,5,0"/>
-                <Picker x:Name="JobPick" HorizontalOptions="Start" Margin="5,0,5,0"/>
-                <Picker x:Name="RatingSort" HorizontalOptions="Start" Margin="5,0,5,0">
-                    <Picker.Items>
-                        <x:String>З меншого рейтингу</x:String>
-                        <x:String>З більшого рейтингу</x:String>
-                    </Picker.Items>
-                </Picker>
+            <StackLayout Orientation="Horizontal" Margin="0,0,0,5" >
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Місто:"/>
+                    <Picker x:Name="PickCity" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical" >
+                    <Label Text="Тип роботи:" />
+                    <Picker x:Name="JobPick" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical" >
+                    <Label Text="Рейтинг:"/>
+                    <Picker x:Name="RatingSort">
+                        <Picker.Items>
+                            <x:String>З меншого рейтингу</x:String>
+                            <x:String>З більшого рейтингу</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </StackLayout>
             </StackLayout>
-            
+
         </StackLayout>
 
         <ListView x:Name="WorkersList"
@@ -58,17 +73,21 @@
                             <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" >
                                 <Image x:Name="WorkersPhoto" Source="{Binding Photo}" HorizontalOptions="Start" HeightRequest="100" WidthRequest="100" />
                                 <StackLayout Orientation="Vertical">
-                                    <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
-                                        <Label  Text="Имя работника:"  HorizontalOptions="FillAndExpand" />
-                                        <Label  Text="{Binding NickName}"  HorizontalOptions="FillAndExpand" BackgroundColor="Red" />
-                                        <Label  Text="Город: " HorizontalOptions="FillAndExpand" />
-                                        <Label  Text="{Binding Location}"  HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
+                                    <StackLayout Orientation="Horizontal"  HorizontalOptions="Start">
+                                        <Label  Text="Ім'я:"  HorizontalOptions="Start" />
+                                        <Label  Text="{Binding NickName}"  HorizontalOptions="FillAndExpand"  />
                                     </StackLayout>
-                                    <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
-                                        <Label  Text="Тип работы:"  HorizontalOptions="FillAndExpand" />
-                                        <Label  Text="SUexox" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
-                                        <Label  Text="Средняя оценка:"  HorizontalOptions="FillAndExpand" />
-                                        <Label  Text="{Binding AmountOfMoney}" HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
+
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                        <Label  Text="Місто: " HorizontalOptions="Start" />
+                                        <Label  Text="{Binding Location}"  HorizontalOptions="FillAndExpand" />
+                                    </StackLayout>
+                                    
+                                    <StackLayout Orientation="Horizontal"  HorizontalOptions="Start">
+                                        <!--<Label  Text="Тип работы:"  HorizontalOptions="FillAndExpand" />
+                                        <Label  Text="{Binding }" HorizontalOptions="FillAndExpand" />-->
+                                        <Label  Text="Оцінка:"  HorizontalOptions="Start" />
+                                        <Label  Text="{Binding AmountOfMoney}" HorizontalOptions="FillAndExpand" />
                                     </StackLayout>
                                 </StackLayout>
                             </StackLayout>

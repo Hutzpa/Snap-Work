@@ -4,12 +4,13 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GetData;
 using SnapWork.Models;
 
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using SnapWork.Models;
+using GetData;
 
 
 namespace SnapWork.Views
@@ -18,6 +19,9 @@ namespace SnapWork.Views
 	public partial class Search : ContentPage
 	{
         public ObservableCollection<Vacancy> Vacancies { get; set; }
+
+        public ObservableCollection<TopVacancy> TopVacancies { get; set; }
+
 
         public Search ()
 		{

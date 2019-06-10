@@ -22,9 +22,8 @@
             <x:Double x:Key="EditorHeigth">300</x:Double>
             <x:Double x:Key="EditorWidth">400</x:Double>
 
-            <x:Double x:Key="FacepageImageHeight">300</x:Double>
+            <x:Double x:Key="FacepageImageHeight">400</x:Double>
             <x:Double x:Key="FacepageImageWidth">300</x:Double>
-
 
             <x:Double x:Key="ScreenWidth">1080</x:Double>
             <x:Double x:Key="ScreenHeigth">1920</x:Double>

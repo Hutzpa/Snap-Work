@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SnapWork.Models;
+using GetData;
 
 
 using Xamarin.Forms;
@@ -18,6 +18,7 @@ namespace SnapWork.Views
         public Vacantion(Regime regime,Vacancy v)
         {
             InitializeComponent();
+            this.Title = v.NameVacancy;
 
             Fill(v.Photo,v.NameVacancy, v.IdTypeJob.ToString(), v.Payment.ToString(), v.City, v.Description);
             switch (regime)
