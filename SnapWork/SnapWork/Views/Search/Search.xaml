@@ -32,46 +32,48 @@
                     <StackLayout Orientation="Horizontal"   Margin="0">
                         <Image x:Name="lupe" HeightRequest="{StaticResource Key=IconImageHeigth}" WidthRequest="{StaticResource Key=IconImageWidth}" Source="lupe.png" Aspect="AspectFit" Margin="5,5,0,5"/>
                         <Entry x:Name="VacName" Placeholder="Введіть назву вакансії" Margin="0,5,0,5"  />
-                        <Button x:Name="FindButton" Text="Знайти" Margin="0,5,5,5" VerticalOptions="Center" HorizontalOptions="EndAndExpand" WidthRequest="80" FontSize="Small"/>
+                        <Button x:Name="FindButton" Text="Знайти" Margin="0,5,0,5" VerticalOptions="Center" HorizontalOptions="EndAndExpand" WidthRequest="80" FontSize="Small"/>
                     </StackLayout>
-                    
+
                     <StackLayout Orientation="Horizontal" Margin="0,0,0,5">
-                        <Picker x:Name="PickCity" HorizontalOptions="Fill"/>
-                        <Picker x:Name="JobPick" HorizontalOptions="Fill"/>
+                        <Picker x:Name="PickCity" HorizontalOptions="Fill" Margin="5,0,5,0"/>
+                        <Picker x:Name="JobPick" HorizontalOptions="Fill" Margin="5,0,5,0"/>
                     </StackLayout>
                 </StackLayout>
-                
-                
-                    <ListView x:Name="VacancyList"
+
+
+                <ListView x:Name="VacancyList"
                               ItemsSource="{Binding Vacancies}"
                               ItemTapped="VacancyList_ItemTapped"
                               CachingStrategy="RecycleElement">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" >
                                     <Image x:Name="VacantionImage" Source="{Binding Photo}" HorizontalOptions="Start" HeightRequest="100" WidthRequest="100"/>
-                                            <StackLayout Orientation="Vertical">
-                                                <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
-                                                    <Label  Text="Назва вакансії:" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
-                                                    <Label  Text="{Binding NameVacancy}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red" />
-                                                    <Label  Text="Місто: " TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
-                                                    <Label  Text="{Binding Location}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" IsVisible="True" BackgroundColor="Red"/>
-                                                </StackLayout>
-                                                
-                                                <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
-                                                    <Label  Text="Тип роботи:" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
-                                                    <Label  Text="{Binding IdTypeJob}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
-                                                    <Label  Text="Платня:" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
-                                                    <Label  Text="{Binding Payment}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
-                                                </StackLayout>
-                                            </StackLayout>
+                                    <StackLayout Orientation="Vertical">
+                                        <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                                            <Label  Text="Назва вакансії:" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
+                                            <Label  Text="{Binding NameVacancy}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red" />
+                                            <Label  Text="Місто: " TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
+                                            <Label  Text="{Binding Location}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" IsVisible="True" BackgroundColor="Red"/>
                                         </StackLayout>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-               
+
+                                        <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                                            <Label  Text="Тип роботи:" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
+                                            <Label  Text="{Binding IdTypeJob}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
+                                            <Label  Text="Платня:" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" />
+                                            <Label  Text="{Binding Payment}" TextColor="DarkCyan" HorizontalOptions="FillAndExpand" BackgroundColor="Red"/>
+                                        </StackLayout>
+                                    </StackLayout>
+
+                                    <ImageButton Source="EmptyStar.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50" Clicked="FavorBut_Clicked" BorderWidth="1"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
 
             </StackLayout>
         </StackLayout>

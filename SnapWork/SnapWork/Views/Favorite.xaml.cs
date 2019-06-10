@@ -60,5 +60,23 @@ namespace SnapWork.Views
             //сделать статический массив с профессиями, чтоб передавать индекс в массиве
             Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Vacantion), Regime.ForWorker, e.Item as Vacancy));
         }
+
+        private void FavButton_Clicked(object sender, EventArgs e)
+        {
+            //BorderWidth служит переключателем для кнопки избранного
+            ImageButton imageButton = (ImageButton)sender;
+            if (imageButton.BorderWidth == 1)
+            {
+                imageButton.Source = "FullStar.png";
+                imageButton.BorderWidth = 0;
+                //Добавить в избранное
+            }
+            else
+            {
+                imageButton.Source = "EmptyStar.png";
+                imageButton.BorderWidth = 1;
+                // Удалить из избранного
+            }
+        }
     }
 }

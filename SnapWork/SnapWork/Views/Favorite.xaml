@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SnapWork.Views.Favorite"
              Title="Избранное">
-    
+
     <ContentPage.Resources>
         <Style TargetType="Label">
             <Setter Property="TextColor" Value="{StaticResource Key=LabelTextColor}"/>
@@ -62,6 +62,7 @@
                                                 </StackLayout>
 
                                             </StackLayout>
+                                            <ImageButton  Source="FullStar.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50" Clicked="FavButton_Clicked" BorderWidth="0"/>
                                         </StackLayout>
                                     </ViewCell.View>
                                 </ViewCell>

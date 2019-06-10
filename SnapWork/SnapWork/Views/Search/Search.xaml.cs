@@ -67,5 +67,25 @@ namespace SnapWork.Views
             //Vacancy v = e.Item as Vacancy;
             Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Vacantion), Regime.ForWorker, e.Item as Vacancy));
         }
+
+        [Obsolete("В избранное не добавляеться")]
+        private void FavorBut_Clicked(object sender, EventArgs e)
+        {
+            //BorderWidth служит переключателем для кнопки избранного
+            ImageButton imageButton = (ImageButton)sender;
+            if (imageButton.BorderWidth == 1)
+            {
+                imageButton.Source = "FullStar.png";
+                imageButton.BorderWidth = 0;
+                //Добавить в избранное
+            }
+            else
+            {
+                imageButton.Source = "EmptyStar.png";
+                imageButton.BorderWidth = 1;
+                // Удалить из избранного
+            }
+
+        }
     }
 }

@@ -65,7 +65,8 @@ namespace SnapWork.Views
 
         private void ButtonOffers_Clicked(object sender, EventArgs e)
         {
-            Detail.Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Offer)));
+            Detail.Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Feedback)));
+            //Detail.Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Offer)));
             //Detail.Navigation.PushAsync((Page)Activator.CreateInstance(typeof(SearchPeople)));
             IsPresented = false;
         }

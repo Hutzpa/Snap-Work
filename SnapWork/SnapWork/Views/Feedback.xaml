@@ -3,6 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SnapWork.Views.Feedback"
              Title="Оцініть робітників на вашій вакансії">
+    
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource Key=LabelTextColor}"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="BorderColor" Value="{StaticResource Key=ButtonColor}"/>
+            <Setter Property="BackgroundColor" Value="{StaticResource Key=ButtonBackgroundColor}"/>
+            <Setter Property="TextColor" Value="{StaticResource Key=ButtonTextColor}" />
+            <Setter Property="HeightRequest" Value="30"/>
+            <Setter Property="WidthRequest" Value="60"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+        </Style>
+
+        <Style TargetType="Entry">
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+        </Style>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
         <StackLayout BackgroundColor="{StaticResource Key=BackgroundColor}" >
             <ListView x:Name="Feedback_"
@@ -14,8 +34,13 @@
                                 <StackLayout Orientation="Horizontal">
                                     <StackLayout Orientation="Vertical">
                                         <Image x:Name="WorkersPhoro" Source="{Binding Photo}" HorizontalOptions="Start" HeightRequest="100" WidthRequest="100"/>
+                                        <Label x:Name="WorkersName" HorizontalOptions="Start" Text="{Binding NickName}"/>
                                     </StackLayout>
-                                    
+                                    <Button  ImageSource="EmptyStar.png" HorizontalOptions="EndAndExpand" Clicked="Rate1_Clicked"/>
+                                    <Button  ImageSource="EmptyStar.png" HorizontalOptions="EndAndExpand" Clicked="Rate2_Clicked"/>
+                                    <Button  ImageSource="EmptyStar.png" HorizontalOptions="EndAndExpand" Clicked="Rate3_Clicked"/>
+                                    <Button  ImageSource="EmptyStar.png" HorizontalOptions="EndAndExpand" Clicked="Rate4_Clicked"/>
+                                    <Button  ImageSource="EmptyStar.png" HorizontalOptions="EndAndExpand" Clicked="Rate5_Clicked"/>
                                 </StackLayout>
                             </ViewCell.View>
                         </ViewCell>
