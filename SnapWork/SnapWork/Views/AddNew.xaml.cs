@@ -14,11 +14,11 @@ using Xamarin.Forms.Xaml;
 
 namespace SnapWork.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AddNew : ContentPage
-	{
-		public AddNew ()
-		{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class AddNew : ContentPage
+    {
+        public AddNew()
+        {
             InitializeComponent();
             ButtonChange.IsEnabled = false;
             ButtonChange.IsVisible = false;
@@ -52,7 +52,7 @@ namespace SnapWork.Views
 
         private Regex entryValidation = new Regex(" ");
 
-        private Regex onlyDigitsValid = new Regex(" ");
+        private Regex onlyDigitsValid = new Regex(@"\D");
 
         private string moneyType = "₴";
         private string city = " ";
@@ -95,7 +95,7 @@ namespace SnapWork.Views
         private void Switch_Toggled_1(object sender, ToggledEventArgs e)
         {
             var switcher = (Switch)sender;
-            if(switcher.IsToggled)
+            if (switcher.IsToggled)
             {
                 EntryAmountOfWorkers.IsVisible = false;
                 LabelCountOfPersons.IsVisible = false;
@@ -107,11 +107,13 @@ namespace SnapWork.Views
             }
         }
 
+        //Check
         private void EntryAmountOfWorkers_TextChanged(object sender, TextChangedEventArgs e)
         {
             EntryAmountOfWorkers.TextColor = onlyDigitsValid.IsMatch(EntryAmountOfWorkers.Text) ? Color.Red : Color.Black;
         }
 
+        //check
         private void EntryPayment_TextChanged(object sender, TextChangedEventArgs e)
         {
             EntryPayment.TextColor = onlyDigitsValid.IsMatch(EntryPayment.Text) ? Color.Red : Color.Black;
@@ -119,13 +121,35 @@ namespace SnapWork.Views
 
         private async void ButtonApply_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Search());
+            if (EntryName.Text == "" || PickerTypeOfWork.SelectedItem == null || EntryPayment.Text == "" || PickerCity.SelectedItem == null || EntryAmountOfWorkers.Text == "")
+            {
+                await DisplayAlert("Помилка", "Усі поля окрім опису обов'язкові для заповнення", "Ок");
+            }
+            else if (!onlyDigitsValid.IsMatch(EntryAmountOfWorkers.Text) || !onlyDigitsValid.IsMatch(EntryPayment.Text))
+            {
+                await DisplayAlert("Помилка", "Невірно введені данні, помічені червоним", "Ок");
+            }
+            else
+            {
+                await Navigation.PushAsync(new Search());
+            }
         }
 
         [Obsolete("Метод не содержит кода, не обновляет вакансию")]
-        private void ButtonChange_Clicked(object sender, EventArgs e)
+        private async void ButtonChange_Clicked(object sender, EventArgs e)
         {
-
+            if (EntryName.Text == "" || PickerTypeOfWork.SelectedItem == null || EntryPayment.Text == "" || PickerCity.SelectedItem == null || EntryAmountOfWorkers.Text == "")
+            {
+                await DisplayAlert("Помилка", "Усі поля окрім опису обов'язкові для заповнення", "Ок");
+            }
+            else if (!onlyDigitsValid.IsMatch(EntryAmountOfWorkers.Text) || !onlyDigitsValid.IsMatch(EntryPayment.Text))
+            {
+                await DisplayAlert("Помилка", "Невірно введені данні, помічені червоним", "Ок");
+            }
+            else
+            {
+                await Navigation.PushAsync(new Search());
+            }
         }
 
         private async void ImagePicker_Clicked(object sender, EventArgs e)

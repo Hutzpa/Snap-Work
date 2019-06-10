@@ -81,7 +81,9 @@ namespace SnapWork.Views
             else
             {
                 RegisterUser();
+                DisplayAlert("Повідомлення", "Ви успішно зареєструвалися на сервісі SnapWork", "Ок");
                 (new Messager()).SendMessage(EntryEmail.Text, "<h2>Шановний " + LoginEntry.Text + " дякуємо за реєстрацію у нашому сервісі.</h2>");
+                Application.Current.MainPage = new NavigationPage(new LogIn());
             }
         }
 
@@ -98,7 +100,7 @@ namespace SnapWork.Views
 
         private bool CheckIsEverythingFill()
         {
-            if (LoginEntry.Text == "" || EntryPassword.Text == "" || EntryPhone.Text == "" || EntryEmail.Text == "" || PickerCity.SelectedItem == null)
+            if (LoginEntry.Text == "" || EntryPassword.Text == "" ||EntryPassword.Text.Length < 5 || EntryPhone.Text == "" || EntryEmail.Text == "" || PickerCity.SelectedItem == null)
             {
                 
                 return false;

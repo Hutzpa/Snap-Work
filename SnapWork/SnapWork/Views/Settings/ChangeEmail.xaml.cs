@@ -19,23 +19,26 @@ namespace SnapWork.Views
 		}
 
         [Obsolete("Проверка Email не написана, валидациия не происходит")]
-        Regex emailValid = new Regex(" ");
+        Regex emailValid = new Regex(@"^ ([a - z0 - 9_ -] +\.) *[a - z0 - 9_ -] +@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$");
 
         private void EntryEmail_Completed(object sender, EventArgs e)
         {
             EntryEmail.TextColor = emailValid.IsMatch(EntryEmail.Text) ? Color.Red : Color.Green;
         } 
 
+        [Obsolete("Мыло не изменяеться")]
         private void ButtonApply_Clicked(object sender, EventArgs e)
         {
             if(EntryEmail.Text == "" || emailValid.IsMatch(EntryEmail.Text))
             {
-                EntryEmail.Focus();
+                DisplayAlert("Помилка", "Невірни формат email", "Ок");
+                DisplayAlert("Помилка", "Невірни формат email", "Ок");
+                //EntryEmail.Focus();
             }
             else
             {
                 //Обновить мыло
-                Application.Current.MainPage = new MainPage();
+                DisplayAlert("Повідомлення", "Еmail змінено", "Ок");
             }
         }
     }

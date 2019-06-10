@@ -80,7 +80,7 @@
                         <Switch Toggled="Switch_Toggled_1" VerticalOptions="Center"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
-                        <Entry x:Name="EntryAmountOfWorkers" Keyboard="Numeric" MaxLength="3" TextChanged="EntryAmountOfWorkers_TextChanged" VerticalOptions="Center"/>
+                        <Entry x:Name="EntryAmountOfWorkers" Keyboard="Numeric" WidthRequest="80" MaxLength="3" TextChanged="EntryAmountOfWorkers_TextChanged" VerticalOptions="Center"/>
                         <Label Text="Людей" x:Name="LabelCountOfPersons" VerticalOptions="Center"/>
                     </StackLayout>
                 </StackLayout>
@@ -88,7 +88,7 @@
 
                 <!--Описание-->
                 <StackLayout Orientation="Vertical">
-                    <Label  Text="Описание вакансии:"/>
+                    <Label  Text="Опис вакансії:"/>
                     <Editor x:Name="EditorDescription" MaxLength="3000" HeightRequest="100" Margin="5,5,5,5"/>
                 </StackLayout>
                 <BoxView HeightRequest="2" Color="LightGray"/>

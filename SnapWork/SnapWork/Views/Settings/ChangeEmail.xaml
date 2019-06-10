@@ -21,8 +21,8 @@
 
     <ContentPage.Content>
         <StackLayout BackgroundColor="{StaticResource Key=BackgroundColor}" Orientation="Vertical" WidthRequest="{StaticResource Key=ScreenWidth}" >
-            <Entry x:Name="EntryEmail" Placeholder="Введите email" Completed="EntryEmail_Completed"/>
-            <Button x:Name="ButtonApply" Text="Сохранить" Clicked="ButtonApply_Clicked" VerticalOptions="EndAndExpand"/>
+            <Entry x:Name="EntryEmail" Placeholder="Введіть email" Completed="EntryEmail_Completed"/>
+            <Button x:Name="ButtonApply" Text="Зберегти" Clicked="ButtonApply_Clicked" VerticalOptions="EndAndExpand"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -55,9 +55,9 @@
                 <!--При вызове за владельца, выводить горизонтальный список работников-->
                 
                 <StackLayout x:Name="RedactButtons" Orientation="Horizontal" Margin="0,5,0,0">
-                    <Button x:Name="FormingOver" Clicked="FormingOver_Clicked" Text="Закончить формирование" Margin="5,0,5,0"/>
-                    <Button x:Name="EditButton" Clicked="EditButton_Clicked" Text="Редактировать"/>
-                    <Button x:Name="DeleteButton" Clicked="DeleteButton_Clicked" Text="Удалить ваканию" Margin="5,0,5,0"/>
+                    <Button x:Name="FormingOver" Clicked="FormingOver_Clicked" HorizontalOptions="Start" Text="Закончить формирование" Margin="5,0,5,0"/>
+                    <Button x:Name="EditButton" Clicked="EditButton_Clicked" HorizontalOptions="Start" Text="Редактировать"/>
+                    <Button x:Name="DeleteButton" Clicked="DeleteButton_Clicked" HorizontalOptions="Start" Text="Удалить ваканию" Margin="5,0,5,0"/>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

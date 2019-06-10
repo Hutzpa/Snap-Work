@@ -31,7 +31,7 @@
             <Label x:Name="LoginLength"/>
             <Entry x:Name="LoginEntry" Placeholder="Ім'я" TextChanged="LoginEntry_TextChanged" Completed="LoginEntry_Completed" MaxLength="30"/>
 
-            <Entry x:Name="EntryPassword" Placeholder="Пароль" IsPassword="True"/>
+            <Entry x:Name="EntryPassword" Placeholder="Пароль, не менше 5 символів" IsPassword="True" />
 
             <Label x:Name="PhoneLabel"/>
             <Entry x:Name="EntryPhone" Placeholder="Номер телефона 380XX XXX XX XX" Keyboard="Telephone" Completed="EntryPhone_Completed" />

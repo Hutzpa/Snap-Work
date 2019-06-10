@@ -31,7 +31,7 @@ namespace SnapWork.Views
                 //изменять сначала запись в таблице, а потом отсылать
                 (new Messager()).SendMessage(EntryPhone.Text, "", pas); 
 
-                await DisplayAlert("Відновлення паролю", "Пароль відправлений на Email","OK");
+                await DisplayAlert("Відновлення паролю", "Новий пароль відправлений на Email","OK");
             }
             else
             {

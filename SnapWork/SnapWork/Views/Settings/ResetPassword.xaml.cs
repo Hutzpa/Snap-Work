@@ -19,8 +19,6 @@ namespace SnapWork.Views
 			InitializeComponent ();
 		}
 
-        [Obsolete("Проверка не происходит, регулярка не написана")]
-        Regex newPassValid = new Regex(" ");
 
         private void EntryCurrent_Completed(object sender, EventArgs e)
         {
@@ -36,9 +34,9 @@ namespace SnapWork.Views
 
         private void EntryNewF_Completed(object sender, EventArgs e)
         {
-            if (newPassValid.IsMatch(EntryNewF.Text))
+            if (EntryNewF.Text.Length < 5)
             {
-                NewPass.Text = "Пароль не может быть таким";
+                NewPass.Text = "Парольне не може бути коротшим за 5 символів";
                 NewPass.IsVisible = true;
             }
             else
@@ -51,7 +49,7 @@ namespace SnapWork.Views
         {
             if (EntryNewF.Text != EntryNewS.Text)
             {
-                NewPass.Text = "Пароли не совпадают";
+                NewPass.Text = "Паролі не збігаються";
                 NewPass.IsVisible = true;
             }
             else
@@ -65,8 +63,8 @@ namespace SnapWork.Views
         private void ButtonApply_Clicked(object sender, EventArgs e)
         {
             //Проверить регулярки, могут возвращать неправиьльное значение
-            if(CheckIsPassRight()||!newPassValid.IsMatch(EntryNewF.Text) || EntryNewF.Text != EntryNewS.Text || 
-                EntryCurrent.Text != " " || EntryNewF.Text != " " || EntryNewS.Text != " ")
+            if(CheckIsPassRight()|| EntryNewF.Text.Length < 5 || EntryNewF.Text != EntryNewS.Text || 
+                EntryCurrent.Text != "" || EntryNewF.Text != "" || EntryNewS.Text != "")
             {
                 //Изменить пароль
                 (new Messager()).SendMessage("user mail", "<h2>Шановний " + "КОРИСТУВАЧ" + " пароль до вашого аккаунту було успішно змінено. Якщо ви цього не робили, рекомендуємо якнайшвидше відновити пароль.</h2>");

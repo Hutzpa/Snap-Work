@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SnapWork.Views.ChangeName"
-             Title="Основная информация">
+             Title="Основная інформація">
     
     <ContentPage.Resources>
         <Style TargetType="Entry">
@@ -34,16 +34,16 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout BackgroundColor="{StaticResource Key=BackgroundColor}" Orientation="Vertical" WidthRequest="{StaticResource Key=ScreenWidth}">
-                <Entry x:Name="EntryLogin" Placeholder ="Введите ваше имя" Completed="Entry_Completed" />
+                <Entry x:Name="EntryLogin" Placeholder ="Введіть нове ім'я" Completed="Entry_Completed" />
 
-                <Editor x:Name="EditorDescribe" Placeholder="Расскажите о себе"/>
+                <Editor x:Name="EditorDescribe" Placeholder="Розкажіть про себе"/>
 
-                <Label Text="Выберите аватар" TextColor="{StaticResource Key=LabelTextColor}"/>
+                <Label Text="Виберіть аватар" TextColor="{StaticResource Key=LabelTextColor}"/>
 
                 <Image x:Name="UserAvatar" IsVisible="False" Aspect="AspectFit"/>
                 <Button x:Name="ImagePicker" Text="Виберіть аватар" Clicked="ImagePicker_Clicked"/>
 
-                <Button x:Name="ButtonApply" Text="Сохранить изменения" Clicked="Button_Clicked" VerticalOptions="EndAndExpand"/>
+                <Button x:Name="ButtonApply" Text="Зберегти зміни" Clicked="Button_Clicked" VerticalOptions="EndAndExpand"/>
 
             </StackLayout>
         </ScrollView>

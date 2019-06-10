@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SnapWork.Views.DeleteAccount"
-             Title="Удалить аккаунт">
+             Title="Видалити аккаунт">
 
 
     <ContentPage.Resources>
@@ -17,9 +17,9 @@
     
     <ContentPage.Content>
         <StackLayout BackgroundColor="{StaticResource Key=BackgroundColor}" Orientation="Vertical" WidthRequest="{StaticResource Key=ScreenWidth}">
-            <Label Text="Вы уверенны?" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="{StaticResource Key=LabelTextColor}"/>
+            <Label Text="Ви впевнені?" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="{StaticResource Key=LabelTextColor}"/>
 
-            <Button x:Name="DeleteButton" Text="Удалить аккаунт" Clicked="DeleteButton_Clicked"/>
+            <Button x:Name="DeleteButton" Text="Видалити аккаунт" Clicked="DeleteButton_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

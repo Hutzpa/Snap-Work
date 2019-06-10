@@ -20,6 +20,8 @@ namespace SnapWork.Views
             InitializeComponent();
             this.Title = v.NameVacancy;
 
+            curVacancy = v;
+
             Fill(v.Photo,v.NameVacancy, v.IdTypeJob.ToString(), v.Payment.ToString(), v.City, v.Description);
             switch (regime)
             {
@@ -39,6 +41,8 @@ namespace SnapWork.Views
                     }
             }
         }
+
+        Vacancy curVacancy;
 
         public Vacantion()
         {
