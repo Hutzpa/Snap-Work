@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using SnapWork.Models;
 using SnapWork.ViewModels;
 
 using Xamarin.Forms;
@@ -11,24 +12,27 @@ using Xamarin.Forms.Xaml;
 
 namespace SnapWork.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ResetPassword : ContentPage
-	{
-		public ResetPassword ()
-		{
-			InitializeComponent ();
-		}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class ResetPassword : ContentPage
+    {
+        public ResetPassword()
+        {
+            InitializeComponent();
+        }
 
 
         private void EntryCurrent_Completed(object sender, EventArgs e)
         {
-            CurPass.IsVisible = CheckIsPassRight() ? true : false; //Если пароль правильный, то ничего не выводит
+            CurPass.IsVisible = CheckIsPassRight() ? false : true; //Если пароль правильный, то ничего не выводит
         }
 
-        [Obsolete("Проверка правильности пароля не происходит")]
+
         private bool CheckIsPassRight()
         {
-            //проверяет, правильный ли пароль
+            if (EntryCurrent.Text == AccountManager.Account.Password)
+            {
+                return true;
+            }
             return false;
         }
 
@@ -63,7 +67,7 @@ namespace SnapWork.Views
         private void ButtonApply_Clicked(object sender, EventArgs e)
         {
             //Проверить регулярки, могут возвращать неправиьльное значение
-            if(CheckIsPassRight()|| EntryNewF.Text.Length < 5 || EntryNewF.Text != EntryNewS.Text || 
+            if (CheckIsPassRight() || EntryNewF.Text.Length < 5 || EntryNewF.Text != EntryNewS.Text ||
                 EntryCurrent.Text != "" || EntryNewF.Text != "" || EntryNewS.Text != "")
             {
                 //Изменить пароль

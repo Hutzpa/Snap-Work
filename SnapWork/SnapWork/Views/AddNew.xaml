@@ -72,7 +72,7 @@
                 <Picker x:Name="PickerCity" SelectedIndexChanged="PickerCity_SelectedIndexChanged" Margin="5,5,5,5"/>
                 <BoxView HeightRequest="2" Color="LightGray"/>
 
-                <!--Количество работников-->
+                <!--Количество работников--><!--
                 <StackLayout Orientation="Vertical">
                     <Label Text="Кількість робітників:"/>
                     <StackLayout Orientation="Horizontal">
@@ -84,7 +84,7 @@
                         <Label Text="Людей" x:Name="LabelCountOfPersons" VerticalOptions="Center"/>
                     </StackLayout>
                 </StackLayout>
-                <BoxView HeightRequest="2" Color="LightGray"/>
+                <BoxView HeightRequest="2" Color="LightGray"/>-->
 
                 <!--Описание-->
                 <StackLayout Orientation="Vertical">

@@ -54,7 +54,7 @@ namespace SnapWork.Views
             
             if (!CheckPhoneUnique())
             {
-                PhoneLabel.Text = "Данный номен телефона уже зарегистрирован, выберите другой";
+                PhoneLabel.Text = "Цей номер телефону вже був зарєстрований, виберіть інший";
                 PhoneLabel.TextColor = Color.Red;
             }
             else
@@ -68,32 +68,35 @@ namespace SnapWork.Views
            
         }
 
-        private void RegisterButton_Clicked(object sender, EventArgs e)
+        private async void RegisterButton_Clicked(object sender, EventArgs e)
         {
             if(!CheckIsEverythingFill())
             {
-                DisplayAlert("Помилка", "Усі поля обов'язкові для заповнення", "Ок");
+                await DisplayAlert("Помилка", "Усі поля обов'язкові для заповнення", "Ок");
             }
             else if (!CheckIsEverythingRight())
             {
-                DisplayAlert("Помилка", "Email чи телефон введено в невірному форматі", "Ок");
+                await DisplayAlert("Помилка", "Email чи телефон введено в невірному форматі", "Ок");
             }
             else
             {
                 RegisterUser();
-                DisplayAlert("Повідомлення", "Ви успішно зареєструвалися на сервісі SnapWork", "Ок");
+                await DisplayAlert("Повідомлення", "Ви успішно зареєструвалися на сервісі SnapWork", "Ок");
                 (new Messager()).SendMessage(EntryEmail.Text, "<h2>Шановний " + LoginEntry.Text + " дякуємо за реєстрацію у нашому сервісі.</h2>");
                 Application.Current.MainPage = new NavigationPage(new LogIn());
             }
         }
 
-        /// <summary>
-        /// Проверяет уникальность телефона
-        /// </summary>
-        /// <returns></returns>
-        [Obsolete("Метод не содержит реализации, уникальность телефона не проверяеться")]
         private bool CheckPhoneUnique()
         {
+            GetData.ClassAccount classAccount = new ClassAccount();
+
+            Account account = classAccount.SelectAccount(EntryPhone.Text);
+
+            if (account.Phone != null)
+            {
+                return false;
+            }
             return true;
         }
 
@@ -110,17 +113,14 @@ namespace SnapWork.Views
 
         private bool CheckIsEverythingRight()
         {
-            if(!validPhone.IsMatch(EntryPhone.Text) || !validEmail.IsMatch(EntryEmail.Text))
+            if(!validPhone.IsMatch(EntryPhone.Text) || !validEmail.IsMatch(EntryEmail.Text) || !CheckPhoneUnique())
             {
                 return false;
             }
             return true;
         }
 
-        /// <summary>
-        /// Регистрирует пользователя
-        /// </summary>
-        [Obsolete("Метод не содержит реализации, RegisterUser не регистрирует")]
+
         private void RegisterUser()
         {
             Account newAcc = new Account()
@@ -136,6 +136,11 @@ namespace SnapWork.Views
                 TimeOnSite = Convert.ToDateTime(DateTime.Now.ToShortDateString()),
                 Resume = null,
             };
+
+            GetData.ClassAccount classAccount = new ClassAccount();
+
+            classAccount.InsertAccount(newAcc);
+
         }
 
     }

@@ -14,33 +14,27 @@ namespace SnapWork.Views
 	public partial class Feedback : ContentPage
 	{
 
-        public List<WorkrList> Workers { get; set; }
+        public List<Fedb> Workers { get; set; }
 
-		public Feedback ()
+		public Feedback (int OwnerId, int VacantionId)
 		{
 			InitializeComponent ();
-            Workers.Add(new WorkrList
-            {
-                Id = 1,
-                IdAccount = new Account
-                {
-                    Photo = "bla.jpg",
-                    NickName = "lox228"
-                },
-                vacancy = null
-            });
+            Workers = FillWorkers();
 
-            marks = new int[Workers.Count];
 		}
 
-        private int[] marks;
-
+        private List<Fedb> FillWorkers()
+        {
+            return new List<Fedb>();
+        }
 
         private void Rate1_Clicked(object sender, EventArgs e)
         {
+            //в зависимости от нажатой кнопки, отправлять 1,2,3... 
+
             Button Rate1 = (Button)sender;
             Rate1.ImageSource = "FullStar.png";
-            //marks[e.]
+            
         }
 
         private void Rate2_Clicked(object sender, EventArgs e)
@@ -69,11 +63,14 @@ namespace SnapWork.Views
         }
     }
 
-    public class WorkrList
+    public class Fedb
     {
+        public int IdAccount { get; set; }
+        public string NickName { get; set; }
+        public double Rate { get; set; }
 
-        public int Id { get; set; }
-        public Vacancy vacancy { get; set; }
-        public Account IdAccount { get; set; }
+        public int ListOfWId { get; set; }
+        public int IdVacancy { get; set; }
     }
+    
 }

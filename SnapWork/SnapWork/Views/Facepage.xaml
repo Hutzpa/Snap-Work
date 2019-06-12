@@ -60,15 +60,10 @@
                 <Label Text="Про себе:" HorizontalOptions="Start"/>
                 <Editor x:Name="UserDesctiption" IsEnabled="False" Text="Каждое значение предоставляет свою раскладку клавиатуры, предназначенную для ввода определенной информации. Например, entry.Keyboard=Keyboard.Telephone - при вводе нам автоматически представляется раскладка, содержащая только те знаки, которые используются при наборе телефонного номера."/>
 
-                
-                <Label x:Name="IsReviewExist" HorizontalOptions="Center" Text="Про цього працівника, ще немає відгуків" FontSize="Large" IsVisible="False"/>
-
-                <StackLayout x:Name="UserReview"  Orientation="Vertical" HeightRequest="500" IsVisible="True">
-                <!--LIST VIEV ДЛЯ ОТЗЫВОВ-->
+                <StackLayout Orientation="Horizontal">
+                    <Picker x:Name="MyVacantions" HorizontalOptions="CenterAndExpand"/>
+                    <Button x:Name="CallWorker" Text="Позвать на вакансию" Clicked="CallWorker_Clicked" Margin="5,5,5,0" HorizontalOptions="CenterAndExpand"/>
                 </StackLayout>
-
-
-                <Button x:Name="CallWorker" Text="Позвать на вакансию" Clicked="CallWorker_Clicked" Margin="5,5,5,0" VerticalOptions="EndAndExpand"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

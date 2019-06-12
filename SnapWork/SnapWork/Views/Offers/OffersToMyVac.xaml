@@ -22,18 +22,33 @@
             ItemsSource="{Binding Items}"
             ItemTapped="Handle_ItemTapped"
             CachingStrategy="RecycleElement" 
-              BackgroundColor="{StaticResource Key=BackgroundColor}">
+              BackgroundColor="{StaticResource Key=BackgroundColor}"
+              HasUnevenRows="True">
 
 
 
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <StackLayout Orientation="Horizontal">
-                        <Image x:Name="PersonPhoto" Source="{Binding Photo}" HorizontalOptions="Start" HeightRequest="100" WidthRequest="100"/>
-                        <StackLayout Orientation="Vertical">
+                    <StackLayout Orientation="Vertical" >
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                            <Image x:Name="PersonPhoto" Source="{Binding Photo}" HorizontalOptions="Start" HeightRequest="100" WidthRequest="100"/>
+                            <Label x:Name="Rate" Text="{Binding Rate}"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
                             <Label x:Name="Name" Text="{Binding NickName}"/>
-                            
+                            <Label x:Name="City" Text="{Binding Location}" />
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                            <Label Text="На вак." />
+                            <Label x:Name="VacName" Text="{Binding NameVacancy}" />
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                            <Button x:Name="Accept" Text="Прийняти" BackgroundColor="Green" Clicked="Accept_Clicked"/>
+                            <Button x:Name="Deny" Text="Відхилити" BackgroundColor="Red" Clicked="Deny_Clicked"/>
                         </StackLayout>
 
                     </StackLayout>

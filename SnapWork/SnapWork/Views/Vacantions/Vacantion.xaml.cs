@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GetData;
-
-
+using SnapWork.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,7 +13,7 @@ namespace SnapWork.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Vacantion : ContentPage
 	{
-
+       public List<Account> Workers { get; set; }
         public Vacantion(Regime regime,Vacancy v)
         {
             InitializeComponent();
@@ -37,6 +36,8 @@ namespace SnapWork.Views
                         RedactButtons.IsEnabled = false;
                         RedactButtons.IsVisible = false;
                         RedactButtons.HeightRequest = 0;
+                        VorkersList.IsVisible = false;
+                        VorkersList.HeightRequest = 0;
                         break;
                     }
             }
@@ -47,6 +48,12 @@ namespace SnapWork.Views
         public Vacantion()
         {
             InitializeComponent();
+        }
+
+        [Obsolete("Список работников не выводиться")]
+        private List<Vacancy> WorkersOnThisVacancy()
+        {
+            return new List<Vacancy>();
         }
 
         [Obsolete("Метод не содержит реализации")]
@@ -80,7 +87,7 @@ namespace SnapWork.Views
             bool selection = await DisplayAlert("Подтвердить действие", "Удалить вакансию? \n Это действие нельзя отменить. ", "Да", "Нет");
             if (selection)
             {
-                //Удалить вакансию
+                await Navigation.PushAsync(new NavigationPage(new Feedback(AccountManager.Account.IdAccount, curVacancy.IdVacancy)));
                 Application.Current.MainPage = (Page)Activator.CreateInstance(typeof(VacantionsAsWorker));
 
             }

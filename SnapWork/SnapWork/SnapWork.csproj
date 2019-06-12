@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="Core.System.Configuration.Install" Version="1.0.1" />
+    <PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
     <PackageReference Include="Xamarin.Forms" Version="4.0.0.482894" />
     <PackageReference Include="Xamarin.Plugin.FilePicker" Version="2.0.135" />  
   </ItemGroup>
@@ -23,9 +24,6 @@
   <ItemGroup>
     <Reference Include="GetData">
       <HintPath>..\..\..\Google Диск\Учёба\Проектный парктикум\GetData\GetData\bin\Release\GetData.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Configuration">
-      <HintPath>..\..\..\Google Диск\Учёба\Проектный парктикум\DllShit\System.Configuration.dll</HintPath>
     </Reference>
   </ItemGroup>
 
@@ -96,13 +94,73 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
     <None Update="Views\AddNew.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Authentication\LogIn.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Authentication\Register.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Authentication\RestorePassword.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Facepage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Favorite.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Feedback.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Offers\Offer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Offers\OffersToMe.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Offers\OffersToMyVac.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Page1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Search\Search.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Search\SearchBoth.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Search\SearchPeople.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Settings\ChangeEmail.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
     <None Update="Views\Settings\ChangeName.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
+    <None Update="Views\Settings\DeleteAccount.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
     <None Update="Views\Settings\ResetPassword.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Settings\Settings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Vacantions\Vacantion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Vacantions\VacantionsAsWorker.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
   </ItemGroup>

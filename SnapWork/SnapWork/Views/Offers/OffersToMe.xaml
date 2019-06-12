@@ -4,23 +4,63 @@
              x:Class="SnapWork.Views.OffersToMe"
              Title="Куди мене кличуть:">
 
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource Key=LabelTextColor}"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="BorderColor" Value="{StaticResource Key=ButtonColor}"/>
+            <Setter Property="BackgroundColor" Value="{StaticResource Key=ButtonBackgroundColor}"/>
+            <Setter Property="TextColor" Value="{StaticResource Key=ButtonTextColor}" />
+            <Setter Property="HeightRequest" Value="30"/>
+            <Setter Property="WidthRequest" Value="60"/>
+            <Setter Property="HorizontalOptions" Value="End"/>
+        </Style>
+    </ContentPage.Resources>
+
     <ListView x:Name="MyListView"
             ItemsSource="{Binding Items}"
             ItemTapped="Handle_ItemTapped"
-            CachingStrategy="RecycleElement"
-              BackgroundColor="{StaticResource Key=BackgroundColor}">
-            
+            CachingStrategy="RecycleElement" 
+              BackgroundColor="{StaticResource Key=BackgroundColor}"
+              HasUnevenRows="True">
 
-    
-    <ListView.ItemTemplate>
-      <DataTemplate>
-        <ViewCell>
-          <StackLayout Orientation="Horizontal">
-            <Image x:Name="PersonPhoto" Source="{Binding}"/>
-          </StackLayout>
-        </ViewCell>
-      </DataTemplate>
-    </ListView.ItemTemplate>
-    
-  </ListView>
+
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Vertical" >
+                        <Image x:Name="PersonPhoto" Source="{Binding Photo}" HorizontalOptions="Start" HeightRequest="100" WidthRequest="100"/>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Назв. "/>
+                                <Label x:Name="VacName" Text="{Binding NameVacancy}"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Платня:" HorizontalOptions="Start"/>
+                                <Label x:Name="Payment" Text="{Binding Payment}"  HorizontalOptions="Start"/>
+
+                                <Label Text="Місто:"  HorizontalOptions="Start"/>
+                                <Label x:Name="City" Text="{Binding City}"  HorizontalOptions="Start"/>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Тип:"  HorizontalOptions="Start"/>
+                                <Label x:Name="Type" Text="{Binding Name}"   HorizontalOptions="Start"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                            <Button x:Name="Accept" Text="Прийняти" BackgroundColor="Green" Clicked="Accept_Clicked"/>
+                            <Button x:Name="Deny" Text="Відхилити" BackgroundColor="Red" Clicked="Deny_Clicked"/>
+                        </StackLayout>
+
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+
+    </ListView>
 </ContentPage>

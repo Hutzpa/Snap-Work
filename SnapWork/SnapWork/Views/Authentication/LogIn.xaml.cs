@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GetData;
 using GetData;
-
+using SnapWork.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -43,12 +43,10 @@ namespace SnapWork.Views
             //ConnectionStr.connectionString
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
             if (LoginExists())
             {
-               // ClassAccount log = new ClassAccount();
-               // Account acc = log.
                 Application.Current.MainPage = new MainPage();
 
             }
@@ -60,12 +58,20 @@ namespace SnapWork.Views
 
         }
 
-        [Obsolete("Логика проверки логина и пароля не написана")]
+
         private bool LoginExists()
         {
+            GetData.ClassAccount classAccount = new ClassAccount();
 
+            Account account = classAccount.SelectAccount(EntryLogin.Text);
+
+            if(account.Phone == null || account.Password != EntryPassword.Text)
+            {
+                return false;
+            }
+            AccountManager.Account = account;
             return true;
-            /// логика 
+
         }
 
     }

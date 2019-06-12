@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using GetData;
 using SnapWork.ViewModels;
 
 using Xamarin.Forms;
@@ -19,23 +20,30 @@ namespace SnapWork.Views
 			InitializeComponent ();
 		}
 
-        Regex validEmail = new Regex(@"^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$");
+        Regex validEmail = new Regex(@"^\d{12}$");
 
 
-        [Obsolete("Изменять так же запись в таблице с паролем")]
+
         private async void ButtonApply_Clicked(object sender, EventArgs e)
         {
             if (validEmail.IsMatch(EntryPhone.Text))
             {
                 string pas = GenerateNewPass();
-                //изменять сначала запись в таблице, а потом отсылать
-                (new Messager()).SendMessage(EntryPhone.Text, "", pas); 
+
+                GetData.ClassAccount classAccount = new ClassAccount();
+
+                Account account = classAccount.SelectAccount(EntryPhone.Text);
+
+                account.Password = pas;
+                classAccount.UpdateAccount(account); 
+
+                (new Messager()).SendMessage(EntryPhone.Text, account.NickName , pas); 
 
                 await DisplayAlert("Відновлення паролю", "Новий пароль відправлений на Email","OK");
             }
             else
             {
-                await DisplayAlert("Помилка", "Невірний формат email", "Ок");
+                await DisplayAlert("Помилка", "Невірний формат телефону", "Ок");
             }
         }
 
@@ -46,15 +54,18 @@ namespace SnapWork.Views
             return "Klm" + r.Next(500, 5000) + "Z3ijKf" + r.Next(70000, 99000) + "PZPI1710B";
         }
 
-        [Obsolete("Метод не реализован, сообщение с паролем не высылает")]
-        private void RestorePasswordMotion()
-        {
 
-        }
-
-        private void EntryPhone_Completed(object sender, EventArgs e)
+        private async void EntryPhone_Completed(object sender, EventArgs e)
         {
-            
+            GetData.ClassAccount classAccount = new ClassAccount();
+
+            Account account =  classAccount.SelectAccount(EntryPhone.Text);
+
+            if (account.Phone == null)
+            {
+                await DisplayAlert("Помилка", "Цей телефон не прив'язаний до жодного аккаунту", "Ок");
+                EntryPhone.Text = "";
+            }
         }
     }
 }

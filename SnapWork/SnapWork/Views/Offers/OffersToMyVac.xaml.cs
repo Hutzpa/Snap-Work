@@ -13,7 +13,7 @@ namespace SnapWork.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class OffersToMyVac : ContentPage
     {
-        public ObservableCollection<Account> Items { get; set; }
+        public ObservableCollection<OfrEl> Items { get; set; }
 
 
         public OffersToMyVac()
@@ -26,9 +26,9 @@ namespace SnapWork.Views
         }
 
         [Obsolete("Метод не заполняет список претендентов на мою вакансию")]
-        private ObservableCollection<Account> FillPersons()
+        private ObservableCollection<OfrEl> FillPersons()
         {
-            ObservableCollection<Account> items= new ObservableCollection<Account>();
+            ObservableCollection<OfrEl> items= new ObservableCollection<OfrEl>();
 
 
             return items;
@@ -37,13 +37,52 @@ namespace SnapWork.Views
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            if (e.Item == null)
-                return;
+            OfrEl ofrEl = e.Item as OfrEl;
+            Account acc = new Account()
+            {
+                IdAccount = ofrEl.IdAccount,
+                NickName = ofrEl.NickName,
+                Photo = ofrEl.Photo,
+                Email = ofrEl.Email,
+                BirthDay = ofrEl.BirthDay,
+                Location = ofrEl.Location,
+                Rate = Convert.ToDouble(ofrEl.Rate),
+                TimeOnSite = ofrEl.TimeOnSite,
+                Resume = ofrEl.Resume
+            };
 
-            await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
+            await Navigation.PushAsync(new NavigationPage(new Facepage(acc)));
 
-            //Deselect Item
-            ((ListView)sender).SelectedItem = null;
+
+            
         }
+
+        private void Accept_Clicked(object sender, EventArgs e)
+        {
+            // запись работника удалять из списка кандидатов и перемещать в список рабочих по вакансии
+        }
+
+        private void Deny_Clicked(object sender, EventArgs e)
+        {
+            // запись рабочего удалять из списка кандидатов
+        }
+    }
+
+    public class OfrEl
+    {
+        public int IdAccount { get; set; }
+        public string NickName { get; set; }
+        [Obsolete]
+        public string Photo { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public DateTime BirthDay { get; set; }
+        public string Location { get; set; }
+        public decimal Rate { get; set; }
+        public DateTime TimeOnSite { get; set; }
+        public string Resume { get; set; }
+
+        public int IdVacancy { get; set; }
+        public string NameVacancy { get; set; }
     }
 }

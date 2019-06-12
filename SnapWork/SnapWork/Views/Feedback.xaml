@@ -12,8 +12,8 @@
             <Setter Property="BorderColor" Value="{StaticResource Key=ButtonColor}"/>
             <Setter Property="BackgroundColor" Value="{StaticResource Key=ButtonBackgroundColor}"/>
             <Setter Property="TextColor" Value="{StaticResource Key=ButtonTextColor}" />
-            <Setter Property="HeightRequest" Value="30"/>
-            <Setter Property="WidthRequest" Value="60"/>
+            <Setter Property="HeightRequest" Value="40"/>
+            <Setter Property="WidthRequest" Value="40"/>
             <Setter Property="VerticalOptions" Value="Center"/>
         </Style>
 

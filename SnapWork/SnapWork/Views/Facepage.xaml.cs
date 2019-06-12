@@ -13,6 +13,10 @@ namespace SnapWork.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Facepage : ContentPage
 	{
+        /// <summary>
+        /// Конструктор для вызова на вакансию
+        /// </summary>
+        /// <param name="account"></param>
 		public Facepage (Account account)
 		{
 			InitializeComponent ();
@@ -24,33 +28,24 @@ namespace SnapWork.Views
             UserTimeOnSite.Text = account.TimeOnSite.ToString();
             UserCity.Text = account.Location;
             UserDesctiption.Text = account.Resume;
-
-            if (CheckUserReview())
-            {
-                IsReviewExist.IsVisible = true;
-
-            }
-            else
-            {
-                UserReview.IsVisible = false;
-                UserReview.HeightRequest = 0;
-                UserReview.IsEnabled = false;
-            }
-            
-        }
-
-        public Facepage()
-        {
-            InitializeComponent();
         }
 
         /// <summary>
         /// Конструктор для вызова  НЕ из поиска
         /// </summary>
         /// <param name="i"></param>
-        public Facepage(int i)
+        public Facepage(Account account,int i)
         {
             InitializeComponent();
+
+            Avatar.Source = account.Photo;
+            UserName.Text = account.NickName;
+            UserPhone.Text = account.Phone;
+            UserEmail.Text = account.Email;
+            UserRating.Text = account.Rate.ToString();
+            UserTimeOnSite.Text = account.TimeOnSite.ToString();
+            UserCity.Text = account.Location;
+            UserDesctiption.Text = account.Resume;
             CallWorker.IsVisible = false;
             CallWorker.HeightRequest = 0;
         }
@@ -58,13 +53,7 @@ namespace SnapWork.Views
         [Obsolete("Функционал 'позвать работника на вакансию' не реализован")]
         private void CallWorker_Clicked(object sender, EventArgs e)
         {
-            //После нажатия 
-        }
-
-        private bool CheckUserReview()
-        {
-            /// проверяет, есть ли отзывы по этому пользователю
-            return false;
+            GetData.ClassListBids workerReq = new ClassListBids();
         }
     }
 }

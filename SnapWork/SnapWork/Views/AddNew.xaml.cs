@@ -46,7 +46,7 @@ namespace SnapWork.Views
             PickerTypeOfWork.SelectedItem = typeoOfWork;
             EntryPayment.Text = payment;
             PickerCity.SelectedItem = city;
-            EntryAmountOfWorkers.Text = amountOfWorkers.ToString();
+            //EntryAmountOfWorkers.Text = amountOfWorkers.ToString();
             EditorDescription.Text = description;
         }
 
@@ -92,26 +92,26 @@ namespace SnapWork.Views
             city = picker.SelectedItem.ToString();
         }
 
-        private void Switch_Toggled_1(object sender, ToggledEventArgs e)
-        {
-            var switcher = (Switch)sender;
-            if (switcher.IsToggled)
-            {
-                EntryAmountOfWorkers.IsVisible = false;
-                LabelCountOfPersons.IsVisible = false;
-            }
-            else
-            {
-                EntryAmountOfWorkers.IsVisible = true;
-                LabelCountOfPersons.IsVisible = true;
-            }
-        }
+        //private void Switch_Toggled_1(object sender, ToggledEventArgs e)
+        //{
+        //    var switcher = (Switch)sender;
+        //    if (switcher.IsToggled)
+        //    {
+        //        EntryAmountOfWorkers.IsVisible = false;
+        //        LabelCountOfPersons.IsVisible = false;
+        //    }
+        //    else
+        //    {
+        //        EntryAmountOfWorkers.IsVisible = true;
+        //        LabelCountOfPersons.IsVisible = true;
+        //    }
+        //}
 
-        //Check
-        private void EntryAmountOfWorkers_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            EntryAmountOfWorkers.TextColor = onlyDigitsValid.IsMatch(EntryAmountOfWorkers.Text) ? Color.Red : Color.Black;
-        }
+        ////Check
+        //private void EntryAmountOfWorkers_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+        //    EntryAmountOfWorkers.TextColor = onlyDigitsValid.IsMatch(EntryAmountOfWorkers.Text) ? Color.Red : Color.Black;
+        //}
 
         //check
         private void EntryPayment_TextChanged(object sender, TextChangedEventArgs e)
@@ -121,16 +121,17 @@ namespace SnapWork.Views
 
         private async void ButtonApply_Clicked(object sender, EventArgs e)
         {
-            if (EntryName.Text == "" || PickerTypeOfWork.SelectedItem == null || EntryPayment.Text == "" || PickerCity.SelectedItem == null || EntryAmountOfWorkers.Text == "")
+            if (EntryName.Text == "" || PickerTypeOfWork.SelectedItem == null || EntryPayment.Text == "" || PickerCity.SelectedItem == null /*|| EntryAmountOfWorkers.Text == ""*/)
             {
                 await DisplayAlert("Помилка", "Усі поля окрім опису обов'язкові для заповнення", "Ок");
             }
-            else if (!onlyDigitsValid.IsMatch(EntryAmountOfWorkers.Text) || !onlyDigitsValid.IsMatch(EntryPayment.Text))
+            else if (/*!onlyDigitsValid.IsMatch(EntryAmountOfWorkers.Text) ||*/ !onlyDigitsValid.IsMatch(EntryPayment.Text))
             {
                 await DisplayAlert("Помилка", "Невірно введені данні, помічені червоним", "Ок");
             }
             else
             {
+                PlaceVacantion(CreateObject());
                 await Navigation.PushAsync(new Search());
             }
         }
@@ -138,16 +139,17 @@ namespace SnapWork.Views
         [Obsolete("Метод не содержит кода, не обновляет вакансию")]
         private async void ButtonChange_Clicked(object sender, EventArgs e)
         {
-            if (EntryName.Text == "" || PickerTypeOfWork.SelectedItem == null || EntryPayment.Text == "" || PickerCity.SelectedItem == null || EntryAmountOfWorkers.Text == "")
+            if (EntryName.Text == "" || PickerTypeOfWork.SelectedItem == null || EntryPayment.Text == "" || PickerCity.SelectedItem == null/* || EntryAmountOfWorkers.Text == ""*/)
             {
                 await DisplayAlert("Помилка", "Усі поля окрім опису обов'язкові для заповнення", "Ок");
             }
-            else if (!onlyDigitsValid.IsMatch(EntryAmountOfWorkers.Text) || !onlyDigitsValid.IsMatch(EntryPayment.Text))
+            else if (/*!onlyDigitsValid.IsMatch(EntryAmountOfWorkers.Text) || */!onlyDigitsValid.IsMatch(EntryPayment.Text))
             {
                 await DisplayAlert("Помилка", "Невірно введені данні, помічені червоним", "Ок");
             }
             else
             {
+                EditVacantion(CreateObject());
                 await Navigation.PushAsync(new Search());
             }
         }
@@ -162,5 +164,38 @@ namespace SnapWork.Views
                 SelectedPhoto.IsVisible = true;
             }
         }
+        [Obsolete("Не добавляет и не удаляет вакансию")]
+        private async void PlaceVacantion(Vacancy account)
+        {
+
+            ClassVacancy cv = new ClassVacancy();
+            //await cv.InsertVacancy(account);
+
+        }
+
+        private void EditVacantion(Vacancy account)
+        {
+
+        }
+
+        private Vacancy CreateObject()
+        {
+            Vacancy vac = new Vacancy() {
+                IdUserPlacement = AccountManager.Account.IdAccount,
+                Photo = SelectedPhoto.Source.ToString(),
+                NameVacancy = EntryName.Text,
+                IdTypeJob = PickerTypeOfWork.SelectedIndex,
+                Payment = Convert.ToDecimal(EntryPayment.Text),
+                //City = PickerCity.SelectedItem,
+                DatePlacement = Convert.ToDateTime(DateTime.Now.ToShortDateString()),
+                Description = EditorDescription.Text,
+                VacancyState = VacancyState.Activated,
+                VacanceFormed = VacancyFormed.NotFormed,
+            };
+
+            return vac;
+            
+        }
+
     }
 }
