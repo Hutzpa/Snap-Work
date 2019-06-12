@@ -27,34 +27,34 @@
                 <StackLayout Padding="5,0,5,5">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                         <Image x:Name="Avatar" WidthRequest="65" HeightRequest="65" Aspect="AspectFit" Source="bla.jpg" VerticalOptions="Center" />
-                        <Label Text="User" VerticalOptions="Center" TextColor="{StaticResource Key=LabelTextColor}" FontSize="Medium"/>
+                        <Label x:Name="Username" Text="" VerticalOptions="Center" TextColor="{StaticResource Key=LabelTextColor}" FontSize="Medium"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                        <Image Source="bla.jpg" Style="{StaticResource iconStyle}"></Image>
+                        <Image Source="newVacancy.png" Style="{StaticResource iconStyle}"></Image>
                         <Button x:Name="AddNew" Text="Додати вакансію" Clicked="AddNew_clicked"></Button>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                        <Image Source="bla.jpg" Style="{StaticResource iconStyle}"></Image>
+                        <Image Source="lupe.jpg" Style="{StaticResource iconStyle}"></Image>
                         <Button x:Name="Search" Text="Пошук" Clicked="Search_clicked"></Button>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                        <Image Source="bla.jpg" Style="{StaticResource iconStyle}"></Image>
+                        <Image Source="vacantions.png" Style="{StaticResource iconStyle}"></Image>
                         <Button x:Name="ButtonVacantions" Text="Мої вакансії" Clicked="Vacantions_clicked"></Button>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                        <Image Source="bla.jpg" Style="{StaticResource iconStyle}"></Image>
+                        <Image Source="settings.png" Style="{StaticResource iconStyle}"></Image>
                         <Button x:Name="ButtonSettings" Text="Налаштування" Clicked="Settings_clicked"></Button>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                        <Image Source="bla.jpg" Style="{StaticResource iconStyle}"></Image>
+                        <Image Source="Favourite.png" Style="{StaticResource iconStyle}"></Image>
                         <Button x:Name="ButtonFavorite" Text="Обране" Clicked="Favorite_clicked"></Button>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                        <Image Source="bla.jpg" Style="{StaticResource iconStyle}"></Image>
+                        <Image Source="offers.png" Style="{StaticResource iconStyle}"></Image>
                         <Button x:Name="ButtonOffers" Text="Пропозиції" Clicked="ButtonOffers_Clicked"></Button>
                     </StackLayout>                    
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                        <Image Source="bla.jpg" Style="{StaticResource iconStyle}"></Image>
+                        <Image Source="exit.png" Style="{StaticResource iconStyle}"></Image>
                         <Button x:Name="Exit" Text="Вийти" Clicked="Exit_Clicked"></Button>
                     </StackLayout>
                     

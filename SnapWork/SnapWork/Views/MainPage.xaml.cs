@@ -17,6 +17,8 @@ namespace SnapWork.Views
             MasterBehavior = MasterBehavior.Popover;
             Detail = new NavigationPage(new Favorite());
 
+            Username.Text = AccountManager.Account.NickName;
+
             TapGestureRecognizer tap = new TapGestureRecognizer
             {
                 NumberOfTapsRequired = 2
@@ -24,7 +26,8 @@ namespace SnapWork.Views
 
             tap.Tapped += (s, e) =>
             {
-                Navigation.PushAsync(new NavigationPage(new Facepage(new Account())));
+                Detail.Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Facepage),AccountManager.Account,1));
+                IsPresented = false;
             };
             Avatar.GestureRecognizers.Add(tap);
 

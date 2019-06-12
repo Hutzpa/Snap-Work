@@ -44,11 +44,11 @@
                 <DatePicker.MinimumDate>01/01/1930</DatePicker.MinimumDate>
             </DatePicker>
 
-            <Label Text="Виберіть місто:"/>
+            <Label Text="Оберіть місто:"/>
             <Picker x:Name="PickerCity"/>
 
 
-            <Button x:Name="RegisterButton" Clicked="RegisterButton_Clicked" Text="Зарегистрироваться" VerticalOptions="EndAndExpand" />
+            <Button x:Name="RegisterButton" Clicked="RegisterButton_Clicked" Text="Зарєструватися" VerticalOptions="EndAndExpand" />
 
         </StackLayout>
     </ContentPage.Content>

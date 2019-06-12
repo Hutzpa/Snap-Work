@@ -67,8 +67,8 @@ namespace SnapWork.Views
 
             if(account.Phone == null || account.Password != EntryPassword.Text)
             {
-                return true;
-                //return false;
+               
+                return false;
             }
             AccountManager.Account = account;
             return true;

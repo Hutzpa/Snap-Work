@@ -62,7 +62,7 @@
                               CachingStrategy="RecycleElement">
                     <ListView.ItemTemplate>
                         <DataTemplate> 
-                            <ViewCell>
+                            <ViewCell x:Name="OurCell">
                                 <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
                                     <Image x:Name="VacantionImage" Source="{Binding Photo}" HorizontalOptions="Start" HeightRequest="100" WidthRequest="100"/>
                                     <StackLayout Orientation="Vertical">
@@ -81,7 +81,7 @@
                                             <Label  Text="{Binding Payment}" HorizontalOptions="Start" />
                                         </StackLayout>
                                     </StackLayout>
-                                    <ImageButton Source="EmptyStar.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50" Clicked="FavorBut_Clicked" BackgroundColor="{StaticResource Key=BackgroundColor}" BorderWidth="1"/>
+                                    <ImageButton Source="EmptyStar.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50" Clicked="FavorBut_Clicked" BackgroundColor="{StaticResource Key=BackgroundColor}" BorderWidth="1" />
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>

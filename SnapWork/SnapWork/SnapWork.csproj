@@ -11,8 +11,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CentralConfig" Version="1.6.3" />
     <PackageReference Include="Core.System.Configuration.Install" Version="1.0.1" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
     <PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
+    <PackageReference Include="System.Management" Version="4.5.0" />
     <PackageReference Include="Xamarin.Forms" Version="4.0.0.482894" />
     <PackageReference Include="Xamarin.Plugin.FilePicker" Version="2.0.135" />  
   </ItemGroup>
@@ -24,6 +27,9 @@
   <ItemGroup>
     <Reference Include="GetData">
       <HintPath>..\..\..\Google Диск\Учёба\Проектный парктикум\GetData\GetData\bin\Release\GetData.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\Google Диск\Учёба\Проектный парктикум\GetData\GetData\bin\Release\MySql.Data.dll</HintPath>
     </Reference>
   </ItemGroup>
 
@@ -53,9 +59,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Offers\OffersToMyVac.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\Page1.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Search\SearchPeople.xaml">
