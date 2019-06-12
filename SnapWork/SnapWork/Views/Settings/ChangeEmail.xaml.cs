@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GetData;
+using SnapWork.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,12 +34,14 @@ namespace SnapWork.Views
             if(EntryEmail.Text == "" || emailValid.IsMatch(EntryEmail.Text))
             {
                 DisplayAlert("Помилка", "Невірни формат email", "Ок");
-                DisplayAlert("Помилка", "Невірни формат email", "Ок");
-                //EntryEmail.Focus();
             }
             else
             {
-                //Обновить мыло
+                ClassAccount classAccount = new ClassAccount();
+                AccountManager.Account.Email = EntryEmail.Text;
+
+                classAccount.UpdateAccount(AccountManager.Account);
+
                 DisplayAlert("Повідомлення", "Еmail змінено", "Ок");
             }
         }

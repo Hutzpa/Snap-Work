@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using GetData;
-
+using SnapWork.Models;
 
 namespace SnapWork.Views
 {
@@ -66,9 +66,14 @@ namespace SnapWork.Views
         private void ButtonOffers_Clicked(object sender, EventArgs e)
         {
             Detail.Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Feedback)));
-            //Detail.Navigation.PushAsync((Page)Activator.CreateInstance(typeof(Offer)));
-            //Detail.Navigation.PushAsync((Page)Activator.CreateInstance(typeof(SearchPeople)));
+
             IsPresented = false;
+        }
+
+        private void Exit_Clicked(object sender, EventArgs e)
+        {
+            AccountManager.Account = null;
+            Application.Current.MainPage = new NavigationPage(new LogIn());
         }
     }
 }

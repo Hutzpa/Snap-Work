@@ -50,14 +50,12 @@ namespace SnapWork.Views
             EditorDescription.Text = description;
         }
 
-        private Regex entryValidation = new Regex(" ");
 
         private Regex onlyDigitsValid = new Regex(@"\D");
 
         private string moneyType = "₴";
         private string city = " ";
 
-        [Obsolete("Отсутствует регулярное выражение")]
         private void EntryName_TextChanged(object sender, TextChangedEventArgs e)
         {
             MaxCount.IsVisible = true;
@@ -65,12 +63,6 @@ namespace SnapWork.Views
 
             MaxNumb.TextColor = EntryName.Text.Length == EntryName.MaxLength ? Color.Red : Color.Green;
 
-            if (entryValidation.IsMatch(EntryName.Text))
-            {
-                MaxNumb.Text = "Некорректное название";
-                MaxNumb.TextColor = Color.Red;
-
-            }
         }
 
         private void PickerMoneyType_SelectedIndexChanged(object sender, EventArgs e)
@@ -84,6 +76,8 @@ namespace SnapWork.Views
             var switcher = (Switch)sender;
 
             PickerCity.IsVisible = switcher.IsToggled ? false : true;
+
+            PickerCity.SelectedItem = null;
         }
 
         private void PickerCity_SelectedIndexChanged(object sender, EventArgs e)
@@ -125,18 +119,19 @@ namespace SnapWork.Views
             {
                 await DisplayAlert("Помилка", "Усі поля окрім опису обов'язкові для заповнення", "Ок");
             }
-            else if (/*!onlyDigitsValid.IsMatch(EntryAmountOfWorkers.Text) ||*/ !onlyDigitsValid.IsMatch(EntryPayment.Text))
+            else if (onlyDigitsValid.IsMatch(EntryPayment.Text))
             {
                 await DisplayAlert("Помилка", "Невірно введені данні, помічені червоним", "Ок");
             }
             else
             {
                 PlaceVacantion(CreateObject());
-                await Navigation.PushAsync(new Search());
+                Application.Current.MainPage = new MainPage();
+
             }
         }
 
-        [Obsolete("Метод не содержит кода, не обновляет вакансию")]
+
         private async void ButtonChange_Clicked(object sender, EventArgs e)
         {
             if (EntryName.Text == "" || PickerTypeOfWork.SelectedItem == null || EntryPayment.Text == "" || PickerCity.SelectedItem == null/* || EntryAmountOfWorkers.Text == ""*/)
@@ -150,7 +145,9 @@ namespace SnapWork.Views
             else
             {
                 EditVacantion(CreateObject());
-                await Navigation.PushAsync(new Search());
+
+                Application.Current.MainPage = new MainPage();
+
             }
         }
 
@@ -164,29 +161,28 @@ namespace SnapWork.Views
                 SelectedPhoto.IsVisible = true;
             }
         }
-        [Obsolete("Не добавляет и не удаляет вакансию")]
-        private async void PlaceVacantion(Vacancy account)
+
+        private  void PlaceVacantion(Vacancy account)
         {
-
             ClassVacancy cv = new ClassVacancy();
-            //await cv.InsertVacancy(account);
-
+            cv.InsertVacancy(account);
         }
 
         private void EditVacantion(Vacancy account)
         {
-
+            ClassVacancy cv = new ClassVacancy();
+            cv.UpdateVacancy(account);
         }
 
         private Vacancy CreateObject()
         {
             Vacancy vac = new Vacancy() {
-                IdUserPlacement = AccountManager.Account.IdAccount,
+                //IdUserPlacement = AccountManager.Account.IdAccount,
                 Photo = SelectedPhoto.Source.ToString(),
                 NameVacancy = EntryName.Text,
                 IdTypeJob = PickerTypeOfWork.SelectedIndex,
                 Payment = Convert.ToDecimal(EntryPayment.Text),
-                //City = PickerCity.SelectedItem,
+                City = PickerCity.SelectedItem.ToString(),
                 DatePlacement = Convert.ToDateTime(DateTime.Now.ToShortDateString()),
                 Description = EditorDescription.Text,
                 VacancyState = VacancyState.Activated,

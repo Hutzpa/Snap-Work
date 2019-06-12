@@ -36,8 +36,7 @@ namespace SnapWork.Views
                         RedactButtons.IsEnabled = false;
                         RedactButtons.IsVisible = false;
                         RedactButtons.HeightRequest = 0;
-                        VorkersList.IsVisible = false;
-                        VorkersList.HeightRequest = 0;
+                      
                         break;
                     }
             }

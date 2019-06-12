@@ -52,29 +52,12 @@
                 <Editor x:Name="VacantionDescription" FontSize="Default" IsEnabled="False"/>
 
                 <Button x:Name="VacantionSendMyCand" Clicked="VacantionSendMyCand_Clicked" VerticalOptions="EndAndExpand"/>
-                <!--При вызове за владельца, выводить горизонтальный список работников-->
-                <ListView 
-                    x:Name="VorkersList"
-                    HasUnevenRows="True"
-                    Rotation="90"
-                    ItemsSource="{Binding Workers}"   
-                    >
-                    <ListView.ItemTemplate >
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout Rotation="90" Orientation="Vertical">
-                                    <Image Source="{Binding Photo}" HeightRequest="50" WidthRequest="50" Aspect="AspectFill"/>
-                                    <Label Text="{Binding NickName}" VerticalOptions="EndAndExpand"/>
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+
                 
                 <StackLayout x:Name="RedactButtons" Orientation="Horizontal" Margin="0,5,0,0">
-                    <Button x:Name="FormingOver" Clicked="FormingOver_Clicked" HorizontalOptions="Start" Text="Закончить формирование" Margin="5,0,5,0"/>
-                    <Button x:Name="EditButton" Clicked="EditButton_Clicked" HorizontalOptions="Start" Text="Редактировать"/>
-                    <Button x:Name="DeleteButton" Clicked="DeleteButton_Clicked" HorizontalOptions="Start" Text="Удалить ваканию" Margin="5,0,5,0"/>
+                    <Button x:Name="FormingOver" Clicked="FormingOver_Clicked" HorizontalOptions="Start" Text="Закрити" Margin="5,0,5,0" FontSize="Small"/>
+                    <Button x:Name="EditButton" Clicked="EditButton_Clicked" HorizontalOptions="Start" Text="Редагувати" FontSize="Small"/>
+                    <Button x:Name="DeleteButton" Clicked="DeleteButton_Clicked" HorizontalOptions="Start" Text="Видалити" Margin="5,0,5,0" FontSize="Small"/>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

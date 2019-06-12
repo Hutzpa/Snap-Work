@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SnapWork.Views.AddNew"
-             Title="Добавить новую вакансию">
+             Title="Додати нову вакансію">
 
     <ContentPage.Resources >
 
@@ -66,7 +66,7 @@
                 <!--Город-->
                 <Label  Text="Місто:"/>
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Не важен" VerticalOptions="Center"/>
+                    <Label Text="Не важливо" VerticalOptions="Center"/>
                     <Switch Toggled="Switch_Toggled" VerticalOptions="Center"/>
                 </StackLayout>
                 <Picker x:Name="PickerCity" SelectedIndexChanged="PickerCity_SelectedIndexChanged" Margin="5,5,5,5"/>
@@ -93,8 +93,8 @@
                 </StackLayout>
                 <BoxView HeightRequest="2" Color="LightGray"/>
 
-                <Button x:Name="ButtonApply" Clicked="ButtonApply_Clicked" Text="Создать вакансию" Margin="0,5,0,0"/>
-                <Button x:Name="ButtonChange" Clicked="ButtonChange_Clicked" Text="Сохранить изменения" Margin="0,5,0,0"/>
+                <Button x:Name="ButtonApply" Clicked="ButtonApply_Clicked" Text="Створити вакансію" Margin="0,5,0,0"/>
+                <Button x:Name="ButtonChange" Clicked="ButtonChange_Clicked" Text="Зберегти зміни" Margin="0,5,0,0"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

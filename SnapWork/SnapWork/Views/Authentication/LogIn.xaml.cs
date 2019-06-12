@@ -40,7 +40,7 @@ namespace SnapWork.Views
             };
             LabelRestore.GestureRecognizers.Add(tapGestureRestor);
 
-            //ConnectionStr.connectionString
+            //EntryLogin.Placeholder = ConnectionStr.connectionString;
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
@@ -67,7 +67,8 @@ namespace SnapWork.Views
 
             if(account.Phone == null || account.Password != EntryPassword.Text)
             {
-                return false;
+                return true;
+                //return false;
             }
             AccountManager.Account = account;
             return true;

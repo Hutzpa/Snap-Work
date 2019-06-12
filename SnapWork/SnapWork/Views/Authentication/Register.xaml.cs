@@ -125,7 +125,9 @@ namespace SnapWork.Views
         {
             Account newAcc = new Account()
             {
+               
                 NickName = LoginEntry.Text,
+                Photo = " ",
                 Password = EntryPassword.Text,
                 Phone = EntryPhone.Text,
                 Email = EntryEmail.Text,
@@ -137,7 +139,7 @@ namespace SnapWork.Views
                 Resume = null,
             };
 
-            GetData.ClassAccount classAccount = new ClassAccount();
+            ClassAccount classAccount = new ClassAccount();
 
             classAccount.InsertAccount(newAcc);
 

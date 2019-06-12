@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using GetData;
 using SnapWork.Models;
 using SnapWork.ViewModels;
 
@@ -63,19 +64,23 @@ namespace SnapWork.Views
 
         }
 
-        [Obsolete("Пароль без изменений")]
-        private void ButtonApply_Clicked(object sender, EventArgs e)
+        private async void ButtonApply_Clicked(object sender, EventArgs e)
         {
             //Проверить регулярки, могут возвращать неправиьльное значение
             if (CheckIsPassRight() || EntryNewF.Text.Length < 5 || EntryNewF.Text != EntryNewS.Text ||
                 EntryCurrent.Text != "" || EntryNewF.Text != "" || EntryNewS.Text != "")
             {
-                //Изменить пароль
+                ClassAccount account = new ClassAccount();
+                AccountManager.Account.Password = EntryNewF.Text;
+                account.UpdateAccount(AccountManager.Account);
+
+                await DisplayAlert("Повідомлення", "Пароль успішно змінено", "ОK");
+
                 (new Messager()).SendMessage("user mail", "<h2>Шановний " + "КОРИСТУВАЧ" + " пароль до вашого аккаунту було успішно змінено. Якщо ви цього не робили, рекомендуємо якнайшвидше відновити пароль.</h2>");
             }
             else
             {
-                DisplayAlert("Предупреждение", "Проверьте правильность введённых данных", "ОK");
+               await  DisplayAlert("Попередження", "Перевірте корректність введених данних", "ОK");
             }
         }
     }

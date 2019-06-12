@@ -1,4 +1,6 @@
-﻿using Plugin.FilePicker;
+﻿using GetData;
+using Plugin.FilePicker;
+using SnapWork.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,24 +20,28 @@ namespace SnapWork.Views
 		{
 			InitializeComponent ();
 		}
-        [Obsolete("Регулярка не написана, не происходит валидация")]
-        private Regex loginValid = new Regex(" ");
 
         private void Entry_Completed(object sender, EventArgs e)
         {
-            EntryLogin.TextColor = loginValid.IsMatch(EntryLogin.Text) ? Color.Red : Color.Green;
+
         }
 
+        [Obsolete("Загрузка картинок не подключена")]
         private void Button_Clicked(object sender, EventArgs e)
         {
-            if(EntryLogin.Text != "")
-            { /// обновление логина
+            ClassAccount classAccount = new ClassAccount();
+            if (EntryLogin.Text != "")
+            {
+                AccountManager.Account.NickName = EntryLogin.Text;
             }
             if(EditorDescribe.Text != "")
             {
                 //Обновление описания, С КАРТИНКОЙ ПО АНАЛОГИИ
 
             }
+
+            classAccount.InsertAccount(AccountManager.Account);
+
             Application.Current.MainPage = new MainPage();
         }
 
