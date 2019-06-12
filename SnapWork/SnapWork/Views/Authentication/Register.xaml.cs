@@ -128,7 +128,7 @@ namespace SnapWork.Views
                 NickName = LoginEntry.Text,
                 Photo = " ",
                 Password = EntryPassword.Text,
-                Phone = "+"+EntryPhone.Text,
+                Phone = EntryPhone.Text,
                 Email = EntryEmail.Text,
                 BirthDay = Birthday.Date,
                 Location = PickerCity.SelectedItem.ToString(),

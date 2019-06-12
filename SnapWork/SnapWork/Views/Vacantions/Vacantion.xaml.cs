@@ -55,7 +55,6 @@ namespace SnapWork.Views
             return new List<Vacancy>();
         }
 
-        [Obsolete("Метод не содержит реализации")]
         public void Fill(string imagePath, string title, string typeoOfWork, string payment, string city, string description)
         {
             Title = title;
@@ -68,10 +67,18 @@ namespace SnapWork.Views
             VacantionDescription.Text = description;
         }
 
-        [Obsolete("Не отправляет запрос на вакансию, функция не реализована")]
         private void VacantionSendMyCand_Clicked(object sender, EventArgs e)
         {
+            ClassListBids classListBids = new ClassListBids();
 
+            ListOfBids listOfBids = new ListOfBids()
+            {
+                IdAccount = AccountManager.Account.IdAccount,
+                IdVacancy = curVacancy.IdVacancy
+
+            };
+
+            classListBids.InsertListBids(listOfBids);
         }
 
         [Obsolete("Проверить выполнение метода")]
@@ -80,22 +87,25 @@ namespace SnapWork.Views
             await Navigation.PushAsync((Page)Activator.CreateInstance(typeof(AddNew), VacantPhoto.Source, VacantTitle.Text, VacantionTypeOfWork.Text, VacantionPayment.Text, VacantionCity.Text,0, VacantionDescription.Text));
         }
 
-        [Obsolete("Метод не закончен")]
         private async void DeleteButton_Clicked(object sender, EventArgs e)
         {
             bool selection = await DisplayAlert("Подтвердить действие", "Удалить вакансию? \n Это действие нельзя отменить. ", "Да", "Нет");
             if (selection)
             {
                 await Navigation.PushAsync(new NavigationPage(new Feedback(AccountManager.Account.IdAccount, curVacancy.IdVacancy)));
+
+                ClassVacancy classVacancy = new ClassVacancy();
+                classVacancy.DeleteVacancy(curVacancy);
+
                 Application.Current.MainPage = (Page)Activator.CreateInstance(typeof(VacantionsAsWorker));
 
             }
         }
 
         [Obsolete("Метод не закончен, смена статуса вакансии не происходит")]
-        private void FormingOver_Clicked(object sender, EventArgs e)
+        private async void FormingOver_Clicked(object sender, EventArgs e)
         {
-
+            await DisplayAlert("Повідомлення", "Ця функія знаходиться на стадії реалізації", "Ок");
         }
     }
 }

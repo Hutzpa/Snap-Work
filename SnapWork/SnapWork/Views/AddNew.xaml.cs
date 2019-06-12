@@ -178,7 +178,7 @@ namespace SnapWork.Views
         {
             Vacancy vac = new Vacancy() {
                 //IdUserPlacement = AccountManager.Account.IdAccount,
-                Photo = SelectedPhoto.Source.ToString(),
+                Photo = " ",//SelectedPhoto.Source.ToString(),
                 NameVacancy = EntryName.Text,
                 IdTypeJob = PickerTypeOfWork.SelectedIndex,
                 Payment = Convert.ToDecimal(EntryPayment.Text),

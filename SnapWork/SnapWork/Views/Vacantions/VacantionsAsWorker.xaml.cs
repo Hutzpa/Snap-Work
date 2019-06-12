@@ -26,7 +26,6 @@ namespace SnapWork.Views
             this.BindingContext = this;
 		}
 
-        [Obsolete("Получение данных из бд не работает, мои вакансии не считываються")]
         private ObservableCollection<Vacancy> VacanciesFill()
         {
             ObservableCollection<Vacancy> vacancies = GetMyVacs(AccountManager.Account.IdAccount);

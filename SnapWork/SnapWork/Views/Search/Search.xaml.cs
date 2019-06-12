@@ -85,6 +85,8 @@ namespace SnapWork.Views
                 imageButton.Source = "FullStar.png";
                 imageButton.BorderWidth = 0;
 
+                //Добавить в избранное
+
                 Favorites favor = new Favorites()
                 {
                     IdAccount = AccountManager.Account.IdAccount,

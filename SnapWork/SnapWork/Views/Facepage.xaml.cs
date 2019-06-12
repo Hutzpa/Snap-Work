@@ -53,7 +53,6 @@ namespace SnapWork.Views
             MyVacantions.HeightRequest = 0;
         }
 
-        [Obsolete("Функционал 'позвать работника на вакансию' не реализован")]
         private void CallWorker_Clicked(object sender, EventArgs e)
         {
             GetData.ClassListBids workerReq = new ClassListBids();
